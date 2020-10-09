@@ -16,10 +16,8 @@ public class Main
 	private int wanted_votes;
 	private int next_rank;
 	private String iTopZ = "https://itopz.com/check/";
-	private String Json = "?json=true";
 	private String ApiKey;
 	private int ServerId;
-	private boolean UseJson;
 	
 	/**
 	 * main function to call
@@ -27,9 +25,9 @@ public class Main
 	 */
 	public void main()
 	{
-		ApiKey = "elYhDvMxrH-DSeQCXVR2aafGsKrHB03"; // Config.ITOPZ_API_KEY (for debug you can use 'DEMO')
-		ServerId = 4; // Config.ITOPZ_SERVER_ID (for debug you can use and id (int))
-		UseJson = true; // Config.ITOPZ_READ_FORMAT
+		ApiKey = "d4IUPIZVgS-rkTvbL3fVGLEB5zhFdKq"; // Config.ITOPZ_API_KEY (for debug you can use 'DEMO')
+		ServerId = 325339; // Config.ITOPZ_SERVER_ID (for debug you can use and id (int))
+		
 		getVotes();
 		System.out.println("Server Votes: " + votes);
 		System.out.println("Server Ranking: " + rank);
@@ -42,7 +40,7 @@ public class Main
 	 */
 	private int getVotes()
 	{
-		String iTopZurl = iTopZ + ApiKey + "/" + ServerId + "/" + (UseJson == true ? Json : null);
+		String iTopZurl = iTopZ + ApiKey + "/" + ServerId + "/";
 		URLConnection con = null;
 		try
 		{
