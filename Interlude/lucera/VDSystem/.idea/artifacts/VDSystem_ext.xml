@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="VDSystem.ext">
-    <output-path>$PROJECT_DIR$/out</output-path>
+  <artifact type="jar" build-on-make="true" name="VDSystem.ext">
+    <output-path>I:/Lineage/Lineage2/lucera/lucera3_last_rev/gameserver</output-path>
     <root id="archive" name="VDSystem.ext.jar">
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
