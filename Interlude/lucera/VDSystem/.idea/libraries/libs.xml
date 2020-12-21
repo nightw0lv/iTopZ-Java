@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/netty-3.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/cg-all.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ehcache-core-2.4.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/server.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/gson-2.8.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ecj-3.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/commons-io-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/dom4j-2.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/mesp-1.02.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/slf4j-log4j12-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/commons-pool-1.5.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jts_bots.ext.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/mysql-connector-java-5.1.48.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/scripts.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/slf4j-api-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/commons-math-2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jacksum-1.7.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/log4j-1.2.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/dbmsstruct-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/commons-lang3-3.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/org.napile.primitive.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
