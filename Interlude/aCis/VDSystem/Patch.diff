@@ -1,0 +1,149 @@
+### Eclipse Workspace Patch 1.0
+#P aCis_gameserver
+diff --git .classpath .classpath
+index 169aae4..16e4bb0 100644
+--- .classpath
++++ .classpath
+@@ -8,5 +8,6 @@
+ 		</attributes>
+ 	</classpathentry>
+ 	<classpathentry kind="lib" path="lib/mariadb-java-client-2.6.1.jar"/>
++	<classpathentry kind="lib" path="lib/VDSystem.jar"/>
+ 	<classpathentry kind="output" path="bin"/>
+ </classpath>
+diff --git java/net/sf/l2j/gameserver/GameServer.java java/net/sf/l2j/gameserver/GameServer.java
+index a60aaad..881ad50 100644
+--- java/net/sf/l2j/gameserver/GameServer.java
++++ java/net/sf/l2j/gameserver/GameServer.java
+@@ -81,6 +81,7 @@
+ import net.sf.l2j.gameserver.handler.SkillHandler;
+ import net.sf.l2j.gameserver.handler.TargetHandler;
+ import net.sf.l2j.gameserver.handler.UserCommandHandler;
++import net.sf.l2j.gameserver.handler.VoicedCommandHandler;
+ import net.sf.l2j.gameserver.idfactory.IdFactory;
+ import net.sf.l2j.gameserver.model.World;
+ import net.sf.l2j.gameserver.model.boat.BoatGiranTalking;
+@@ -103,6 +104,8 @@
+ import net.sf.l2j.util.DeadLockDetector;
+ import net.sf.l2j.util.IPv4Filter;
+
++import itopz.com.VDSystemManager;
++
+ public class GameServer
+ {
+ 	private static final CLogger LOGGER = new CLogger(GameServer.class.getName());
+@@ -270,6 +273,8 @@
+ 		if (Config.ALLOW_FISH_CHAMPIONSHIP)
+ 			FishingChampionshipManager.getInstance();
+
++		VDSystemManager.getInstance();
++
+ 		StringUtil.printSection("Handlers");
+ 		LOGGER.info("Loaded {} admin command handlers.", AdminCommandHandler.getInstance().size());
+ 		LOGGER.info("Loaded {} chat handlers.", ChatHandler.getInstance().size());
+@@ -277,6 +282,7 @@
+ 		LOGGER.info("Loaded {} skill handlers.", SkillHandler.getInstance().size());
+ 		LOGGER.info("Loaded {} target handlers.", TargetHandler.getInstance().size());
+ 		LOGGER.info("Loaded {} user command handlers.", UserCommandHandler.getInstance().size());
++		LOGGER.info("Loaded {} voice command handlers.", VoicedCommandHandler.getInstance().size());
+
+ 		StringUtil.printSection("System");
+ 		Runtime.getRuntime().addShutdownHook(Shutdown.getInstance());
+diff --git java/net/sf/l2j/gameserver/handler/IVoicedCommandHandler.java java/net/sf/l2j/gameserver/handler/IVoicedCommandHandler.java
+new file mode 100644
+index 0000000..46838ef
+--- /dev/null
++++ java/net/sf/l2j/gameserver/handler/IVoicedCommandHandler.java
+@@ -0,0 +1,10 @@
++package net.sf.l2j.gameserver.handler;
++
++import net.sf.l2j.gameserver.model.actor.Player;
++
++public interface IVoicedCommandHandler
++{
++	public boolean useVoicedCommand(String command, Player activeChar);
++
++	public String[] getVoicedCommandList();
++}
+\ No newline at end of file
+diff --git java/net/sf/l2j/gameserver/handler/VoicedCommandHandler.java java/net/sf/l2j/gameserver/handler/VoicedCommandHandler.java
+new file mode 100644
+index 0000000..8ed75c8
+--- /dev/null
++++ java/net/sf/l2j/gameserver/handler/VoicedCommandHandler.java
+@@ -0,0 +1,41 @@
++package net.sf.l2j.gameserver.handler;
++
++import java.util.Arrays;
++import java.util.HashMap;
++import java.util.Map;
++
++public class VoicedCommandHandler
++{
++	private final Map<Integer, IVoicedCommandHandler> VOICED_COMMANDS = new HashMap<>();
++
++	protected VoicedCommandHandler()
++	{
++		// registerVoicedCommand(new exampleCMD());
++	}
++
++	public void registerVoicedCommand(IVoicedCommandHandler voicedCommand)
++	{
++		Arrays.stream(voicedCommand.getVoicedCommandList()).forEach(v -> VOICED_COMMANDS.put(v.intern().hashCode(), voicedCommand));
++	}
++
++	public IVoicedCommandHandler getVoicedCommand(String voicedCommand)
++	{
++		return VOICED_COMMANDS.get(voicedCommand.hashCode());
++	}
++
++	public int size()
++	{
++		return VOICED_COMMANDS.size();
++	}
++
++	public static final VoicedCommandHandler getInstance()
++	{
++		return SingletonHolder.INSTANCE;
++	}
++
++	private static final class SingletonHolder
++	{
++		private static final VoicedCommandHandler INSTANCE = new VoicedCommandHandler();
++	}
++
++}
+\ No newline at end of file
+diff --git java/net/sf/l2j/gameserver/handler/chathandlers/ChatAll.java java/net/sf/l2j/gameserver/handler/chathandlers/ChatAll.java
+index 12c89b6..d344d90 100644
+--- java/net/sf/l2j/gameserver/handler/chathandlers/ChatAll.java
++++ java/net/sf/l2j/gameserver/handler/chathandlers/ChatAll.java
+@@ -1,7 +1,10 @@
+ package net.sf.l2j.gameserver.handler.chathandlers;
+
++import java.util.Optional;
++
+ import net.sf.l2j.gameserver.enums.SayType;
+ import net.sf.l2j.gameserver.handler.IChatHandler;
++import net.sf.l2j.gameserver.handler.VoicedCommandHandler;
+ import net.sf.l2j.gameserver.model.actor.Player;
+ import net.sf.l2j.gameserver.network.FloodProtectors;
+ import net.sf.l2j.gameserver.network.FloodProtectors.Action;
+@@ -20,6 +23,11 @@
+ 		if (!FloodProtectors.performAction(activeChar.getClient(), Action.GLOBAL_CHAT))
+ 			return;
+
++		if (text.startsWith("."))
++		{
++			Optional.ofNullable(VoicedCommandHandler.getInstance().getVoicedCommand(text.substring(1).toLowerCase())).ifPresent(s -> s.useVoicedCommand(text, activeChar));
++			return;
++		}
+ 		final CreatureSay cs = new CreatureSay(activeChar, type, text);
+ 		for (Player player : activeChar.getKnownTypeInRadius(Player.class, 1250))
+ 			player.sendPacket(cs);
+diff --git lib/VDSystem.jar lib/VDSystem.jar
+new file mode 100644
+index 0000000..30cc15e
+--- /dev/null
++++ lib/VDSystem.jar
+Binary files differ

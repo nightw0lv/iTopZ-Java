@@ -31,7 +31,7 @@ import itopz.com.Configurations;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: Lucera
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -39,9 +39,9 @@ import itopz.com.Configurations;
  */
 public enum URL
 {
-    GLOBAL_URL("https://itopz.com/check/" + Configurations.ITOPZ_SERVER_API_KEY + "/" + Configurations.ITOPZ_SERVER_ID + "/"),
-    INDIVIDUAL_URL("https://itopz.com/check/" + Configurations.ITOPZ_SERVER_API_KEY + "/" + Configurations.ITOPZ_SERVER_ID + "/%IP%"),
-    SERVER_URL("https://itopz.com/info/" + Configurations.ITOPZ_SERVER_ID),
+    ITOPZ_GLOBAL_URL("https://itopz.com/check/" + Configurations.ITOPZ_SERVER_API_KEY + "/" + Configurations.ITOPZ_SERVER_ID + "/"),
+    ITOPZ_INDIVIDUAL_URL("https://itopz.com/check/" + Configurations.ITOPZ_SERVER_API_KEY + "/" + Configurations.ITOPZ_SERVER_ID + "/%IP%"),
+    ITOPZ_SERVER_URL("https://itopz.com/info/" + Configurations.ITOPZ_SERVER_ID),
     ITOPZ_URL("https://itopz.com/"),
     DISCORD("https://discord.gg/KkPms6B5aE"),
     DENART_DESIGNS("https://www.denart-designs.com");

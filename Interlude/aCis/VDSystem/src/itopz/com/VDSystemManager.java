@@ -23,9 +23,7 @@ package itopz.com;
 
 import itopz.com.gui.Gui;
 import itopz.com.vote.iTopZ;
-import l2.gameserver.scripts.ScriptFile;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.sf.l2j.commons.lang.StringUtil;
 
 /**
  * @Author Nightwolf
@@ -35,21 +33,17 @@ import org.slf4j.LoggerFactory;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
- * Pack Support: Lucera
+ * Script version: 1.0
+ * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
-public class VDSystemManager implements ScriptFile
+public class VDSystemManager
 {
-	// logger
-	private static final Logger _log = LoggerFactory.getLogger(VDSystemManager.class.getSimpleName());
-
-	@Override
-	public void onLoad()
+	public VDSystemManager()
 	{
-		log("----------------------- VDS Manager -----------------------");
+		StringUtil.printSection("VDS Manager");
 		// load configurations
 		Configurations.load();
 
@@ -58,28 +52,15 @@ public class VDSystemManager implements ScriptFile
 
 		// load iTopz
 		iTopZ.getInstance();
-		log("-----------------------------------------------------------");
 	}
 
-	@Override
-	public void onReload()
+	public static VDSystemManager getInstance()
 	{
-		Configurations.load();
+		return VDSystemManager.SingletonHolder._instance;
 	}
 
-	@Override
-	public void onShutdown()
+	private static class SingletonHolder
 	{
-
-	}
-
-	/**
-	 * Logger
-	 *
-	 * @param s string
-	 */
-	private void log(String s)
-	{
-		_log.info(VDSystemManager.class.getSimpleName() + ": " + s);
+		protected static final VDSystemManager _instance = new VDSystemManager();
 	}
 }

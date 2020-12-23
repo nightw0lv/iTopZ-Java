@@ -32,36 +32,29 @@ import itopz.com.util.Json;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
- * Pack Support: Lucera
+ * Script version: 1.0
+ * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
-public class IndividualResponse extends IResponse
+public class GlobalResponse extends IResponse
 {
-	// local variables
-	private boolean _hasVoted;
-	private long _voteTime;
-	private long _serverTime;
-	private String _voteError;
-	private int _responseCode;
-	private final String _IPAddress;
+	// private variables
+	private static int _responseCode, _serverVotes, _serverRank, _serverNeededVotes, _serverNextRank;
 
 	/**
-	 * Constructor
+	 * constructor
 	 *
 	 * @param url string
-	 * @param IPAddress string
 	 */
-	public IndividualResponse(final String url, final String IPAddress)
+	public GlobalResponse(final String url)
 	{
 		super(url);
-		_IPAddress = IPAddress;
 	}
 
 	/**
-	 * on fetch data set local variables
+	 * override onFetch
 	 *
 	 * @param responseCode int
 	 * @param response Json object
@@ -69,16 +62,16 @@ public class IndividualResponse extends IResponse
 	@Override
 	public void onFetch(final int responseCode, final Json response)
 	{
-		//TODO parse the result for individual with StringJoiner str = new StringJoiner();
+		//TODO parse the result for global with StringJoiner str = new StringJoiner();
 		_responseCode = responseCode;
-		_hasVoted = response.getBoolean("isVoted");
-		_serverTime = response.getLong("serverTime");
-		_voteTime = response.getLong("voteTime");
-		_voteError = response.getString("error");
+		_serverVotes = response.getInteger("server_votes");
+		_serverRank = response.getInteger("server_rank");
+		_serverNeededVotes = response.getInteger("next_rank_votes");
+		_serverNextRank = response.getInteger("next_rank");
 	}
 
 	/**
-	 * Replace the url address
+	 * Replace Url
 	 *
 	 * @param retailURL string
 	 * @return retailURL string
@@ -86,18 +79,18 @@ public class IndividualResponse extends IResponse
 	@Override
 	public String replaceURL(final String retailURL)
 	{
-		return retailURL.replace("%IP%", _IPAddress);
+		return retailURL;
 	}
 
 	/**
-	 * Connection
+	 * Connect
 	 *
-	 * @return super.connect() object
+	 * @return object
 	 */
 	@Override
-	public IndividualResponse connect()
+	public GlobalResponse connect()
 	{
-		return (IndividualResponse) super.connect();
+		return (GlobalResponse) super.connect();
 	}
 
 	/**
@@ -111,54 +104,53 @@ public class IndividualResponse extends IResponse
 	}
 
 	/**
-	 * Returns last error
+	 * Returns server votes
 	 *
-	 * @return string
+	 * @return _serverVotes int
 	 */
-	public String getError()
+	public int getServerVotes()
 	{
-		return _voteError;
+		return _serverVotes;
 	}
 
 	/**
-	 * Returns voted value
+	 * Returns server rank
 	 *
-	 * @return hasVoted boolean
+	 * @return _serverRank int
 	 */
-	public boolean hasVoted()
+	public int getServerRank()
 	{
-		return _hasVoted;
+		return _serverRank;
 	}
 
 	/**
-	 * Returns server time value
+	 * Returns server needed votes
 	 *
-	 * @return Time long
+	 * @return _serverNeededVotes int
 	 */
-	public long getServerTime()
+	public int getServerNeededVotes()
 	{
-		return _serverTime;
+		return _serverNeededVotes;
 	}
 
 	/**
-	 * Returns vote time value
+	 * Returns server next rank
 	 *
-	 * @return VoteTime long
+	 * @return _serverNextRank int
 	 */
-	public long getVoteTime()
+	public int getServerNextRank()
 	{
-		return _voteTime;
+		return _serverNextRank;
 	}
 
 	/**
 	 * Return response
 	 *
 	 * @param url string
-	 * @param IPAddress string
 	 * @return IndividualResponse object
 	 */
-	public static IndividualResponse OPEN(final String url, final String IPAddress)
+	public static GlobalResponse OPEN(final String url)
 	{
-		return new IndividualResponse(url, IPAddress);
+		return new GlobalResponse(url);
 	}
 }

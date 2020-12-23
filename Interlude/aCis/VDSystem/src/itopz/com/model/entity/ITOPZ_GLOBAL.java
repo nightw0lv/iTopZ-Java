@@ -26,19 +26,15 @@ import itopz.com.Configurations;
 import itopz.com.model.GlobalResponse;
 import itopz.com.util.URL;
 import itopz.com.util.Utilities;
-import l2.commons.util.Rnd;
-import l2.gameserver.data.xml.holder.ItemHolder;
-import l2.gameserver.instancemanager.ServerVariables;
-import l2.gameserver.model.GameObjectsStorage;
-import l2.gameserver.model.Player;
-import l2.gameserver.scripts.Functions;
-import l2.gameserver.templates.item.ItemTemplate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.sf.l2j.commons.logging.CLogger;
+import net.sf.l2j.commons.random.Rnd;
+import net.sf.l2j.gameserver.data.sql.ServerMemoTable;
+import net.sf.l2j.gameserver.data.xml.ItemData;
+import net.sf.l2j.gameserver.model.World;
+import net.sf.l2j.gameserver.model.actor.Player;
+import net.sf.l2j.gameserver.model.item.kind.Item;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @Author Nightwolf
@@ -48,8 +44,8 @@ import java.util.Objects;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
- * Pack Support: Lucera
+ * Script version: 1.0
+ * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
@@ -57,13 +53,13 @@ import java.util.Objects;
 public class ITOPZ_GLOBAL implements Runnable
 {
 	// logger
-	private static final Logger _log = LoggerFactory.getLogger(ITOPZ_GLOBAL.class);
+	private static final CLogger _log = new CLogger(ITOPZ_GLOBAL.class.getSimpleName());
 
 	// global server vars
 	private static int storedVotes, serverVotes, serverRank, serverNeededVotes, serverNextRank;
 	private int responseCode;
 
-	// player fingerprint array list
+	// ip array list
 	private final List<String> fingerprint = new ArrayList<>();
 
 	@Override
@@ -88,14 +84,14 @@ public class ITOPZ_GLOBAL implements Runnable
 		// write console info from response
 		Gui.getInstance().ConsoleWrite("Server Votes:" + serverVotes + " Rank:" + serverRank + " Next Rank(" + serverNextRank + ") need: " + serverNeededVotes + "votes.");
 		Gui.getInstance().UpdateStats(serverVotes, serverRank, serverNextRank, serverNeededVotes);
-		storedVotes = ServerVariables.getInt("itopz_votes", -1);
+		storedVotes = ServerMemoTable.getInstance().getInteger("itopz_votes", -1);
 		// check if default return value is -1 (failed)
 		if (storedVotes == -1)
 		{
 			// re-set server votes
 			Gui.getInstance().ConsoleWrite("ITOPZ recover votes.");
 			// save votes
-			ServerVariables.set("itopz_votes", serverVotes);
+			ServerMemoTable.getInstance().set("itopz_votes", serverVotes);
 			return;
 		}
 
@@ -105,7 +101,7 @@ public class ITOPZ_GLOBAL implements Runnable
 			// write on console
 			Gui.getInstance().ConsoleWrite("ITOPZ update database");
 			// save votes
-			ServerVariables.set("itopz_votes", storedVotes);
+			ServerMemoTable.getInstance().set("itopz_votes", storedVotes);
 		}
 
 		// monthly reset
@@ -114,7 +110,7 @@ public class ITOPZ_GLOBAL implements Runnable
 			// write on console
 			Gui.getInstance().ConsoleWrite("ITOPZ monthly reset");
 			// save votes
-			ServerVariables.set("itopz_votes", serverVotes);
+			ServerMemoTable.getInstance().set("itopz_votes", serverVotes);
 		}
 
 		// announce current votes
@@ -129,7 +125,7 @@ public class ITOPZ_GLOBAL implements Runnable
 			// announce the reward
 			Utilities.announce("Thanks for voting! Players rewarded!");
 			// save votes
-			ServerVariables.set("itopz_votes", serverVotes);
+			ServerMemoTable.getInstance().set("itopz_votes", serverVotes);
 			// write on console
 			Gui.getInstance().ConsoleWrite("Votes: Players rewarded!");
 		}
@@ -143,17 +139,17 @@ public class ITOPZ_GLOBAL implements Runnable
 	private void reward()
 	{
 		// iterate through all players
-		for (Player player : GameObjectsStorage.getAllPlayers())
+		for (Player player : World.getInstance().getPlayers())
 		{
-			// ignore players
+			// ignore null players
 			if (player == null)
 			{
 				continue;
 			}
 
 			// set player signature key
-			final String key = Objects.requireNonNull(player.getNetConnection().getHwid(), Objects.requireNonNull(player.getIP(), player.getName()));
-		     // if key exists ignore player
+			final String key = Objects.requireNonNullElse(player.getClient().getConnection().getInetAddress().getHostAddress(), player.getName());
+			// if key exists ignore player
 			if (fingerprint.contains(key))
 			{
 				continue;
@@ -164,7 +160,7 @@ public class ITOPZ_GLOBAL implements Runnable
 			for (final Integer _itemId : Configurations.ITOPZ_GLOBAL_REWARDS.keySet())
 			{
 				// check if the item id exists
-				final ItemTemplate item = ItemHolder.getInstance().getTemplate(_itemId);
+				final Item item = ItemData.getInstance().getTemplate(_itemId);
 				if (item == null)
 				{
 					_log.warn("Failed to find reward item.");
@@ -175,14 +171,14 @@ public class ITOPZ_GLOBAL implements Runnable
 				long max = values[1];
 				long chance = values[2];
 				// set count of each item
-				long count = Rnd.get(min, max);
+				long _count = Rnd.get(min, max);
 				// chance for each item
 				if (Rnd.get(100) > chance || chance >= 100)
 				{
 					// reward item
-					Functions.addItem(player, _itemId, count);
+					player.addItem("iTopZ", _itemId, (int) _count, player, true);
 					// write info on console
-					Gui.getInstance().ConsoleWrite("Vote: player " + player.getName() + " received x" + count + " " + item.getName());
+					Gui.getInstance().ConsoleWrite("Vote: player " + player.getName() + " received x" + _count + " " + item.getName());
 				}
 			}
 		}

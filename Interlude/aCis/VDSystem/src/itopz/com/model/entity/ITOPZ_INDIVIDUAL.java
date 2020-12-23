@@ -25,14 +25,12 @@ import itopz.com.Configurations;
 import itopz.com.command.VoteCMD;
 import itopz.com.gui.Gui;
 import itopz.com.vote.iTopZ;
-import l2.commons.util.Rnd;
-import l2.gameserver.data.xml.holder.ItemHolder;
-import l2.gameserver.handler.voicecommands.VoicedCommandHandler;
-import l2.gameserver.model.Player;
-import l2.gameserver.scripts.Functions;
-import l2.gameserver.templates.item.ItemTemplate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.sf.l2j.commons.logging.CLogger;
+import net.sf.l2j.commons.random.Rnd;
+import net.sf.l2j.gameserver.data.xml.ItemData;
+import net.sf.l2j.gameserver.handler.VoicedCommandHandler;
+import net.sf.l2j.gameserver.model.actor.Player;
+import net.sf.l2j.gameserver.model.item.kind.Item;
 
 /**
  * @Author Nightwolf
@@ -42,8 +40,8 @@ import org.slf4j.LoggerFactory;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
- * Pack Support: Lucera
+ * Script version: 1.0
+ * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
@@ -51,14 +49,14 @@ import org.slf4j.LoggerFactory;
 public class ITOPZ_INDIVIDUAL
 {
 	// logger
-	private static final Logger _log = LoggerFactory.getLogger(ITOPZ_INDIVIDUAL.class);
+	private static final CLogger _log = new CLogger(ITOPZ_INDIVIDUAL.class.getSimpleName());
 
 	/**
 	 * register voiced command
 	 */
 	public static void registerCommand()
 	{
-		VoicedCommandHandler.getInstance().registerVoicedCommandHandler(new VoteCMD());
+		VoicedCommandHandler.getInstance().registerVoicedCommand(new VoteCMD());
 		_log.info(iTopZ.class.getSimpleName() + ": registered .itopz command");
 	}
 
@@ -74,7 +72,7 @@ public class ITOPZ_INDIVIDUAL
 		for (final int _itemId : Configurations.ITOPZ_INDIVIDUAL_REWARDS.keySet())
 		{
 			// check if the item id exists
-			final ItemTemplate item = ItemHolder.getInstance().getTemplate(_itemId);
+			final Item item = ItemData.getInstance().getTemplate(_itemId);
 			if (item == null)
 			{
 				_log.info("Failed to find reward item.");
@@ -90,11 +88,11 @@ public class ITOPZ_INDIVIDUAL
 			if (Rnd.get(100) < chance || chance >= 100)
 			{
 				// set count of each item
-				long count = Rnd.get(min, max);
+				long _count = Rnd.get(min, max);
 				// reward item
-				Functions.addItem(player, _itemId, count);
+				player.addItem("iTopZ", _itemId, (int) _count, player, false);
 				// write info on console
-				Gui.getInstance().ConsoleWrite("Vote: player " + player.getName() + " received x" + count + " " + item.getName());
+				Gui.getInstance().ConsoleWrite("Vote: player " + player.getName() + " received x" + _count + " " + item.getName());
 			}
 		}
 

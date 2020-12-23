@@ -26,9 +26,8 @@ import itopz.com.donate.DonateTaskManager;
 
 import itopz.com.model.entity.ITOPZ_GLOBAL;
 import itopz.com.model.entity.ITOPZ_INDIVIDUAL;
-import l2.gameserver.ThreadPoolManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.sf.l2j.commons.logging.CLogger;
+import net.sf.l2j.commons.pool.ThreadPool;
 
 /**
  * @Author Nightwolf
@@ -38,8 +37,8 @@ import org.slf4j.LoggerFactory;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
- * Pack Support: Lucera
+ * Script version: 1.0
+ * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
@@ -47,7 +46,7 @@ import org.slf4j.LoggerFactory;
 public class iTopZ
 {
     // logger
-    private static final Logger _log = LoggerFactory.getLogger(iTopZ.class);
+    private static final CLogger _log = new CLogger(iTopZ.class.getSimpleName());
 
     /**
      * Constructor
@@ -66,10 +65,10 @@ public class iTopZ
         if (Configurations.ITOPZ_GLOBAL_REWARD)
         {
             // start schedule of the global vote reward
-            ThreadPoolManager.getInstance().scheduleAtFixedRate(new ITOPZ_GLOBAL(), 100, Configurations.ITOPZ_VOTE_CHECK_DELAY * 1000);
+            ThreadPool.scheduleAtFixedRate(new ITOPZ_GLOBAL(), 100, Configurations.ITOPZ_VOTE_CHECK_DELAY * 1000);
 
             // initiate global reward
-            _log.info(iTopZ.class.getSimpleName() + ": Global reward started.");
+            _log.info(ITOPZ_GLOBAL.class.getSimpleName() + ": reward started.");
         }
         // check if allowed the individual reward to run
         if (Configurations.ITOPZ_INDIVIDUAL_REWARD)
@@ -78,16 +77,16 @@ public class iTopZ
             ITOPZ_INDIVIDUAL.registerCommand();
 
             // initiate individual reward
-            _log.info(iTopZ.class.getSimpleName() + ": Individual reward started.");
+            _log.info(ITOPZ_INDIVIDUAL.class.getSimpleName() + ": reward started.");
         }
         // check if allowed the donation system to run
         if (Configurations.ITOPZ_DONATE_MANAGER)
         {
             // start donation manager
-            ThreadPoolManager.getInstance().scheduleAtFixedRate(new DonateTaskManager(), 100, 5000);
+            ThreadPool.scheduleAtFixedRate(new DonateTaskManager(), 100, 5000);
 
             // initiate Donation reward
-            _log.info(iTopZ.class.getSimpleName() + ": Donation reward started.");
+            _log.info(DonateTaskManager.class.getSimpleName() + ": started.");
         }
         _log.info(iTopZ.class.getSimpleName() + ": System initialized.");
     }

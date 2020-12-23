@@ -26,9 +26,10 @@ import itopz.com.gui.Gui;
 import itopz.com.model.entity.ITOPZ_INDIVIDUAL;
 import itopz.com.util.URL;
 import itopz.com.util.Utilities;
-import l2.gameserver.handler.voicecommands.IVoicedCommandHandler;
-import l2.gameserver.model.Player;
-import l2.gameserver.network.l2.s2c.ExShowScreenMessage;
+import net.sf.l2j.gameserver.handler.IVoicedCommandHandler;
+import net.sf.l2j.gameserver.model.actor.Player;
+import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
+import net.sf.l2j.gameserver.network.serverpackets.ExShowScreenMessage;
 
 /**
  * @Author Nightwolf
@@ -38,8 +39,8 @@ import l2.gameserver.network.l2.s2c.ExShowScreenMessage;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
- * Pack Support: Lucera
+ * Script version: 1.0
+ * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
@@ -64,13 +65,13 @@ public class VoteCMD implements IVoicedCommandHandler
 	};
 
 	@Override
-	public boolean useVoicedCommand(String command, Player player, String args)
+	public boolean useVoicedCommand(String s, Player player)
 	{
 		// check the ip (local ranges will not be allowed)
-		_IPAddress = player.getIP();
+		_IPAddress = player.getClient().getConnection().getInetAddress().getHostAddress();
 		if (!playerChecks(player, COMMANDS[0]))
 		{
-			player.sendActionFailed();
+			player.sendPacket(ActionFailed.STATIC_PACKET);
 			return false;
 		}
 
@@ -81,8 +82,8 @@ public class VoteCMD implements IVoicedCommandHandler
 		{
 			sendMsg(player, "Successfully voted in " + COMMANDS[0] + "!");
 			// set can vote: 12 hours (in ms).
-			player.setVar(COMMANDS[0] + "_can_vote", System.currentTimeMillis() + VOTE_REUSE, -1);
-			player.sendActionFailed();
+			player.getMemos().set(COMMANDS[0] + "_can_vote", System.currentTimeMillis() + VOTE_REUSE);
+			player.sendPacket(ActionFailed.STATIC_PACKET);
 			return ITOPZ_INDIVIDUAL.reward(player);
 		}
 		return false;
@@ -97,17 +98,15 @@ public class VoteCMD implements IVoicedCommandHandler
 	 */
 	private boolean playerChecks(Player player, String topsite)
 	{
-		// TODO better handle on private networks
-		//String clientIp = player.getConnection().getInetAddress().getHostAddress();
-		// if Utilities.localIp(clientIp)
-		if (_IPAddress.equalsIgnoreCase("127.0.0.1") || _IPAddress.equalsIgnoreCase("localhost"))
+		// check for private network (website will not accept it)
+		if (Utilities.localIp(player.getClient().getConnection().getInetAddress()))
 		{
 			sendMsg(player, "Private networks are not allowed.");
 			return false;
 		}
 
 		// check if 12 hours has pass from last vote
-		long voteTimer = player.getVarLong(topsite + "_can_vote");
+		long voteTimer = player.getMemos().getLong(topsite + "_can_vote", -1);
 		if (voteTimer > System.currentTimeMillis())
 		{
 			String dateFormatted = Utilities.formatMillisecond(voteTimer);
@@ -185,7 +184,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	 */
 	private void sendMsg(Player player, String s)
 	{
-		player.sendPacket(new ExShowScreenMessage(s, 3000, ExShowScreenMessage.ScreenMessageAlign.MIDDLE_CENTER, true));
+		player.sendPacket(new ExShowScreenMessage(s, 3000, ExShowScreenMessage.SMPOS.MIDDLE_CENTER, true));
 		player.sendMessage(s);
 	}
 

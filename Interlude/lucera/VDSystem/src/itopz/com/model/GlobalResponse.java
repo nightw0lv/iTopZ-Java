@@ -32,7 +32,7 @@ import itopz.com.util.Json;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: Lucera
  *
  * Personal Donate Panels: https://www.denart-designs.com/

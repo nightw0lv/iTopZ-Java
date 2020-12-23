@@ -22,9 +22,9 @@
 package itopz.com.util;
 
 import itopz.com.gui.Gui;
-import l2.gameserver.Announcements;
-import l2.gameserver.database.DatabaseFactory;
-import l2.gameserver.network.l2.components.ChatType;
+import net.sf.l2j.commons.pool.ConnectionPool;
+import net.sf.l2j.gameserver.model.Announcement;
+import net.sf.l2j.gameserver.model.World;
 
 import java.awt.*;
 import java.io.IOException;
@@ -46,8 +46,8 @@ import java.util.Locale;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
- * Pack Support: Lucera
+ * Script version: 1.0
+ * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
@@ -71,7 +71,7 @@ public class Utilities
      */
     public static void announce(String message)
     {
-        Announcements.getInstance().announceToAll("[iTopZ]" + message, ChatType.CRITICAL_ANNOUNCE);
+        World.announceToOnlinePlayers("[iTopZ]" + message, true);
     }
 
     /**
@@ -98,7 +98,7 @@ public class Utilities
      */
     public static void deleteTable()
     {
-        try (Connection con = DatabaseFactory.getInstance().getConnection();
+        try (Connection con = ConnectionPool.getConnection();
              PreparedStatement statement = con.prepareStatement(DELETE_TABLE))
         {
             statement.execute();
@@ -116,7 +116,7 @@ public class Utilities
      */
     public static void createTable()
     {
-        try (Connection con = DatabaseFactory.getInstance().getConnection();
+        try (Connection con = ConnectionPool.getConnection();
              PreparedStatement statement = con.prepareStatement(CREATE_TABLE))
         {
             statement.execute();

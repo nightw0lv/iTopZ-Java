@@ -23,13 +23,13 @@ package itopz.com.donate;
 
 import itopz.com.gui.Gui;
 import itopz.com.util.Utilities;
-import l2.gameserver.data.xml.holder.ItemHolder;
-import l2.gameserver.database.DatabaseFactory;
-import l2.gameserver.model.Player;
-import l2.gameserver.model.World;
-import l2.gameserver.scripts.Functions;
-import l2.gameserver.templates.item.ItemTemplate;
-import org.apache.log4j.Logger;
+import net.sf.l2j.commons.logging.CLogger;
+import net.sf.l2j.commons.pool.ConnectionPool;
+import net.sf.l2j.gameserver.data.xml.ItemData;
+import net.sf.l2j.gameserver.model.World;
+import net.sf.l2j.gameserver.model.actor.Player;
+import net.sf.l2j.gameserver.model.item.kind.Item;
+import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,8 +46,8 @@ import java.util.Optional;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
- * Pack Support: Lucera
+ * Script version: 1.0
+ * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
@@ -55,7 +55,7 @@ import java.util.Optional;
 public class DonateTaskManager implements Runnable
 {
     // logger
-    private static Logger _log = Logger.getLogger(DonateTaskManager.class.getName());
+    private static final CLogger _log = new CLogger(DonateTaskManager.class.getSimpleName());
 
     private final String DELETE = "DELETE FROM donate_holder WHERE no=? LIMIT 1";
     private final String SELECT = "SELECT no, id, count, playername FROM donate_holder";
@@ -71,13 +71,13 @@ public class DonateTaskManager implements Runnable
      */
     private void start()
     {
-        try (Connection con = DatabaseFactory.getInstance().getConnection();
+        try (Connection con = ConnectionPool.getConnection();
              PreparedStatement statement = con.prepareStatement(SELECT);
              ResultSet rset = statement.executeQuery())
         {
             while (rset.next())
             {
-                final Player player = World.getPlayer(rset.getString("playername"));
+                final Player player = World.getInstance().getPlayer(rset.getString("playername"));
                 final int no = rset.getInt("no");
                 final int id = rset.getInt("id");
                 final int count = rset.getInt("count");
@@ -86,13 +86,13 @@ public class DonateTaskManager implements Runnable
                 {
                     if (removeDonation(no))
                     {
-                        final ItemTemplate item = ItemHolder.getInstance().getTemplate(id);
+                        final Item item = ItemData.getInstance().getTemplate(id);
 
                         if (Objects.nonNull(item))
                         {
                             Gui.getInstance().ConsoleWrite("Donation: " + player.getName() + " received " + count + "x " + item.getName());
-                            Functions.addItem(player, id, count);
-                            player.sendActionFailed();
+                            player.addItem("", id, count, player, true);
+                            player.sendPacket(ActionFailed.STATIC_PACKET);
                         }
                     }
                 });
@@ -119,7 +119,7 @@ public class DonateTaskManager implements Runnable
      */
     private boolean removeDonation(int id)
     {
-        try (Connection con = DatabaseFactory.getInstance().getConnection();
+        try (Connection con = ConnectionPool.getConnection();
              PreparedStatement statement = con.prepareStatement(DELETE))
         {
             statement.setInt(1, id);

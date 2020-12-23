@@ -19,13 +19,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package itopz.com;
+package itopz.com.util;
 
-import itopz.com.gui.Gui;
-import itopz.com.vote.iTopZ;
-import l2.gameserver.scripts.ScriptFile;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import itopz.com.Configurations;
 
 /**
  * @Author Nightwolf
@@ -35,51 +31,39 @@ import org.slf4j.LoggerFactory;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
- * Pack Support: Lucera
+ * Script version: 1.0
+ * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
-public class VDSystemManager implements ScriptFile
+public enum URL
 {
-	// logger
-	private static final Logger _log = LoggerFactory.getLogger(VDSystemManager.class.getSimpleName());
+    ITOPZ_GLOBAL_URL("https://itopz.com/check/" + Configurations.ITOPZ_SERVER_API_KEY + "/" + Configurations.ITOPZ_SERVER_ID + "/"),
+    ITOPZ_INDIVIDUAL_URL("https://itopz.com/check/" + Configurations.ITOPZ_SERVER_API_KEY + "/" + Configurations.ITOPZ_SERVER_ID + "/%IP%"),
+    ITOPZ_SERVER_URL("https://itopz.com/info/" + Configurations.ITOPZ_SERVER_ID),
+    ITOPZ_URL("https://itopz.com/"),
+    DISCORD("https://discord.gg/KkPms6B5aE"),
+    DENART_DESIGNS("https://www.denart-designs.com");
 
-	@Override
-	public void onLoad()
-	{
-		log("----------------------- VDS Manager -----------------------");
-		// load configurations
-		Configurations.load();
+    private final String _text;
 
-		// load gui console
-		Gui.getInstance();
+    /**
+     * @param text String
+     */
+    URL(final String text)
+    {
+        _text = text;
+    }
 
-		// load iTopz
-		iTopZ.getInstance();
-		log("-----------------------------------------------------------");
-	}
-
-	@Override
-	public void onReload()
-	{
-		Configurations.load();
-	}
-
-	@Override
-	public void onShutdown()
-	{
-
-	}
-
-	/**
-	 * Logger
-	 *
-	 * @param s string
-	 */
-	private void log(String s)
-	{
-		_log.info(VDSystemManager.class.getSimpleName() + ": " + s);
-	}
+    /**
+     * (non-Javadoc)
+     *
+     * @see Enum#toString()
+     */
+    @Override
+    public String toString()
+    {
+        return _text;
+    }
 }

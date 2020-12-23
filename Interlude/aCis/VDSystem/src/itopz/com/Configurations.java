@@ -21,8 +21,8 @@
  */
 package itopz.com;
 
-import l2.commons.configuration.ExProperties;
-import org.apache.log4j.Logger;
+import net.sf.l2j.commons.config.ExProperties;
+import net.sf.l2j.commons.logging.CLogger;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,8 +39,8 @@ import java.util.Map;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
- * Pack Support: Lucera
+ * Script version: 1.0
+ * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
@@ -48,7 +48,7 @@ import java.util.Map;
 public class Configurations
 {
     // logger
-    private static final Logger _log = Logger.getLogger(Configurations.class.getName());
+    private static final CLogger _log = new CLogger(Configurations.class.getSimpleName());
 
     // set console variables
     public static String ITOPZ_CONSOLE_FONT;
@@ -142,7 +142,7 @@ public class Configurations
         // set donate manager variables
         ITOPZ_DONATE_MANAGER = ep.getProperty("DonateManager", true);
 
-        _log.info(Configurations.class.getSimpleName() + ": configs loaded.");
+        _log.info(Configurations.class.getSimpleName() + ": loaded.");
     }
 
     /**

@@ -3,12 +3,14 @@
 Implementation of vote global and individual system with itopz donate panel task manager.
 
 **Requirement**
-- Lucera Files
+- aCis 394
+- Voiced Command Handler (provided)
+- Patch installation (provided)
+- JDK 11
 
 **Build**
-- JDK 1.8
-- File: ```VDSystem.ext.jar```
-- Version: 1.1
+- File ```VDSystem.jar```
+- Version: 1.0
 
 **Global vote system for iTopZ**
 
@@ -33,10 +35,9 @@ Implementation of vote global and individual system with itopz donate panel task
 - Reward will set as "expired" after 12hours checking server time
 - Reward reuse 12hours
 - Command used after reward will show remaining time (PM/AM) to vote again
-- Check for local ips restriction
+- Check for local ips is restriction
 - Check for response errors
 - Check if player voted
-- Added HWID Protection (fallback into IP in null case)
 
 **Donate Management** (upgrade version of [Donate Panel](https://github.com/nightw0lv/DonatePanel))
 
@@ -68,9 +69,13 @@ Implementation of vote global and individual system with itopz donate panel task
 - Can be extended to add all topsites
 - Can be used with LIVE and TEST modes
 
+**Installation**
+![https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/aCis/VDSystem/Patch.diff](Patch.diff)
+
+
 **TODO**
 
-- Command restriction local network ip addresses
+- Add HWID protection
 - Replace JSON result parsing with StringJoiner
 
 ```Special thanks to Rationale``` :cry:
@@ -84,15 +89,12 @@ Implementation of vote global and individual system with itopz donate panel task
 ![https://prnt.sc/w6zxyo](images/6.png)
 ![https://prnt.sc/w6zzcs](images/7.png)
 
-
 **Chancelog**
 
-- Version 1.1
-  - Refactor on URL to prepare extend
-  - HWID Protection fallback to IP that fallback into player name in case of null
-  - Added missing default values on config for console RGB colors
 - Version 1.0
   - Initial commit
+
+
 
 
 
