@@ -1,0 +1,37 @@
+diff --git .classpath .classpath
+index d5ea723..862d102 100644
+--- .classpath
++++ .classpath
+@@ -26,5 +26,6 @@
+ 	<classpathentry kind="lib" path="dist/libs/worldwind.jar"/>
+ 	<classpathentry kind="lib" path="dist/libs/tools.jar"/>
+ 	<classpathentry kind="lib" path="dist/libs/lameguard-1.9.5.jar"/>
++	<classpathentry kind="lib" path="dist/libs/VDSystem.jar"/>
+ 	<classpathentry kind="output" path="bin"/>
+ </classpath>
+diff --git dist/libs/VDSystem.jar dist/libs/VDSystem.jar
+new file mode 100644
+index 0000000..e2a8e24
+--- /dev/null
++++ dist/libs/VDSystem.jar
+Binary files differ
+diff --git java/l2ro/gameserver/GameServer.java java/l2ro/gameserver/GameServer.java
+index 362c1fe..f4bc287 100644
+--- java/l2ro/gameserver/GameServer.java
++++ java/l2ro/gameserver/GameServer.java
+@@ -94,6 +94,7 @@
+ import Elemental.datatables.OfflineBuffersTable;
+ //import Elemental.datatables.ServerRanking;
+ //import Elemental.managers.AutoRaidEventManager;
++import itopz.com.VDSystemManager;
+
+ public class GameServer
+ {
+@@ -329,6 +330,7 @@
+ 			printSection("Offline Buffers");
+ 			OfflineBuffersTable.getInstance().restoreOfflineBuffers();
+ 		}
++		VDSystemManager.getInstance();
+ 		Shutdown.getInstance().schedule(Config.RESTART_AT_TIME, 2);
+ 		printSection("");
+ 		_log.info(">>>>>>>>>> GameServer Started <<<<<<<<<");

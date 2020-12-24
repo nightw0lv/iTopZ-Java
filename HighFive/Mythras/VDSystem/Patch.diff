@@ -1,0 +1,39 @@
+diff --git .classpath .classpath
+index 1d6ec15..353f44f 100644
+--- .classpath
++++ .classpath
+@@ -29,5 +29,6 @@
+ 	<classpathentry exported="true" kind="lib" path="dist/libs/tools.jar"/>
+ 	<classpathentry exported="true" kind="lib" path="dist/libs/trove-3.0.3.jar"/>
+ 	<classpathentry exported="true" kind="lib" path="dist/libs/worldwind.jar"/>
++	<classpathentry kind="lib" path="dist/libs/VDSystem.jar"/>
+ 	<classpathentry kind="output" path="bin"/>
+ </classpath>
+diff --git dist/libs/VDSystem.jar dist/libs/VDSystem.jar
+new file mode 100644
+index 0000000..b7da9d8
+--- /dev/null
++++ dist/libs/VDSystem.jar
+Binary files differ
+diff --git java/l2f/gameserver/GameServer.java java/l2f/gameserver/GameServer.java
+index f7ed94f..b7aab4b 100644
+--- java/l2f/gameserver/GameServer.java
++++ java/l2f/gameserver/GameServer.java
+@@ -97,6 +97,7 @@
+
+ //import Elemental.datatables.CharacterMonthlyRanking;
+ import Elemental.datatables.OfflineBuffersTable;
++import itopz.com.VDSystemManager;
+ //import Elemental.datatables.ServerRanking;
+ //import Elemental.managers.AutoRaidEventManager;
+
+@@ -341,6 +342,9 @@
+ 			printSection("Offline Buffers");
+ 			OfflineBuffersTable.getInstance().restoreOfflineBuffers();
+ 		}
++
++		VDSystemManager.getInstance();
++
+ 		Shutdown.getInstance().schedule(Config.RESTART_AT_TIME, 2);
+ 		printSection("");
+ 		_log.info(">>>>>>>>>> GameServer Started <<<<<<<<<");
