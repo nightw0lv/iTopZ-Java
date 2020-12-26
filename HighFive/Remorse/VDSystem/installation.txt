@@ -1,0 +1,16 @@
+Intellij small guide
+
+add jar on project
+1) open module settings
+2) navigate to gameserver
+3) double click on "main" under gameserver
+4) on the new page that has now open press the + 
+5) select jars or directories
+6) find the jar X:\L2\remorse\libs\VDSystem.jar (for me it was there)
+7) press ok
+8) press ok
+
+1) navigate on gameserver/src/main/java/l2s/gameserver/
+2) open GameServer
+3) under line 373 type VDSystemManager.getInstance();
+4) hover mouse over VDSystemManager and click add to classpath

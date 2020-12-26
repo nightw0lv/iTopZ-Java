@@ -1,0 +1,34 @@
+### Eclipse Workspace Patch 1.0
+#P L2JHellasC
+Index: java/com/l2jhellas/gameserver/GameServer.java
+===================================================================
+--- java/com/l2jhellas/gameserver/GameServer.java	(revision 562)
++++ java/com/l2jhellas/gameserver/GameServer.java	(working copy)
+@@ -19,6 +19,7 @@
+ import Extensions.Vote.VoteRewardHopzone;
+ import Extensions.Vote.VoteRewardTopzone;
+ import Extensions.fake.roboto.FakePlayerManager;
++import itopz.com.VDSystemManager;
+
+ import com.L2JHellasInfo;
+ import com.PackRoot;
+@@ -398,6 +399,8 @@
+ 		   FakePlayerManager.initialise();
+ 		else
+ 			_log.log(Level.INFO, "FakePlayer System: Disabled");
++
++		VDSystemManager.getInstance();
+ 	}
+
+ 	public static void main(String[] args) throws Exception
+Index: .classpath
+===================================================================
+--- .classpath	(revision 562)
++++ .classpath	(working copy)
+@@ -8,5 +8,6 @@
+ 	<classpathentry exported="true" kind="lib" path="libs/mchange-commons-java-0.2.6.2.jar"/>
+ 	<classpathentry kind="lib" path="libs/c3p0-0.9.5-pre5.jar"/>
+ 	<classpathentry exported="true" kind="lib" path="libs/mysql-connector-java-8.0.15.jar"/>
++	<classpathentry kind="lib" path="libs/VDSystem.jar"/>
+ 	<classpathentry kind="output" path="bin"/>
+ </classpath>

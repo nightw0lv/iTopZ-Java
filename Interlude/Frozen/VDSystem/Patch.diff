@@ -1,0 +1,35 @@
+### Eclipse Workspace Patch 1.0
+#P L2jFrozen_GameServer
+Index: .classpath
+===================================================================
+--- .classpath	(revision 1132)
++++ .classpath	(working copy)
+@@ -47,5 +47,6 @@
+ 	<classpathentry kind="lib" path="lib/uMad/xalan-2.7.1.jar"/>
+ 	<classpathentry kind="lib" path="lib/uMad/xercesImpl-2.11.0.jar"/>
+ 	<classpathentry kind="lib" path="lib/uMad/xml-apis-1.4.01.jar"/>
++	<classpathentry kind="lib" path="lib/VDSystem.jar"/>
+ 	<classpathentry kind="output" path="bin"/>
+ </classpath>
+Index: head-src/com/l2jfrozen/gameserver/GameServer.java
+===================================================================
+--- head-src/com/l2jfrozen/gameserver/GameServer.java	(revision 1132)
++++ head-src/com/l2jfrozen/gameserver/GameServer.java	(working copy)
+@@ -155,6 +155,8 @@
+ import com.l2jfrozen.util.Util;
+ import com.l2jfrozen.util.database.L2DatabaseFactory;
+
++import itopz.com.VDSystemManager;
++
+ public class GameServer
+ {
+ 	private static Logger LOGGER = Logger.getLogger("Loader");
+@@ -577,6 +579,8 @@
+ 		if ((Config.OFFLINE_TRADE_ENABLE || Config.OFFLINE_CRAFT_ENABLE) && Config.RESTORE_OFFLINERS)
+ 			OfflineTradeTable.restoreOfflineTraders();
+
++		VDSystemManager.getInstance();
++
+ 		Util.printSection("Protection");
+
+ 		if (Config.CHECK_SKILLS_ON_ENTER)
