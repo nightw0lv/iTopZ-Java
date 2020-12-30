@@ -1,0 +1,23 @@
+diff --git .classpath .classpath
+index a92b1b1..600761a 100644
+--- .classpath
++++ .classpath
+@@ -8,2 +8,3 @@
+ 	<classpathentry kind="lib" path="dist/libs/mariadb-java-client-2.6.1.jar" sourcepath="dist/libs/mariadb-java-client-2.6.1-sources.jar"/>
++	<classpathentry kind="lib" path="dist/libs/VDSystem.jar"/>
+ 	<classpathentry including="**/*.java" kind="src" path="dist/game/data/scripts"/>
+
+diff --git java/org/l2jmobius/gameserver/GameServer.java java/org/l2jmobius/gameserver/GameServer.java
+index 72f2e67..cc6b845 100644
+--- java/org/l2jmobius/gameserver/GameServer.java
++++ java/org/l2jmobius/gameserver/GameServer.java
+@@ -135,2 +135,4 @@
+
++import itopz.com.VDSystemManager;
++
+ public class GameServer
+@@ -485,2 +487,4 @@
+
++		VDSystemManager.getInstance();
++
+ 		System.gc();

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="L2J_Mobius_Classic_2.2_Antharas">
+    <output-path>$PROJECT_DIR$/out/artifacts/L2J_Mobius_Classic_2_2_Antharas</output-path>
+    <root id="archive" name="VDSystem.jar">
+      <element id="module-output" name="L2J_Mobius_Classic_2.2_Antharas" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/L2J_Mobius_Classic_2.2_Antharas/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,23 @@
+diff --git .classpath .classpath
+index 9e8e15d..e5e9e0f 100644
+--- .classpath
++++ .classpath
+@@ -11,2 +11,3 @@
+ 	<classpathentry kind="lib" path="dist/libs/netty-all-4.1.50.Final.jar" sourcepath="dist/libs/netty-all-4.1.50.Final-sources.jar"/>
++	<classpathentry kind="lib" path="dist/libs/VDSystem.jar"/>
+ 	<classpathentry including="**/*.java" kind="src" path="dist/game/data/scripts"/>
+
+diff --git java/org/l2jmobius/gameserver/GameServer.java java/org/l2jmobius/gameserver/GameServer.java
+index e4ff958..6ef4a6b 100644
+--- java/org/l2jmobius/gameserver/GameServer.java
++++ java/org/l2jmobius/gameserver/GameServer.java
+@@ -165,2 +165,4 @@
+
++import itopz.com.VDSystemManager;
++
+ public class GameServer
+@@ -431,2 +433,4 @@
+
++		VDSystemManager.getInstance();
++
+ 		Runtime.getRuntime().addShutdownHook(Shutdown.getInstance());

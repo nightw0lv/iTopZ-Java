@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_4.0_GrandCrusade">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/L2J_Mobius_4.0_GrandCrusade/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/L2J_Mobius_4.0_GrandCrusade/libs" recursive="false" />
+  </library>
+</component>

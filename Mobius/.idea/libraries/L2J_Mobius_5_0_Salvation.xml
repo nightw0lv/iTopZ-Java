@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_5.0_Salvation">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/L2J_Mobius_5.0_Salvation/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/L2J_Mobius_5.0_Salvation/libs" recursive="false" />
+  </library>
+</component>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_Classic_2.3_SevenSigns">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/L2J_Mobius_Classic_2.3_SevenSigns/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/L2J_Mobius_Classic_2.3_SevenSigns/libs" recursive="false" />
+  </library>
+</component>
