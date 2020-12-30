@@ -143,7 +143,7 @@ public class Utilities
     /**
      * Check if the address given is local
      *
-     * @param address string
+     * @param address object
      * @return boolean
      */
     public static boolean localIp(InetAddress address)

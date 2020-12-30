@@ -70,7 +70,6 @@ Implementation of vote global and individual system with itopz donate panel task
 
 **TODO**
 
-- Command restriction local network ip addresses
 - Replace JSON result parsing with StringJoiner
 
 ```Special thanks to Rationale``` :cry:
@@ -93,8 +92,3 @@ Implementation of vote global and individual system with itopz donate panel task
   - Added missing default values on config for console RGB colors
 - Version 1.0
   - Initial commit
-
-
-
-
- 

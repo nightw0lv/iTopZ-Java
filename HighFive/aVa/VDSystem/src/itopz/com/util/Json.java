@@ -63,7 +63,6 @@ public class Json
             catch(IndexOutOfBoundsException ioobe)
             {
                 System.out.println(ioobe.getMessage());
-                continue;
             }
         }
     }

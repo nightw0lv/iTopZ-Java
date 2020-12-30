@@ -110,9 +110,9 @@ public class Configurations
                 // Min-Max-Chance
                 temp.add(new Long[]
                 {
-                    Long.parseLong(parts[1].split("-")[0]),
-                    Long.parseLong(parts[1].split("-")[1]),
-                    Long.parseLong(parts[1].split("-")[2]),
+                          Long.parseLong(parts[1].split("-")[0]),
+                          Long.parseLong(parts[1].split("-")[1]),
+                          Long.parseLong(parts[1].split("-")[2]),
                 });
                 ITOPZ_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
             }
@@ -131,9 +131,9 @@ public class Configurations
                 // Min-Max-Chance
                 temp.add(new Long[]
                 {
-                    Long.parseLong(parts[1].split("-")[0]),
-                    Long.parseLong(parts[1].split("-")[1]),
-                    Long.parseLong(parts[1].split("-")[2]),
+                          Long.parseLong(parts[1].split("-")[0]),
+                          Long.parseLong(parts[1].split("-")[1]),
+                          Long.parseLong(parts[1].split("-")[2]),
                 });
                 ITOPZ_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
             }

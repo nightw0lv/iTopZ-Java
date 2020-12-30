@@ -61,11 +61,11 @@ public class Configurations
     public static long ITOPZ_VOTE_CHECK_DELAY;
     public static boolean ITOPZ_ANNOUNCE_STATISTICS;
     public static int ITOPZ_VOTE_STEP;
-    public static Map<Integer, List<Long[]>> ITOPZ_GLOBAL_REWARDS = new HashMap<>();
+    public static Map<Integer, List<Integer[]>> ITOPZ_GLOBAL_REWARDS = new HashMap<>();
 
     // set individual variables
     public static boolean ITOPZ_INDIVIDUAL_REWARD;
-    public static Map<Integer, List<Long[]>> ITOPZ_INDIVIDUAL_REWARDS = new HashMap<>();
+    public static Map<Integer, List<Integer[]>> ITOPZ_INDIVIDUAL_REWARDS = new HashMap<>();
 
     // set donate manager variables
     public static boolean ITOPZ_DONATE_MANAGER;
@@ -101,13 +101,13 @@ public class Configurations
             {
                 String[] parts = split.split(",");
                 // Start Join the map
-                List<Long[]> temp = new ArrayList<>();
+                List<Integer[]> temp = new ArrayList<>();
                 // Min-Max-Chance
-                temp.add(new Long[]
+                temp.add(new Integer[]
                 {
-                    Long.parseLong(parts[1].split("-")[0]),
-                    Long.parseLong(parts[1].split("-")[1]),
-                    Long.parseLong(parts[1].split("-")[2]),
+                          Integer.parseInt(parts[1].split("-")[0]),
+                          Integer.parseInt(parts[1].split("-")[1]),
+                          Integer.parseInt(parts[1].split("-")[2]),
                 });
                 ITOPZ_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
             }
@@ -122,13 +122,13 @@ public class Configurations
             {
                 String[] parts = split.split(",");
                 // Start Join the map
-                List<Long[]> temp = new ArrayList<>();
+                List<Integer[]> temp = new ArrayList<>();
                 // Min-Max-Chance
-                temp.add(new Long[]
+                temp.add(new Integer[]
                 {
-                    Long.parseLong(parts[1].split("-")[0]),
-                    Long.parseLong(parts[1].split("-")[1]),
-                    Long.parseLong(parts[1].split("-")[2]),
+                          Integer.parseInt(parts[1].split("-")[0]),
+                          Integer.parseInt(parts[1].split("-")[1]),
+                          Integer.parseInt(parts[1].split("-")[2]),
                 });
                 ITOPZ_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
             }

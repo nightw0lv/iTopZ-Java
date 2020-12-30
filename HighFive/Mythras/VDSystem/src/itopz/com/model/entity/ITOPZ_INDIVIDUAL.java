@@ -34,6 +34,8 @@ import l2f.gameserver.utils.ItemFunctions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Objects;
+
 /**
  * @Author Nightwolf
  * iToPz Discord: https://discord.gg/KkPms6B5aE
@@ -71,31 +73,32 @@ public class ITOPZ_INDIVIDUAL
 	public static boolean reward(Player player)
 	{
 		// iterate on item values
-		for (final int _itemId : Configurations.ITOPZ_INDIVIDUAL_REWARDS.keySet())
+		for (final int itemId : Configurations.ITOPZ_INDIVIDUAL_REWARDS.keySet())
 		{
 			// check if the item id exists
-			final ItemTemplate item = ItemHolder.getInstance().getTemplate(_itemId);
-			if (item == null)
+			final ItemTemplate item = ItemHolder.getInstance().getTemplate(itemId);
+			if (Objects.nonNull(item))
 			{
-				_log.info("Failed to find reward item.");
-				continue;
+				// get config values
+				final Long[] values = Configurations.ITOPZ_INDIVIDUAL_REWARDS.get(itemId).get(0);
+				// set min count value of received item
+				long min = values[0];
+				// set max count value of received item
+				long max = values[1];
+				// set chances of getting the item
+				long chance = values[2];
+				// set count of each item
+				long count = Rnd.get(min, max);
+				// chance for each item
+				if (Rnd.get(100) < chance || chance >= 100)
+				{
+					// reward item
+					ItemFunctions.addItem(player, itemId, count, true, "iTopZ");
+					// write info on console
+					Gui.getInstance().ConsoleWrite("Vote: player " + player.getName() + " received x" + count + " " + item.getName());
+				}
 			}
 
-			// load reward values from item id
-			final Long[] values = Configurations.ITOPZ_INDIVIDUAL_REWARDS.get(_itemId).get(0);
-			long min = values[0];
-			long max = values[1];
-			long chance = values[2];
-			// chance for each item
-			if (Rnd.get(100) < chance || chance >= 100)
-			{
-				// set count of each item
-				long _count = Rnd.get(min, max);
-				// reward item
-				ItemFunctions.addItem(player, _itemId, _count, true, "iTopZ");
-				// write info on console
-				Gui.getInstance().ConsoleWrite("Vote: player " + player.getName() + " received x" + _count + " " + item.getName());
-			}
 		}
 
 		return true;

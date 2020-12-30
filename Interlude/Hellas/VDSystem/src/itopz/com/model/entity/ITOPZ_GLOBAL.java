@@ -156,28 +156,30 @@ public class ITOPZ_GLOBAL implements Runnable
 			// add the key on ignore list
 			fingerprint.add(key);
 
-			for (final Integer _itemId : Configurations.ITOPZ_GLOBAL_REWARDS.keySet())
+			for (final int itemId : Configurations.ITOPZ_GLOBAL_REWARDS.keySet())
 			{
 				// check if the item id exists
-				final L2Item item = ItemTable.getInstance().getTemplate(_itemId);
-				if (item == null)
+				final L2Item item = ItemTable.getInstance().getTemplate(itemId);
+				if (Objects.nonNull(item))
 				{
-					_log.warning("Failed to find reward item.");
-					continue;
-				}
-				final Long[] values = Configurations.ITOPZ_GLOBAL_REWARDS.get(_itemId).get(0);
-				long min = values[0];
-				long max = values[1];
-				long chance = values[2];
-				// set count of each item
-				long _count = Rnd.get(min, max);
-				// chance for each item
-				if (Rnd.get(100) > chance || chance >= 100)
-				{
-					// reward item
-					player.addItem("iTopZ", _itemId, (int) _count, player, true);
-					// write info on console
-					Gui.getInstance().ConsoleWrite("Vote: player " + player.getName() + " received x" + _count + " " + item.getItemName());
+					// get config values
+					final Integer[] values = Configurations.ITOPZ_GLOBAL_REWARDS.get(itemId).get(0);
+					// set min count value of received item
+					int min = values[0];
+					// set max count value of received item
+					int max = values[1];
+					// set chances of getting the item
+					int chance = values[2];
+					// set count of each item
+					int count = Rnd.get(min, max);
+					// chance for each item
+					if (Rnd.get(100) > chance || chance >= 100)
+					{
+						// reward item
+						player.addItem("iTopZ", itemId, count, player, true);
+						// write info on console
+						Gui.getInstance().ConsoleWrite("Vote: player " + player.getName() + " received x" + count + " " + item.getItemName());
+					}
 				}
 			}
 		}

@@ -93,10 +93,3 @@ Implementation of vote global and individual system with itopz donate panel task
 
 - Version 1.0
   - Initial commit
-
-
-
-
-
-
- 

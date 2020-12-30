@@ -77,7 +77,7 @@ public class Utilities
     /**
      * open new url on browser
      *
-     * @param URL
+     * @param URL string
      */
     public static void openUrl(String URL)
     {
@@ -138,18 +138,5 @@ public class Utilities
     public static String formatMillisecond(final long millisecond)
     {
         return new SimpleDateFormat("hh:mm:ss a", Locale.ENGLISH).format(new Date(millisecond));
-    }
-
-    /**
-     * Check if the address given is local
-     *
-     * @param address string
-     * @return boolean
-     */
-    public static boolean localIp(InetAddress address)
-    {
-        if (address == null || address.isLinkLocalAddress() || address.isLoopbackAddress() || address.isAnyLocalAddress() || address.isSiteLocalAddress())
-            return true;
-        return false;
     }
 }

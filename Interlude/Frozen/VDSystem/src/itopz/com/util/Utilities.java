@@ -264,8 +264,6 @@ public class Utilities
      */
     public static boolean localIp(InetAddress address)
     {
-        if (address == null || address.isLinkLocalAddress() || address.isLoopbackAddress() || address.isAnyLocalAddress() || address.isSiteLocalAddress())
-            return true;
-        return false;
+        return address == null || address.isLinkLocalAddress() || address.isLoopbackAddress() || address.isAnyLocalAddress() || address.isSiteLocalAddress();
     }
 }

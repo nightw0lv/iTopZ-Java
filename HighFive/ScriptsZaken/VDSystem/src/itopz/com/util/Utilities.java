@@ -28,7 +28,6 @@ import l2s.gameserver.network.l2.components.ChatType;
 
 import java.awt.*;
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -138,16 +137,5 @@ public class Utilities
     public static String formatMillisecond(final long millisecond)
     {
         return new SimpleDateFormat("hh:mm:ss a", Locale.ENGLISH).format(new Date(millisecond));
-    }
-
-    /**
-     * Check if the address given is local
-     *
-     * @param address string
-     * @return boolean
-     */
-    public static boolean localIp(InetAddress address)
-    {
-        return address == null || address.isLinkLocalAddress() || address.isLoopbackAddress() || address.isAnyLocalAddress() || address.isSiteLocalAddress();
     }
 }

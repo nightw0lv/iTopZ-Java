@@ -23,7 +23,6 @@ package itopz.com.util;
 
 import itopz.com.gui.Gui;
 import net.sf.l2j.commons.pool.ConnectionPool;
-import net.sf.l2j.gameserver.model.Announcement;
 import net.sf.l2j.gameserver.model.World;
 
 import java.awt.*;
@@ -77,7 +76,7 @@ public class Utilities
     /**
      * open new url on browser
      *
-     * @param URL
+     * @param URL string
      */
     public static void openUrl(String URL)
     {
@@ -148,8 +147,6 @@ public class Utilities
      */
     public static boolean localIp(InetAddress address)
     {
-        if (address == null || address.isLinkLocalAddress() || address.isLoopbackAddress() || address.isAnyLocalAddress() || address.isSiteLocalAddress())
-            return true;
-        return false;
+        return address == null || address.isLinkLocalAddress() || address.isLoopbackAddress() || address.isAnyLocalAddress() || address.isSiteLocalAddress();
     }
 }

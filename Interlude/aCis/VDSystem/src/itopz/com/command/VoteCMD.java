@@ -68,7 +68,6 @@ public class VoteCMD implements IVoicedCommandHandler
 	public boolean useVoicedCommand(String s, Player player)
 	{
 		// check the ip (local ranges will not be allowed)
-		_IPAddress = player.getClient().getConnection().getInetAddress().getHostAddress();
 		if (!playerChecks(player, COMMANDS[0]))
 		{
 			player.sendPacket(ActionFailed.STATIC_PACKET);
@@ -99,7 +98,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	private boolean playerChecks(Player player, String topsite)
 	{
 		// check for private network (website will not accept it)
-		if (Utilities.localIp(player.getClient().getConnection().getInetAddress()))
+		if (player.getClient().getConnection().getInetAddress() == null || Utilities.localIp(player.getClient().getConnection().getInetAddress()))
 		{
 			sendMsg(player, "Private networks are not allowed.");
 			return false;
@@ -113,6 +112,8 @@ public class VoteCMD implements IVoicedCommandHandler
 			sendMsg(player, "You already voted on " + topsite + " try again after " + dateFormatted + ".");
 			return false;
 		}
+
+		_IPAddress = player.getClient().getConnection().getInetAddress().getHostAddress();
 		return true;
 	}
 

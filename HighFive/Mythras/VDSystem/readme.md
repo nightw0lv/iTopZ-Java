@@ -3,7 +3,7 @@
 Implementation of vote global and individual system with itopz donate panel task manager.
 
 **Requirement**
-- aVa Sources
+- Mythras Sources
 - Voiced Command Handler (provided)
 - Patch installation (provided)
 - JDK 8
@@ -78,7 +78,6 @@ Implementation of vote global and individual system with itopz donate panel task
 
 **TODO**
 
-- Add HWID protection
 - Replace JSON result parsing with StringJoiner
 
 ```Special thanks to Rationale``` :cry:

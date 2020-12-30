@@ -25,35 +25,257 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64b37072-5470-48f4-8ee6-0589ac513457" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/.idea/artifacts/VDSystem.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/.idea/dictionaries/CPU.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/.idea/libraries/libs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/VDSystem.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/.idea/artifacts/VDSystem.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/.idea/dictionaries/CPU.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/.idea/libraries/libs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/VDSystem.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../aCis/VDSystem/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/dictionaries/CPU.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/VDSystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../aCis/VDSystem/.idea/artifacts/VDSystem.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../aCis/VDSystem/.idea/artifacts/VDSystem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/Mobius.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_1_0_Ertheia.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_2_5_Underground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_3_0_Helios.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_4_0_GrandCrusade.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_5_0_Salvation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_5_5_EtinasFate.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_6_0_Fafurion.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_7_0_PreludeOfWar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_C4_ScionsOfDestiny.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_C6_Interlude.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_CT_2_4_Epilogue.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_CT_2_6_HighFive.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_Classic_2_0_Saviors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_Classic_2_1_Zaken.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_Classic_2_2_Antharas.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_Classic_2_3_SevenSigns.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_Classic_2_4_SecretOfEmpire.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_Classic_3_0_TheKamael.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/artifacts/L2J_Mobius_Classic_Interlude.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/dictionaries/CPU.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_1_0_Ertheia.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_2_5_Underground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_3_0_Helios.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_4_0_GrandCrusade.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_5_0_Salvation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_5_5_EtinasFate.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_6_0_Fafurion.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_7_0_PreludeOfWar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_C4_ScionsOfDestiny.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_C6_Interlude.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_CT_2_4_Epilogue.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_CT_2_6_HighFive.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_Classic_2_0_Saviors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_Classic_2_1_Zaken.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_Classic_2_2_Antharas.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_Classic_2_3_SevenSigns.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_Classic_2_4_SecretOfEmpire.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_Classic_3_0_TheKamael.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/libraries/L2J_Mobius_Classic_Interlude.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/L2J_Mobius_1.0_Ertheia.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/Patch.diff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/config/VDSystem.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/Configurations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/VDSystemManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/donate/DonateTaskManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/gui/Gui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/model/GlobalResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/model/IndividualResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/model/base/IResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/util/Json.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/util/URL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_1.0_Ertheia/src/itopz/com/vote/iTopZ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/L2J_Mobius_2.5_Underground.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/Patch.diff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/config/VDSystem.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/Configurations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/VDSystemManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/donate/DonateTaskManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/gui/Gui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/model/GlobalResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/model/IndividualResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/model/base/IResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/util/Json.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/util/URL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_2.5_Underground/src/itopz/com/vote/iTopZ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_3.0_Helios/L2J_Mobius_3.0_Helios.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_3.0_Helios/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_4.0_GrandCrusade/L2J_Mobius_4.0_GrandCrusade.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_4.0_GrandCrusade/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_5.0_Salvation/L2J_Mobius_5.0_Salvation.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_5.0_Salvation/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_5.5_EtinasFate/L2J_Mobius_5.5_EtinasFate.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_5.5_EtinasFate/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_6.0_Fafurion/L2J_Mobius_6.0_Fafurion.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_6.0_Fafurion/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_7.0_PreludeOfWar/L2J_Mobius_7.0_PreludeOfWar.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_7.0_PreludeOfWar/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_C4_ScionsOfDestiny/L2J_Mobius_C4_ScionsOfDestiny.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_C4_ScionsOfDestiny/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_C6_Interlude/L2J_Mobius_C6_Interlude.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_C6_Interlude/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_CT_2.4_Epilogue/L2J_Mobius_CT_2.4_Epilogue.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_CT_2.4_Epilogue/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_CT_2.6_HighFive/L2J_Mobius_CT_2.6_HighFive.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_CT_2.6_HighFive/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.0_Saviors/L2J_Mobius_Classic_2.0_Saviors.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.0_Saviors/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.1_Zaken/L2J_Mobius_Classic_2.1_Zaken.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.1_Zaken/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.2_Antharas/L2J_Mobius_Classic_2.2_Antharas.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.2_Antharas/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.3_SevenSigns/L2J_Mobius_Classic_2.3_SevenSigns.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.3_SevenSigns/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.3_SevenSigns/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/L2J_Mobius_Classic_2.4_SecretOfEmpire.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/Configurations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/VDSystemManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/donate/DonateTaskManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/gui/Gui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/model/GlobalResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/model/IndividualResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/model/base/IResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/util/Json.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/util/URL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/src/itopz/com/vote/iTopZ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_3.0_TheKamael/L2J_Mobius_Classic_3.0_TheKamael.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_3.0_TheKamael/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_Interlude/L2J_Mobius_Classic_Interlude.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/L2J_Mobius_Classic_Interlude/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/images/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/images/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/images/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/images/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/images/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/images/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Mobius/images/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Scions of Destiny/Lisvus/VDSystem/VDSystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/FandC/VDSystem/.idea/dictionaries/CPU.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/FandC/VDSystem/.idea/dictionaries/CPU.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/FandC/VDSystem/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/FandC/VDSystem/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/FandC/VDSystem/src/itopz/com/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/FandC/VDSystem/src/itopz/com/Configurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/FandC/VDSystem/src/itopz/com/command/VoteCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/FandC/VDSystem/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/FandC/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/FandC/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/FandC/VDSystem/src/itopz/com/util/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/FandC/VDSystem/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/.idea/dictionaries/CPU.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/.idea/dictionaries/CPU.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/src/itopz/com/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/src/itopz/com/Configurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/src/itopz/com/command/VoteCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/src/itopz/com/util/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/src/itopz/com/util/Json.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/src/itopz/com/util/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Mythras/VDSystem/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/.idea/dictionaries/CPU.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/.idea/dictionaries/CPU.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/src/itopz/com/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/src/itopz/com/Configurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/src/itopz/com/command/VoteCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/src/itopz/com/util/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Remorse/VDSystem/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/src/itopz/com/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/src/itopz/com/Configurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/src/itopz/com/command/VoteCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/src/itopz/com/util/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/Scripts/VDSystem/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/.idea/dictionaries/CPU.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/.idea/dictionaries/CPU.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/src/itopz/com/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/src/itopz/com/Configurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/src/itopz/com/command/VoteCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/src/itopz/com/util/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/ScriptsZaken/VDSystem/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/src/itopz/com/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/src/itopz/com/Configurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/src/itopz/com/command/VoteCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/src/itopz/com/util/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/src/itopz/com/util/Json.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/src/itopz/com/util/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HighFive/aVa/VDSystem/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frozen/VDSystem/.idea/dictionaries/CPU.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frozen/VDSystem/.idea/dictionaries/CPU.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frozen/VDSystem/config/VDSystem.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frozen/VDSystem/config/VDSystem.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frozen/VDSystem/libs/ecj_LICENSE.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frozen/VDSystem/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frozen/VDSystem/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frozen/VDSystem/src/itopz/com/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frozen/VDSystem/src/itopz/com/Configurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frozen/VDSystem/src/itopz/com/command/VoteCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frozen/VDSystem/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frozen/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frozen/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frozen/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frozen/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frozen/VDSystem/src/itopz/com/util/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frozen/VDSystem/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Hellas/VDSystem/.idea/dictionaries/CPU.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Hellas/VDSystem/.idea/dictionaries/CPU.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Hellas/VDSystem/config/VDSystem.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../Hellas/VDSystem/config/VDSystem.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Hellas/VDSystem/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Hellas/VDSystem/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Hellas/VDSystem/src/itopz/com/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Hellas/VDSystem/src/itopz/com/Configurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Hellas/VDSystem/src/itopz/com/command/VoteCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Hellas/VDSystem/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Hellas/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Hellas/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Hellas/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Hellas/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../aCis/VDSystem/.idea/dictionaries/CPU.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../aCis/VDSystem/.idea/dictionaries/CPU.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../aCis/VDSystem/config/VDSystem.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../aCis/VDSystem/config/VDSystem.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../aCis/VDSystem/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../aCis/VDSystem/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../aCis/VDSystem/src/itopz/com/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../aCis/VDSystem/src/itopz/com/Configurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../aCis/VDSystem/src/itopz/com/command/VoteCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../aCis/VDSystem/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../aCis/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../aCis/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../aCis/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../aCis/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../aCis/VDSystem/src/itopz/com/util/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../aCis/VDSystem/src/itopz/com/util/Json.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../aCis/VDSystem/src/itopz/com/util/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../aCis/VDSystem/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/CPU.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/CPU.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/itopz/com/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/itopz/com/Configurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/itopz/com/command/VoteCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/itopz/com/command/VoteCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/itopz/com/util/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/itopz/com/util/Json.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/itopz/com/util/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/itopz/com/util/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/artifacts/VDSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/dictionaries/CPU.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/libraries/libs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/Patch.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/VDSystem.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/config/VDSystem.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/images/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/images/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/images/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/images/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/images/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/images/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/images/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/Configurations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/VDSystemManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/command/VoteCMD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/donate/DonateTaskManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/gui/Gui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/model/GlobalResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/model/IndividualResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/model/base/IResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/model/entity/ITOPZ_GLOBAL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/model/entity/ITOPZ_INDIVIDUAL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/util/Json.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/util/URL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/util/Utilities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scions of Destiny/Lisbus/VDSystem/src/itopz/com/vote/iTopZ.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

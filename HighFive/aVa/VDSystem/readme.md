@@ -78,7 +78,6 @@ Implementation of vote global and individual system with itopz donate panel task
 
 **TODO**
 
-- Add HWID protection
 - Replace JSON result parsing with StringJoiner
 
 ```Special thanks to Rationale``` :cry:
@@ -96,10 +95,3 @@ Implementation of vote global and individual system with itopz donate panel task
 
 - Version 1.0
   - Initial commit
-
-
-
-
-
-
- 
