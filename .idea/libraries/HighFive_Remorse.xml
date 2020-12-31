@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="HighFive_Remorse">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/HighFive/Remorse/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/HighFive/Remorse/libs" recursive="false" />
+  </library>
+</component>

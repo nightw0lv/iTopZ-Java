@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_CT_2.4_Epilogue">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Mobius/L2J_Mobius_CT_2.4_Epilogue/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/Mobius/L2J_Mobius_CT_2.4_Epilogue/libs" recursive="false" />
+  </library>
+</component>

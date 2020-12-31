@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_3.0_Helios">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Mobius/L2J_Mobius_3.0_Helios/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/Mobius/L2J_Mobius_3.0_Helios/libs" recursive="false" />
+  </library>
+</component>

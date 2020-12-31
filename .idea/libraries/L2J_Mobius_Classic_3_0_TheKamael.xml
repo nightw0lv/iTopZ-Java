@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_Classic_3.0_TheKamael">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Mobius/L2J_Mobius_Classic_3.0_TheKamael/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/Mobius/L2J_Mobius_Classic_3.0_TheKamael/libs" recursive="false" />
+  </library>
+</component>

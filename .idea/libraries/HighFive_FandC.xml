@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="HighFive_FandC">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/HighFive/FandC/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/HighFive/FandC/libs" recursive="false" />
+  </library>
+</component>

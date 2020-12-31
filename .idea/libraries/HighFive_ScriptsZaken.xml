@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="HighFive_ScriptsZaken">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/HighFive/ScriptsZaken/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/HighFive/ScriptsZaken/libs" recursive="false" />
+  </library>
+</component>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Interlude_aCis">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Interlude/aCis/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/Interlude/aCis/libs" recursive="false" />
+  </library>
+</component>

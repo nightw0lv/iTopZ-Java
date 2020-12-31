@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="HighFive_Mythras">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/HighFive/Mythras/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/HighFive/Mythras/libs" recursive="false" />
+  </library>
+</component>

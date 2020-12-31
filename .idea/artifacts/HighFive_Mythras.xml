@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="HighFive_Mythras">
+    <output-path>$PROJECT_DIR$/out/artifacts/HighFive_Mythras</output-path>
+    <root id="archive" name="VDSystem.jar">
+      <element id="module-output" name="Mythras" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/HighFive/Mythras/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

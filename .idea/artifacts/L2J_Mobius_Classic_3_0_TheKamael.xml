@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="L2J_Mobius_Classic_3.0_TheKamael">
+    <output-path>$PROJECT_DIR$/out/artifacts/L2J_Mobius_Classic_3_0_TheKamael</output-path>
+    <root id="archive" name="VDSystem.jar">
+      <element id="module-output" name="L2J_Mobius_Classic_3.0_TheKamael" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/Mobius/L2J_Mobius_Classic_3.0_TheKamael/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

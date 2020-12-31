@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ScionsOfDestiny_Lisvus">
+    <output-path>$PROJECT_DIR$/out/artifacts/ScionsOfDestiny_Lisvus</output-path>
+    <root id="archive" name="VDSystem.jar">
+      <element id="module-output" name="Lisvus" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/Scions of Destiny/Lisvus/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Interlude_Lucera">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Interlude/lucera/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/Interlude/lucera/libs" recursive="false" />
+  </library>
+</component>

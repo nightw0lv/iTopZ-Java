@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_Classic_Interlude">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Mobius/L2J_Mobius_Classic_Interlude/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/Mobius/L2J_Mobius_Classic_Interlude/libs" recursive="false" />
+  </library>
+</component>

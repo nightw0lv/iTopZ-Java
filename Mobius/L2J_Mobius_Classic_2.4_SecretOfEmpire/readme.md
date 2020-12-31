@@ -79,13 +79,13 @@ Implementation of vote global and individual system with itopz donate panel task
 ```Special thanks to Rationale``` :cry:
 
 **Images**
-![https://prnt.sc/w6zkpg](../images/1.png)
-![https://prnt.sc/w6zl79](../images/2.png)
-![https://prnt.sc/w6zp4l](../images/3.png)
-![https://prnt.sc/w6zqok](../images/4.png)
-![https://prnt.sc/w6zuyx](../images/5.png)
-![https://prnt.sc/w6zxyo](../images/6.png)
-![https://prnt.sc/w6zzcs](../images/7.png)
+![https://prnt.sc/w6zkpg](../../images/1.png)
+![https://prnt.sc/w6zl79](../../images/2.png)
+![https://prnt.sc/w6zp4l](../../images/3.png)
+![https://prnt.sc/w6zqok](../../images/4.png)
+![https://prnt.sc/w6zuyx](../../images/5.png)
+![https://prnt.sc/w6zxyo](../../images/6.png)
+![https://prnt.sc/w6zzcs](../../images/7.png)
 
 **Chancelog**
 

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Interlude_Hellas">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Interlude/Hellas/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/Interlude/Hellas/libs" recursive="false" />
+  </library>
+</component>

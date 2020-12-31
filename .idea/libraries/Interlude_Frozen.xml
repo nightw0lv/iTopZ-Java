@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Interlude_Frozen">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Interlude/Frozen/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/Interlude/Frozen/libs" recursive="false" />
+  </library>
+</component>

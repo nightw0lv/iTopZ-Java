@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="L2J_Mobius_CT_2.4_Epilogue">
+    <output-path>$PROJECT_DIR$/out/artifacts/L2J_Mobius_CT_2_4_Epilogue</output-path>
+    <root id="archive" name="VDSystem.jar">
+      <element id="module-output" name="L2J_Mobius_CT_2.4_Epilogue" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/Mobius/L2J_Mobius_CT_2.4_Epilogue/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
