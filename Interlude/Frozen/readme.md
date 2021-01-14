@@ -1,6 +1,9 @@
 **VDS Vote Donate System**
 
 Implementation of vote global and individual system with itopz donate panel task manager.
+-
+- Global vote reward is when players vote for the server in one of the topsites installed as a "thank you" they will receive configured item/items reward.
+- Individual vote reward is when a single player (individual) vote for the server on one or more topsites and for each vote as a "thank you" he will receive configured item/items reward.
 
 **Requirement**
 - Frozen 1118 Last beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source/1118/branches/Beta
@@ -10,9 +13,9 @@ Implementation of vote global and individual system with itopz donate panel task
 
 **Build**
 - File ```VDSystem.jar```
-- Version: 1.0
+- Version: 1.1
 
-**Global vote system for iTopZ**
+**Global vote system**
 
 - IP restricted rewards
 - Reward every XX minutes
@@ -26,9 +29,9 @@ Implementation of vote global and individual system with itopz donate panel task
 - Print response failure message
 - Configured announcement print of server vote statistics
 
-**Individual vote system for iTopZ**
+**Individual vote system**
 
-- Automatically register .itopz command
+- Automatically register .topsite command
 - Reward item list will check if item exist
 - Reward item list with chances 0-100%
 - Reward item randomized of min-max values
@@ -59,37 +62,50 @@ Implementation of vote global and individual system with itopz donate panel task
 - Prints monthly reset
 - Prints database updates
 - Shows server ranking statistics
-- Shows if you use DEMO or API key as mode status
 - Auto scrolling messages
 - Fully configured
-
-
-**Note**
-
-- Can be extended to add all topsites
-- Can be used with LIVE and TEST modes
 
 **Installation**
 ![https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/Frozen/VDSystem/Patch.diff](Patch.diff)
 
-
-**TODO**
-
-- Add HWID protection
-- Replace JSON result parsing with StringJoiner
-
 ```Special thanks to Rationale``` :cry:
 
 **Images**
-![https://prnt.sc/w6zkpg](images/1.png)
-![https://prnt.sc/w6zl79](images/2.png)
-![https://prnt.sc/w6zp4l](images/3.png)
-![https://prnt.sc/w6zqok](images/4.png)
-![https://prnt.sc/w6zuyx](images/5.png)
-![https://prnt.sc/w6zxyo](images/6.png)
-![https://prnt.sc/w6zzcs](images/7.png)
+![https://prnt.sc/w6zkpg](../../images/1.png)
+![https://prnt.sc/w6zl79](../../images/2.png)
+![https://prnt.sc/w6zp4l](../../images/3.png)
+![https://prnt.sc/w6zqok](../../images/4.png)
+![https://prnt.sc/w6zuyx](../../images/5.png)
+![https://prnt.sc/w6zxyo](../../images/6.png)
+![https://prnt.sc/w6zzcs](../../images/7.png)
 
 **Chancelog**
+
+- Version 1.1
+  - Minimal Requirement on server resources and class consistency along projects.
+    - Addition of Thread class.
+    - Addition of Random class.
+    - Addition of Logs class.
+    - Addition of Url class.
+    - Addition of Rewards class.
+    - SQL independence on tables with vds_individual and vds_global tables automatic install by default
+  - Addition of topsites and their configs.
+    - Hopzone.
+    - L2Network.
+    - L2TopGameServer.
+    - L2TopServers.
+    - L2Votes.
+    - L2JBrasil.
+  - Gui
+    - Addition of Debug on/off button.
+    - Addition of Bug report button.
+    - Removed Debug mode.
+    - Rework on the class to update all topsite statistics.
+    - Rework on console size and re-arrange information and console.
+  - Fixed Bug that made global with individual rewards conflict.
+  - Improved custom JSon parser for wannabe-called APIs on a lot of topsites.
+  - Improved Debug with External IP Address.
+  - Improved code style on some cases like enchanted switch on mobius projects.
 
 - Version 1.0
   - Initial commit

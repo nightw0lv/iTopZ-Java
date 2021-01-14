@@ -23,7 +23,8 @@ package itopz.com;
 
 import com.l2jfrozen.util.Util;
 import itopz.com.gui.Gui;
-import itopz.com.vote.iTopZ;
+import itopz.com.util.VDSThreadPool;
+import itopz.com.vote.VDSystem;
 
 /**
  * @Author Nightwolf
@@ -33,7 +34,7 @@ import itopz.com.vote.iTopZ;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: Frozen 1118 Last beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source/1118/branches/Beta
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -44,6 +45,10 @@ public class VDSystemManager
 	public VDSystemManager()
 	{
 		Util.printSection("VDS Manager");
+
+		// thread initiator
+		VDSThreadPool.init();
+
 		// load configurations
 		Configurations.load();
 
@@ -51,7 +56,7 @@ public class VDSystemManager
 		Gui.getInstance();
 
 		// load iTopz
-		iTopZ.getInstance();
+		VDSystem.getInstance();
 	}
 
 	public static VDSystemManager getInstance()

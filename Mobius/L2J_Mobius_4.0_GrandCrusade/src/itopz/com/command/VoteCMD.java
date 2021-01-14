@@ -21,15 +21,21 @@
  */
 package itopz.com.command;
 
-import itopz.com.model.IndividualResponse;
+import itopz.com.Configurations;
 import itopz.com.gui.Gui;
-import itopz.com.model.entity.ITOPZ_INDIVIDUAL;
-import itopz.com.util.URL;
-import itopz.com.util.Utilities;
+import itopz.com.model.IndividualResponse;
+import itopz.com.util.*;
+import itopz.com.vote.VDSystem;
+import org.l2jmobius.gameserver.datatables.ItemTable;
 import org.l2jmobius.gameserver.handler.IVoicedCommandHandler;
 import org.l2jmobius.gameserver.model.actor.instance.PlayerInstance;
+import org.l2jmobius.gameserver.model.items.Item;
 import org.l2jmobius.gameserver.network.serverpackets.ActionFailed;
 import org.l2jmobius.gameserver.network.serverpackets.ExShowScreenMessage;
+
+import java.time.Duration;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @Author Nightwolf
@@ -39,7 +45,7 @@ import org.l2jmobius.gameserver.network.serverpackets.ExShowScreenMessage;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: Mobius 4.0 Grand Crusade
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -47,92 +53,122 @@ import org.l2jmobius.gameserver.network.serverpackets.ExShowScreenMessage;
  */
 public class VoteCMD implements IVoicedCommandHandler
 {
+	// logger
+	private static final Logs _log = new Logs(VoteCMD.class.getSimpleName());
+
 	// local response variables
-	private int responseCode;
-	private boolean hasVoted;
-	private long serverTime;
-	private long voteTime;
-	private String responseError;
+	private int _responseCode;
+	private boolean _hasVoted;
+	private long _serverTime;
+	private long _voteTime;
+	private String _responseError;
 	private String _IPAddress;
 
 	// 12 hour reuse
-	private final long VOTE_REUSE = 43200 * 1000;
+	private final Duration VOTE_REUSE = Duration.ofHours(12);
 
 	// commands
-	private final String[] COMMANDS =
+	public final static String[] COMMANDS =
 	{
-		"itopz",
+		"itopz", "hopzone", "l2jbrasil", "l2network", "l2topgameserver", "l2topservers", "l2votes"
 	};
 
 	@Override
-	public boolean useVoicedCommand(String s, PlayerInstance player, String s1)
+	public boolean useVoicedCommand(String command, PlayerInstance player, String s1)
 	{
-		// check the ip (local ranges will not be allowed)
-		if (!playerChecks(player, COMMANDS[0]))
-		{
-			player.sendPacket(ActionFailed.STATIC_PACKET);
+		final String TOPSITE = command.substring(1).toUpperCase();
+
+		// check if allowed the individual command to run
+		if (TOPSITE.equals("ITOPZ") && !Configurations.ITOPZ_INDIVIDUAL_REWARD)
 			return false;
-		}
+		if (TOPSITE.equals("HOPZONE") && !Configurations.HOPZONE_INDIVIDUAL_REWARD)
+			return false;
+		if (TOPSITE.equals("L2TOPGAMESERVER") && !Configurations.L2TOPGAMESERVER_INDIVIDUAL_REWARD)
+			return false;
+		if (TOPSITE.equals("L2NETWORK") && !Configurations.L2NETWORK_INDIVIDUAL_REWARD)
+			return false;
+		if (TOPSITE.equals("L2JBRASIL") && !Configurations.L2JBRASIL_INDIVIDUAL_REWARD)
+			return false;
+		if (TOPSITE.equals("L2TOPSERVERS") && !Configurations.L2TOPSERVERS_INDIVIDUAL_REWARD)
+			return false;
+		if (TOPSITE.equals("L2VOTES") && !Configurations.L2VOTES_INDIVIDUAL_REWARD)
+			return false;
 
-		getVoteInfo();
-
-		// player can get reward?
-		if (isEligible(player, COMMANDS[0]))
+		// check player eligibility
+		if (!playerChecksFail(player, TOPSITE))
 		{
-			sendMsg(player, "Successfully voted in " + COMMANDS[0] + "!");
-			// set var can vote: 12 hours (in ms).
-			player.getVariables().set(COMMANDS[0] + "_can_vote", System.currentTimeMillis() + VOTE_REUSE);
-			player.sendPacket(ActionFailed.STATIC_PACKET);
-			return ITOPZ_INDIVIDUAL.reward(player);
+			VDSThreadPool.schedule(() -> Execute(player, TOPSITE), 100);
 		}
+
+		player.sendPacket(ActionFailed.STATIC_PACKET);
 		return false;
 	}
+
 
 	/**
 	 * Validate user
 	 *
 	 * @param player object
-	 * @param topsite string
+	 * @param TOPSITE string
 	 * @return boolean
 	 */
-	private boolean playerChecks(PlayerInstance player, String topsite)
+	private boolean playerChecksFail(final PlayerInstance player, final String TOPSITE)
 	{
 		// check for private network (website will not accept it)
-		if (Utilities.localIp(player.getClient().getConnectionAddress()))
+		if (!Configurations.DEBUG && (Utilities.localIp(player.getClient().getConnectionAddress())))
 		{
 			sendMsg(player, "Private networks are not allowed.");
-			return false;
+			return true;
 		}
 
 		// check if 12 hours has pass from last vote
-		long voteTimer = player.getVariables().getLong( topsite + "_can_vote");
+		long voteTimer = Utilities.selectIndividualVar(player, TOPSITE, "can_vote");
 		if (voteTimer > System.currentTimeMillis())
 		{
 			String dateFormatted = Utilities.formatMillisecond(voteTimer);
-			sendMsg(player, "You already voted on " + topsite + " try again after " + dateFormatted + ".");
+			sendMsg(player, "You already voted on " + TOPSITE + " try again after " + dateFormatted + ".");
+			return true;
+		}
+
+		// ignore failures for debug
+		if (Configurations.DEBUG)
+		{
+			_IPAddress = Utilities.getMyIP();
 			return false;
 		}
 
 		_IPAddress = player.getClient().getConnectionAddress().getHostAddress();
-		return true;
+		return false;
 	}
 
 	/**
-	 * get info for this player
+	 * Execute individual response and reward player on success
+	 *
+	 * @param player object
+	 * @param TOPSITE string
 	 */
-	private void getVoteInfo()
+	private void Execute(final PlayerInstance player, final String TOPSITE)
 	{
-		new Thread(() ->
+		// get response from itopz about this ip address
+		Optional.ofNullable(IndividualResponse.OPEN(Url.from(TOPSITE + "_INDIVIDUAL_URL").toString(), _IPAddress).connect(TOPSITE, VDSystem.VoteType.INDIVIDUAL)).ifPresent(response ->
 		{
-			// get response from itopz about this ip address
-			IndividualResponse response = IndividualResponse.OPEN(URL.ITOPZ_INDIVIDUAL_URL.toString(), _IPAddress).connect();
 			// set variables
-			responseCode = response.getResponseCode();
-			hasVoted = response.hasVoted();
-			voteTime = response.getVoteTime() * 1000;
-			serverTime = response.getServerTime() * 1000;
-			responseError = response.getError();
-		}).run();
+			_responseCode = response.getResponseCode();
+			_hasVoted = response.hasVoted();
+			_voteTime = response.getVoteTime();
+			_serverTime = response.getServerTime();
+			_responseError = response.getError();
+		});
+
+		// player can get reward?
+		if (isEligible(player, TOPSITE))
+		{
+			sendMsg(player, "Successfully voted in " + TOPSITE + "!" + (Configurations.DEBUG ? "(DEBUG ON)" : ""));
+			reward(player, TOPSITE);
+			// set can vote: 12 hours (in ms).
+			Utilities.saveIndividualVar(player, TOPSITE, "can_vote", System.currentTimeMillis() + VOTE_REUSE.toMillis());
+			player.sendPacket(ActionFailed.STATIC_PACKET);
+		}
 	}
 
 	/**
@@ -141,34 +177,41 @@ public class VoteCMD implements IVoicedCommandHandler
 	 * @param player object
 	 * @return boolean
 	 */
-	private boolean isEligible(PlayerInstance player, String topsite)
+	private boolean isEligible(final PlayerInstance player, final String TOPSITE)
 	{
 		// check if response was not ok
-		if (responseCode != 200)
+		if (_responseCode != 200)
 		{
-			Gui.getInstance().ConsoleWrite(topsite.toUpperCase() + " Response Code:" + responseCode);
-			sendMsg(player, topsite.toUpperCase() + " server is not responding try again later.");
+			if (Configurations.DEBUG)
+				Gui.getInstance().ConsoleWrite(TOPSITE + " Response Code:" + _responseCode);
+			sendMsg(player, TOPSITE + " server is not responding try again later.");
 			return false;
 		}
 
 		// server returned error
-		if (responseError != null)
+		if (_responseError != null)
 		{
-			Gui.getInstance().ConsoleWrite(topsite.toUpperCase() + " Response Code:" + responseError);
-			sendMsg(player, "Server error:" + responseError + ".");
+			if (Configurations.DEBUG)
+				Gui.getInstance().ConsoleWrite(TOPSITE + " Response Error:" + _responseError);
+			sendMsg(player, "Response error:" + _responseError + ".");
 			return false;
 		}
 
 		// player has not voted
-		if (!hasVoted)
+		if (!_hasVoted)
 		{
-			sendMsg(player, "You didnt vote at " + topsite.toUpperCase() + ".");
+			sendMsg(player, "You didn't vote at " + TOPSITE + ".");
 			return false;
 		}
 
 		// check 12hours on server time pass
-		if (voteTime + VOTE_REUSE < serverTime)
+		if ((_serverTime > 0 && _voteTime > 0) && (_voteTime + VOTE_REUSE.toMillis() < _serverTime))
 		{
+			if (Configurations.DEBUG)
+			{
+				sendMsg(player, "Dates " + (_voteTime + VOTE_REUSE.toMillis()) + "<" + _serverTime);
+				Gui.getInstance().ConsoleWrite(TOPSITE + "Dates " + (_voteTime + VOTE_REUSE.toMillis()) + "<" + _serverTime);
+			}
 			sendMsg(player, "The reward has expired, vote again.");
 			return false;
 		}
@@ -178,17 +221,52 @@ public class VoteCMD implements IVoicedCommandHandler
 	}
 
 	/**
+	 * reward player
+	 *
+	 * @param player object
+	 */
+	private void reward(final PlayerInstance player, final String TOPSITE)
+	{
+		// iterate on item values
+		for (final int itemId : Rewards.from(TOPSITE + "_INDIVIDUAL_REWARDS").keys())
+		{
+			// check if the item id exists
+			final Item item = ItemTable.getInstance().getTemplate(itemId);
+			if (Objects.nonNull(item))
+			{
+				// get config values
+				final Long[] values = Rewards.from(TOPSITE + "_INDIVIDUAL_REWARDS").get(itemId);
+				// set min count value of received item
+				long min = values[0];
+				// set max count value of received item
+				long max = values[1];
+				// set chances of getting the item
+				long chance = values[2];
+				// set count of each item
+				long count = Random.get(min, max);
+				// chance for each item
+				if (Random.get(100) < chance || chance >= 100)
+				{
+					// reward item
+					player.addItem(TOPSITE, itemId, count, player, true);
+					// write info on console
+					Gui.getInstance().ConsoleWrite(TOPSITE + ": player " + player.getName() + " received x" + count + " " + item.getName());
+				}
+			}
+		}
+	}
+
+	/**
 	 * Send message to player
 	 *
 	 * @param player object
 	 * @param s string
 	 */
-	private void sendMsg(PlayerInstance player, String s)
+	private void sendMsg(final PlayerInstance player, final String s)
 	{
 		player.sendPacket(new ExShowScreenMessage(s, ExShowScreenMessage.MIDDLE_CENTER, 3000));
 		player.sendMessage(s);
 	}
-
 
 	@Override
 	public String[] getVoicedCommandList()

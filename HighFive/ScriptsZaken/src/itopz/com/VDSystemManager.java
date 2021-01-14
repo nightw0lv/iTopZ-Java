@@ -22,7 +22,8 @@
 package itopz.com;
 
 import itopz.com.gui.Gui;
-import itopz.com.vote.iTopZ;
+import itopz.com.util.VDSThreadPool;
+import itopz.com.vote.VDSystem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +35,7 @@ import org.slf4j.LoggerFactory;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: L2Scripts Classic: Saviors (Zaken) [26360]
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -47,6 +48,10 @@ public class VDSystemManager
 	public VDSystemManager()
 	{
 		_log.info("VDS Manager");
+
+		// thread initiator
+		VDSThreadPool.init();
+
 		// load configurations
 		Configurations.load();
 
@@ -54,7 +59,7 @@ public class VDSystemManager
 		Gui.getInstance();
 
 		// load iTopz
-		iTopZ.getInstance();
+		VDSystem.getInstance();
 	}
 
 	public static VDSystemManager getInstance()

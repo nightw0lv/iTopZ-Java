@@ -22,10 +22,10 @@
 package itopz.com;
 
 import itopz.com.gui.Gui;
-import itopz.com.vote.iTopZ;
+import itopz.com.util.Logs;
+import itopz.com.util.VDSThreadPool;
+import itopz.com.vote.VDSystem;
 import l2.gameserver.scripts.ScriptFile;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @Author Nightwolf
@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Lucera
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -44,12 +44,16 @@ import org.slf4j.LoggerFactory;
 public class VDSystemManager implements ScriptFile
 {
 	// logger
-	private static final Logger _log = LoggerFactory.getLogger(VDSystemManager.class.getSimpleName());
+	private static final Logs _log = new Logs(VDSystemManager.class.getSimpleName());
 
 	@Override
 	public void onLoad()
 	{
-		log("----------------------- VDS Manager -----------------------");
+		_log.info("----------------------- VDS Manager -----------------------");
+
+		// thread initiator
+		VDSThreadPool.init();
+
 		// load configurations
 		Configurations.load();
 
@@ -57,8 +61,9 @@ public class VDSystemManager implements ScriptFile
 		Gui.getInstance();
 
 		// load iTopz
-		iTopZ.getInstance();
-		log("-----------------------------------------------------------");
+		VDSystem.getInstance();
+
+		_log.info("-----------------------------------------------------------");
 	}
 
 	@Override
@@ -71,15 +76,5 @@ public class VDSystemManager implements ScriptFile
 	public void onShutdown()
 	{
 
-	}
-
-	/**
-	 * Logger
-	 *
-	 * @param s string
-	 */
-	private void log(String s)
-	{
-		_log.info(VDSystemManager.class.getSimpleName() + ": " + s);
 	}
 }

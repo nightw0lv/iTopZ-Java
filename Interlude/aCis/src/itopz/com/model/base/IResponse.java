@@ -21,9 +21,14 @@
  */
 package itopz.com.model.base;
 
+import itopz.com.Configurations;
 import itopz.com.util.Json;
+import itopz.com.util.Logs;
+import itopz.com.vote.VDSystem;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
@@ -40,7 +45,7 @@ import java.util.stream.Collectors;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -48,6 +53,8 @@ import java.util.stream.Collectors;
  */
 public abstract class IResponse
 {
+	private static final Logs _log = new Logs(IResponse.class.getSimpleName());
+
 	private final String _url;
 
 	public IResponse(final String url)
@@ -55,7 +62,7 @@ public abstract class IResponse
 		_url = url;
 	}
 
-	public abstract void onFetch(final int responseCode, final Json response);
+	public abstract void onFetch(final String TOPSITE, final int responseCode, final Json response);
 
 	public abstract String replaceURL(final String retailURL);
 
@@ -64,36 +71,66 @@ public abstract class IResponse
 	 *
 	 * @return IResponse object
 	 */
-	public IResponse connect()
+	public IResponse connect(String TOPSITE, VDSystem.VoteType TYPE)
 	{
-		// initialize new connection on itopz
+		// initialize new connection on topsite
 		HttpURLConnection connection = null;
-
+		int responseCode;
 		try
 		{
-			// set url type on itopz
+			// set url type of topsite
 			connection = (HttpURLConnection) new URL(replaceURL(_url)).openConnection();
 			// user agent
-			connection.addRequestProperty("User-Agent", "ITOPZ Server Manager");
+			connection.addRequestProperty("User-Agent", TOPSITE + " Server Manager");
 			// do fast timeout
 			connection.setConnectTimeout(3000);
-			// get response code from itopz.com
-			int responseCode = connection.getResponseCode();
+			// another stupid idea to send POST request in order to get an int... presented by:
+			if (TOPSITE.equals("L2NETWORK"))
+			{
+				String urlParameters = "apiKey=" + Configurations.L2NETWORK_API_KEY + "&type=1&player=";
+				byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
+				int postDataLength = postData.length;
+				connection.setRequestMethod("POST");
+				connection.setRequestProperty("Content-Length", Integer.toString(postDataLength));
+				connection.setDoOutput(true);
+				try (DataOutputStream wr = new DataOutputStream(connection.getOutputStream()))
+				{
+					wr.write(postData);
+					// bypass manually the checks
+					responseCode = 200;
+				}
+			}
+			// and because of the stupid idea with the POST request we have to stop checking the response code because of IllegalStateException
+			else
+			{
+				// get response code from topsite
+				responseCode = connection.getResponseCode();
+			}
 			// read input
 			try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8)))
 			{
 				// return response code and content
-				onFetch(responseCode, new Json(reader.lines().collect(Collectors.joining())));
+				onFetch(TOPSITE, responseCode, new Json(reader.lines().collect(Collectors.joining()), TOPSITE, TYPE));
 			}
 			return this;
 		}
 		catch(final SocketTimeoutException sex)
 		{
-			System.out.println(sex.getMessage());
+			_log.error("Socket:" + sex.getMessage());
+			if (Configurations.DEBUG)
+				_log.error("Socket:" + sex.getMessage(), sex);
+		}
+		catch (final FileNotFoundException fnfe)
+		{
+			_log.error("Link '" + _url + "' not found:" + fnfe.getMessage());
+			if (Configurations.DEBUG)
+				_log.error("Socket:" + fnfe.getMessage(), fnfe);
 		}
 		catch(final Exception ex)
 		{
-			System.out.println(ex.getMessage());
+			_log.error("Exception:" + ex.getMessage());
+			if (Configurations.DEBUG)
+				_log.error("Exception:" + ex.getMessage(), ex);
 		}
 		finally
 		{

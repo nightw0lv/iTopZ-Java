@@ -23,17 +23,26 @@ package itopz.com.util;
 
 import itopz.com.gui.Gui;
 import org.l2jmobius.commons.database.DatabaseFactory;
+import org.l2jmobius.gameserver.model.actor.instance.PlayerInstance;
 import org.l2jmobius.gameserver.util.Broadcast;
 
 import java.awt.*;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.Locale;
 
@@ -45,7 +54,7 @@ import java.util.Locale;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: Mobius 2.4 Secret of Empire
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -53,24 +62,43 @@ import java.util.Locale;
  */
 public class Utilities
 {
-    private static final String CREATE_TABLE = "CREATE TABLE donate_holder (" +
+    public static final String CREATE_DONATE_TABLE = "CREATE TABLE donate_holder (" +
             "  no int(11) NOT NULL AUTO_INCREMENT," +
             "  id int(11) NOT NULL," +
-            "  count int(11) NOT NULL," +
-            "  playername varchar(255) CHARACTER SET utf8mb4 NOT NULL," +
+            "  count bigint(20) NOT NULL," +
+            "  playername varchar(255) NOT NULL," +
             "  order_status varchar(255) DEFAULT '1'," +
             "  PRIMARY KEY (no)" +
             ") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;";
-    private static final String DELETE_TABLE = "DROP TABLE IF EXISTS donate_holder;";
+    public static final String CREATE_INDIVIDUAL_TABLE = "CREATE TABLE vds_individual (" +
+              "char_id int(11) NOT NULL," +
+              "topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
+              "var varchar(255) NOT NULL," +
+              "value bigint(20) NOT NULL," +
+              "PRIMARY KEY (char_id,topsite)" +
+              ") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+    public static final String CREATE_GLOBAL_TABLE = "CREATE TABLE vds_global (" +
+              "topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
+              "var varchar(255) NOT NULL," +
+              "value bigint(20) NOT NULL," +
+              "PRIMARY KEY (topsite)" +
+              ") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;";
+    public static final String DELETE_DONATE_TABLE = "DROP TABLE IF EXISTS donate_holder;";
+    private static final String DELETE_INDIVIDUAL_TABLE = "DROP TABLE IF EXISTS vds_individual;";
+    private static final String DELETE_GLOBAL_TABLE = "DROP TABLE IF EXISTS vds_global;";
+    private static final String INDIVIDUAL_VAR_INSERT = "INSERT INTO vds_individual (char_id, topsite, var, value) VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE value=VALUES(value);";
+    private static final String INDIVIDUAL_VAR_SELECT = "SELECT char_id,topsite,var,value FROM vds_individual WHERE char_id=? AND topsite=? AND var=?";
+    private static final String GLOBAL_VAR_SELECT = "SELECT value FROM vds_global WHERE topsite=? AND var=?";
+    private static final String GLOBAL_VAR_REPLACE = "INSERT INTO vds_global (topsite,var,value) VALUES (?,?,?) ON DUPLICATE KEY UPDATE value=VALUES(value)";
 
     /**
      * announce to all players
      *
      * @param message String
      */
-    public static void announce(String message)
+    public static void announce(String topsite, String message)
     {
-        Broadcast.toAllOnlinePlayers("[iTopZ]" + message, true);
+        Broadcast.toAllOnlinePlayers("[" + topsite + "]" + message, true);
     }
 
     /**
@@ -95,37 +123,174 @@ public class Utilities
     /**
      * Delete Donate Table
      */
-    public static void deleteTable()
+    public static void deleteTable(final String QUERY, final String TABLE)
     {
         try (Connection con = DatabaseFactory.getConnection();
-             PreparedStatement statement = con.prepareStatement(DELETE_TABLE))
+             PreparedStatement statement = con.prepareStatement(QUERY))
         {
             statement.execute();
         }
         catch (SQLException e)
         {
-            Gui.getInstance().ConsoleWrite("Delete Donate Table Failed: " + e.getMessage());
+            Gui.getInstance().ConsoleWrite("Delete " + TABLE + " Table Failed: " + e.getMessage());
         }
 
-        Gui.getInstance().ConsoleWrite("Delete Donate Table successfully!");
+        Gui.getInstance().ConsoleWrite("Delete " + TABLE + " Table successfully!");
     }
 
     /**
      * Create Donate Table
      */
-    public static void createTable()
+    public static void createTable(final String QUERY, final String TABLE)
     {
         try (Connection con = DatabaseFactory.getConnection();
-             PreparedStatement statement = con.prepareStatement(CREATE_TABLE))
+             PreparedStatement statement = con.prepareStatement(QUERY))
         {
             statement.execute();
         }
         catch (SQLException e)
         {
-            Gui.getInstance().ConsoleWrite("Installed Donate Table Failed: " + e.getMessage());
+            Gui.getInstance().ConsoleWrite("Installed " + TABLE + " Table Failed: " + e.getMessage());
         }
 
-        Gui.getInstance().ConsoleWrite("Installed Donate Table successfully!");
+        Gui.getInstance().ConsoleWrite("Installed " + TABLE + " Table successfully!");
+    }
+
+    /**
+     * create individual variable in database
+     *
+     * @param player object
+     * @param topsite string
+     * @param var string
+     * @param value long
+     */
+    public static void saveIndividualVar(final PlayerInstance player, final String topsite, final String var, final long value)
+    {
+        try (Connection con = DatabaseFactory.getConnection();
+             PreparedStatement statement = con.prepareStatement(INDIVIDUAL_VAR_INSERT))
+        {
+            statement.setInt(1, player.getObjectId());
+            statement.setString(2, topsite);
+            statement.setString(3, var);
+            statement.setString(4, String.valueOf(value));
+            statement.execute();
+        }
+        catch (Exception e)
+        {
+            final String error = e.getMessage();
+            Gui.getInstance().ConsoleWrite("could not insert char var: " + error);
+
+            if (error.contains("doesn't exist") && error.contains("vds_individual"))
+            {
+                deleteTable(DELETE_INDIVIDUAL_TABLE, "vds_individual");
+                createTable(CREATE_INDIVIDUAL_TABLE, "vds_individual");
+            }
+        }
+    }
+
+    /**
+     * select individual variable from database
+     *
+     * @param player object
+     * @param topsite string
+     * @param var string
+     * @return long
+     */
+    public static long selectIndividualVar(final PlayerInstance player, final String topsite, final String var)
+    {
+        long value = -1;
+        try (Connection con = DatabaseFactory.getConnection();
+             PreparedStatement statement = con.prepareStatement(INDIVIDUAL_VAR_SELECT))
+        {
+            statement.setInt(1, player.getObjectId());
+            statement.setString(2, topsite);
+            statement.setString(3, var);
+            statement.execute();
+            try (ResultSet rs = statement.executeQuery())
+            {
+                while (rs.next())
+                {
+                    value = rs.getLong("value");
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            final String error = e.getMessage();
+            Gui.getInstance().ConsoleWrite("could not select char var: " + error);
+
+            if (error.contains("doesn't exist") && error.contains("vds_individual"))
+            {
+                deleteTable(DELETE_INDIVIDUAL_TABLE, "vds_individual");
+                createTable(CREATE_INDIVIDUAL_TABLE, "vds_individual");
+            }
+        }
+        return value;
+    }
+
+    /**
+     * save global variable
+     *
+     * @param topsite string
+     * @param var string
+     * @param value int
+     */
+    public static void saveGlobalVar(final String topsite, final String var, final int value)
+    {
+        try (Connection con = DatabaseFactory.getConnection();
+             PreparedStatement statement = con.prepareStatement(GLOBAL_VAR_REPLACE))
+        {
+            statement.setString(1, topsite);
+            statement.setString(2, var);
+            statement.setString(3, String.valueOf(value));
+            statement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            final String error = e.getMessage();
+            Gui.getInstance().ConsoleWrite("could not insert global variable:" + error);
+
+            if (error.contains("doesn't exist") && error.contains("vds_global"))
+            {
+                deleteTable(DELETE_GLOBAL_TABLE, "vds_global");
+                createTable(CREATE_GLOBAL_TABLE, "vds_global");
+            }
+        }
+    }
+
+    /**
+     * select global variable
+     *
+     * @param topsite string
+     * @param var string
+     * @return int
+     */
+    public static int selectGlobalVar(final String topsite, final String var)
+    {
+        int result = -1;
+        try (Connection con = DatabaseFactory.getConnection();
+             PreparedStatement statement = con.prepareStatement(GLOBAL_VAR_SELECT))
+        {
+            statement.setString(1, topsite);
+            statement.setString(2, var);
+            try (ResultSet rs = statement.executeQuery())
+            {
+                if (rs.first())
+                    result = rs.getInt("value");
+            }
+        }
+        catch (Exception e)
+        {
+            final String error = e.getMessage();
+            Gui.getInstance().ConsoleWrite("could not load global variable:" + error);
+
+            if (error.contains("doesn't exist") && error.contains("vds_global"))
+            {
+                deleteTable(DELETE_GLOBAL_TABLE, "vds_global");
+                createTable(CREATE_GLOBAL_TABLE, "vds_global");
+            }
+        }
+        return result;
     }
 
     /**
@@ -149,4 +314,46 @@ public class Utilities
     {
         return address == null || address.isLinkLocalAddress() || address.isLoopbackAddress() || address.isAnyLocalAddress() || address.isSiteLocalAddress();
     }
+
+    /**
+     * Convert string datetime to long milliseconds
+     *
+     * @param ServerTime string
+     * @param TimeZone string
+     * @return long
+     */
+	public static long millisecondsFromString(String ServerTime, String TimeZone)
+	{
+	    if (ServerTime == null || TimeZone == null)
+	        return -4;
+	    try
+         {
+             LocalDateTime localDateTime = LocalDateTime.parse(ServerTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+             return localDateTime.atZone(ZoneId.of(TimeZone)).toInstant().toEpochMilli();
+         }
+	    catch(DateTimeParseException dtpe)
+         {
+             dtpe.getMessage();
+         }
+	    return -3;
+	}
+
+    /**
+     * get external ip for vote debugging
+     *
+     * @return ip string
+     */
+	public static String getMyIP()
+     {
+         String ip = Random.get(0, 254) + "." + Random.get(0, 254)  + "." + Random.get(0, 254)  + "." + Random.get(0, 254);
+         try (BufferedReader in = new BufferedReader(new InputStreamReader(new URL("http://checkip.amazonaws.com").openStream())))
+         {
+             ip = in.readLine();
+         }
+         catch (Exception e)
+         {
+             e.printStackTrace();
+         }
+         return ip;
+     }
 }

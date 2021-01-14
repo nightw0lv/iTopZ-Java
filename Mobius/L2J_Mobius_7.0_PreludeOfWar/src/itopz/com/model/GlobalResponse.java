@@ -21,8 +21,11 @@
  */
 package itopz.com.model;
 
+import itopz.com.Configurations;
+import itopz.com.gui.Gui;
 import itopz.com.model.base.IResponse;
 import itopz.com.util.Json;
+import itopz.com.vote.VDSystem;
 
 /**
  * @Author Nightwolf
@@ -32,7 +35,7 @@ import itopz.com.util.Json;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: Mobius 7.0 Prelude Of War
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -60,14 +63,15 @@ public class GlobalResponse extends IResponse
 	 * @param response Json object
 	 */
 	@Override
-	public void onFetch(final int responseCode, final Json response)
+	public void onFetch(final String TOPSITE, final int responseCode, final Json response)
 	{
-		//TODO parse the result for global with StringJoiner str = new StringJoiner();
 		_responseCode = responseCode;
-		_serverVotes = response.getInteger("server_votes");
-		_serverRank = response.getInteger("server_rank");
-		_serverNeededVotes = response.getInteger("next_rank_votes");
-		_serverNextRank = response.getInteger("next_rank");
+		_serverVotes = response.getInteger(TOPSITE.toLowerCase() + "_votes");
+		_serverRank = response.getInteger(TOPSITE.toLowerCase() + "_rank");
+		_serverNeededVotes = response.getInteger(TOPSITE.toLowerCase() + "_rank_votes");
+		_serverNextRank = response.getInteger(TOPSITE.toLowerCase() + "_next_rank");
+		if (Configurations.DEBUG)
+			Gui.getInstance().ConsoleWrite("TOPSITE:" + TOPSITE + " VOTES:" + _serverVotes + " RESPONSE:" + _responseCode);
 	}
 
 	/**
@@ -88,9 +92,9 @@ public class GlobalResponse extends IResponse
 	 * @return object
 	 */
 	@Override
-	public GlobalResponse connect()
+	public GlobalResponse connect(final String TOPSITE, final VDSystem.VoteType TYPE)
 	{
-		return (GlobalResponse) super.connect();
+		return (GlobalResponse) super.connect(TOPSITE, TYPE);
 	}
 
 	/**

@@ -21,8 +21,11 @@
  */
 package itopz.com.model;
 
+import itopz.com.gui.Gui;
 import itopz.com.model.base.IResponse;
 import itopz.com.util.Json;
+import itopz.com.util.Utilities;
+import itopz.com.vote.VDSystem;
 
 /**
  * @Author Nightwolf
@@ -32,7 +35,7 @@ import itopz.com.util.Json;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: Mobius CT 2.4 Epilogue
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -67,14 +70,46 @@ public class IndividualResponse extends IResponse
 	 * @param response Json object
 	 */
 	@Override
-	public void onFetch(final int responseCode, final Json response)
+	public void onFetch(final String TOPSITE, final int responseCode, final Json response)
 	{
-		//TODO parse the result for individual with StringJoiner str = new StringJoiner();
-		_responseCode = responseCode;
-		_hasVoted = response.getBoolean("isVoted");
-		_serverTime = response.getLong("serverTime");
-		_voteTime = response.getLong("voteTime");
-		_voteError = response.getString("error");
+		_responseCode = responseCode == 200 ? 200 : -1;
+		_hasVoted = response.getBoolean(TOPSITE.toLowerCase() + "_voted");
+		_voteTime = -1;
+		_serverTime = -1;
+		_voteError = null;
+
+		switch (TOPSITE)
+		{
+			case "ITOPZ":
+				_voteTime = response.getLong(TOPSITE.toLowerCase() + "_vote_time") * 1000;
+				_serverTime = response.getLong(TOPSITE.toLowerCase() + "serverTime") * 1000;
+				_voteError = response.getString("error");
+				break;
+			case "HOPZONE":
+				_voteTime = _hasVoted ? Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "US/Arizona") : -1;
+				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_server_time"), "US/Arizona");
+				_voteError = response.getString("errorMsg");
+				break;
+			case "L2JBRASIL":
+				_voteTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "America/Sao_Paulo");
+				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_server_time"), "America/Sao_Paulo");
+				break;
+			case "L2TOPGAMESERVER":
+				_voteTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "Europe/Berlin");
+				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() +"_server_time"), "Europe/Berlin");
+				break;
+			case "L2TOPSERVERS":
+				_voteTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "Europe/Athens");
+				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_server_time"), "Europe/Athens");
+				break;
+			case "L2NETWORK":
+			case "L2VOTES":
+				break;
+			default:
+				_hasVoted = false;
+				Gui.getInstance().ConsoleWrite("Defaulted: " + TOPSITE);
+				break;
+		}
 	}
 
 	/**
@@ -95,9 +130,9 @@ public class IndividualResponse extends IResponse
 	 * @return super.connect() object
 	 */
 	@Override
-	public IndividualResponse connect()
+	public IndividualResponse connect(final String TOPSITE, final VDSystem.VoteType TYPE)
 	{
-		return (IndividualResponse) super.connect();
+		return (IndividualResponse) super.connect(TOPSITE, TYPE);
 	}
 
 	/**

@@ -22,14 +22,15 @@
 package itopz.com.donate;
 
 import itopz.com.gui.Gui;
+import itopz.com.util.Logs;
 import itopz.com.util.Utilities;
 import l2.gameserver.data.xml.holder.ItemHolder;
 import l2.gameserver.database.DatabaseFactory;
+import l2.gameserver.handler.items.ItemHandler;
+import l2.gameserver.model.GameObjectsStorage;
 import l2.gameserver.model.Player;
-import l2.gameserver.model.World;
 import l2.gameserver.scripts.Functions;
 import l2.gameserver.templates.item.ItemTemplate;
-import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,7 +47,7 @@ import java.util.Optional;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Lucera
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -55,7 +56,7 @@ import java.util.Optional;
 public class DonateTaskManager implements Runnable
 {
     // logger
-    private static Logger _log = Logger.getLogger(DonateTaskManager.class.getName());
+    private static final Logs _log = new Logs(DonateTaskManager.class.getSimpleName());
 
     private final String DELETE = "DELETE FROM donate_holder WHERE no=? LIMIT 1";
     private final String SELECT = "SELECT no, id, count, playername FROM donate_holder";
@@ -77,7 +78,7 @@ public class DonateTaskManager implements Runnable
         {
             while (rset.next())
             {
-                final Player player = World.getPlayer(rset.getString("playername"));
+                final Player player = GameObjectsStorage.getPlayer(rset.getString("playername"));
                 final int no = rset.getInt("no");
                 final int id = rset.getInt("id");
                 final int count = rset.getInt("count");
@@ -100,13 +101,13 @@ public class DonateTaskManager implements Runnable
         }
         catch (final Exception e)
         {
-            _log.warn("Check donate items failed. " + e.getMessage());
             String error = e.getMessage();
+            _log.warn("Check donate items failed. " + error);
 
-            if (error.contains("doesn't exist") || error.contains("donate_holder"))
+            if (error.contains("doesn't exist") && error.contains("donate_holder"))
             {
-                Utilities.deleteTable();
-                Utilities.createTable();
+                Utilities.deleteTable(Utilities.DELETE_DONATE_TABLE, "Donate");
+                Utilities.createTable(Utilities.CREATE_DONATE_TABLE, "Donate");
             }
         }
     }
@@ -123,7 +124,8 @@ public class DonateTaskManager implements Runnable
              PreparedStatement statement = con.prepareStatement(DELETE))
         {
             statement.setInt(1, id);
-            return statement.execute();
+            statement.execute();
+            return true;
         }
         catch (SQLException e)
         {

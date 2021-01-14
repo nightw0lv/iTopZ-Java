@@ -22,9 +22,9 @@
 package itopz.com;
 
 import itopz.com.gui.Gui;
-import itopz.com.vote.iTopZ;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import itopz.com.util.Logs;
+import itopz.com.util.VDSThreadPool;
+import itopz.com.vote.VDSystem;
 
 /**
  * @Author Nightwolf
@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: L2Scripts rev20720(2268)
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -43,10 +43,14 @@ import org.slf4j.LoggerFactory;
 public class VDSystemManager
 {
 	// logger
-	private static final Logger _log = LoggerFactory.getLogger(VDSystemManager.class);
+	private static final Logs _log = new Logs(VDSystemManager.class.getSimpleName());
 	public VDSystemManager()
 	{
 		_log.info("VDS Manager");
+
+		// thread initiator
+		VDSThreadPool.init();
+
 		// load configurations
 		Configurations.load();
 
@@ -54,7 +58,7 @@ public class VDSystemManager
 		Gui.getInstance();
 
 		// load iTopz
-		iTopZ.getInstance();
+		VDSystem.getInstance();
 	}
 
 	public static VDSystemManager getInstance()

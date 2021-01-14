@@ -13,17 +13,33 @@
       - Paid: your host + install [https://shop.denart-designs.com](https://shop.denart-designs.com)
    - [x] iTopZ Reward Global (Automatic)
    - [x] iTopZ Reward Individual (Player command)
+   - [x] Hopzone Reward Global (Automatic)
+   - [x] Hopzone Reward Individual (Player command)
+   - [x] L2TopGameServer Reward Global (Automatic)
+   - [x] L2TopGameServer Reward Individual (Player command)
+   - [x] L2Network Reward Global (Automatic)
+   - [x] L2Network Reward Individual (Player command)
+   - [x] L2TopServers Reward Global (Automatic)
+   - [x] L2TopServers Reward Individual (Player command)
+   - [x] L2JBrasil Reward Global (Automatic)
+   - [x] L2JBrasil Reward Individual (Player command)
+   - [x] L2Votes Reward Global (Automatic)
+   - [x] L2Votes Reward Individual (Player command)
 - **Supported vote sites**
    - [x] ITOPZ
       - Website [https://itopz.com](https://itopz.com/)
-   - [ ] L2TOPGAMESERVER
-   - [ ] L2VOTES
-   - [ ] HOPZONE
-   - [ ] L2NETWORK
-   - [ ] L2TOPSERVERS
-   - [ ] TOPL2JBRASIL
-   - [ ] MMOTOP
-   - [ ] L2SERVERS
+   - [x] HOPZONE
+      - Website [https://hopzone.net/](https://hopzone.net/)
+   - [x] L2TOPGAMESERVER
+      - Website [https://l2.topgameserver.net/](https://l2.topgameserver.net/)
+   - [x] L2NETWORK
+      - Website [https://l2network.eu/](https://l2network.eu/)
+   - [x] L2TOPSERVERS
+      - Website [https://l2topservers.com/](https://l2topservers.com/)
+   - [x] TOPL2JBRASIL
+      - Website [https://top.l2jbrasil.com/](https://top.l2jbrasil.com/)
+   - [x] L2VOTES
+      - Website [https://l2votes.com/](https://l2votes.com/)
   - Will not be added to list
     - [x] ~~L2TOPCO~~
     - [x] ~~TOPZONE~~
@@ -74,10 +90,6 @@
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/ScriptsZaken/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/L2ScriptsZaken)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/ScriptsZaken/Patch.diff)
-    - [ ] RATIONALE
-      - ~~Info Download Source~~
-      - ~~Release Download Compiled Jar~~
-      - ~~Patch Download Patch~~
   - **Mobius Projects**
     - [x] L2J Mobius 1.0 Ertheia
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_1.0_Ertheia/)
@@ -206,3 +218,5 @@
 ![https://prnt.sc/w6zuyx](images/5.png)
 ![https://prnt.sc/w6zxyo](images/6.png)
 ![https://prnt.sc/w6zzcs](images/7.png)
+
+<a href="https://www.buymeacoffee.com/night" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>

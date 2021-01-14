@@ -22,9 +22,9 @@
 package itopz.com;
 
 import itopz.com.gui.Gui;
-import itopz.com.vote.iTopZ;
-
-import java.util.logging.Logger;
+import itopz.com.util.Logs;
+import itopz.com.util.VDSThreadPool;
+import itopz.com.vote.VDSystem;
 
 /**
  * @Author Nightwolf
@@ -34,7 +34,7 @@ import java.util.logging.Logger;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: Mobius C4 Scions of Destiny
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -42,12 +42,14 @@ import java.util.logging.Logger;
  */
 public class VDSystemManager
 {
-	// logger
-	private static final Logger _log = Logger.getLogger(VDSystemManager.class.getName());
-
+	private static final Logs _log = new Logs(VDSystemManager.class.getSimpleName());
 	public VDSystemManager()
 	{
-		log("VDS Manager");
+		_log.log("VDS Manager");
+
+		// thread initiator
+		VDSThreadPool.init();
+
 		// load configurations
 		Configurations.load();
 
@@ -55,22 +57,7 @@ public class VDSystemManager
 		Gui.getInstance();
 
 		// load iTopz
-		iTopZ.getInstance();
-	}
-
-	/**
-	 * Logger
-	 *
-	 * @param str string
-	 */
-	private void log(String str)
-	{
-		String s = "=[ " + str + " ]";
-		while (s.length() < 61)
-		{
-			s = "-" + s;
-		}
-		_log.info(s);
+		VDSystem.getInstance();
 	}
 
 	public static VDSystemManager getInstance()

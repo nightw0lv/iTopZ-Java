@@ -22,7 +22,8 @@
 package itopz.com;
 
 import itopz.com.gui.Gui;
-import itopz.com.vote.iTopZ;
+import itopz.com.util.VDSThreadPool;
+import itopz.com.vote.VDSystem;
 import smartguard.core.utils.LogUtils;
 
 /**
@@ -33,7 +34,7 @@ import smartguard.core.utils.LogUtils;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: Remorse (l2-scripts) classic 196 pack
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -44,6 +45,10 @@ public class VDSystemManager
 	public VDSystemManager()
 	{
 		LogUtils.log("VDS Manager");
+
+		// thread initiator
+		VDSThreadPool.init();
+
 		// load configurations
 		Configurations.load();
 
@@ -51,7 +56,7 @@ public class VDSystemManager
 		Gui.getInstance();
 
 		// load iTopz
-		iTopZ.getInstance();
+		VDSystem.getInstance();
 	}
 
 	public static VDSystemManager getInstance()

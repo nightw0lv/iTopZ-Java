@@ -22,8 +22,8 @@
 package itopz.com.donate;
 
 import itopz.com.gui.Gui;
+import itopz.com.util.Logs;
 import itopz.com.util.Utilities;
-import net.sf.l2j.commons.logging.CLogger;
 import net.sf.l2j.commons.pool.ConnectionPool;
 import net.sf.l2j.gameserver.data.xml.ItemData;
 import net.sf.l2j.gameserver.model.World;
@@ -46,7 +46,7 @@ import java.util.Optional;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -55,7 +55,7 @@ import java.util.Optional;
 public class DonateTaskManager implements Runnable
 {
     // logger
-    private static final CLogger _log = new CLogger(DonateTaskManager.class.getSimpleName());
+    private static final Logs _log = new Logs(DonateTaskManager.class.getSimpleName());
 
     private final String DELETE = "DELETE FROM donate_holder WHERE no=? LIMIT 1";
     private final String SELECT = "SELECT no, id, count, playername FROM donate_holder";
@@ -100,13 +100,13 @@ public class DonateTaskManager implements Runnable
         }
         catch (final Exception e)
         {
-            _log.warn("Check donate items failed. " + e.getMessage());
             String error = e.getMessage();
+            _log.warn("Check donate items failed. " + error);
 
-            if (error.contains("doesn't exist") || error.contains("donate_holder"))
+            if (error.contains("doesn't exist") && error.contains("donate_holder"))
             {
-                Utilities.deleteTable();
-                Utilities.createTable();
+                Utilities.deleteTable(Utilities.DELETE_DONATE_TABLE, "Donate");
+                Utilities.createTable(Utilities.CREATE_DONATE_TABLE, "Donate");
             }
         }
     }
@@ -123,7 +123,8 @@ public class DonateTaskManager implements Runnable
              PreparedStatement statement = con.prepareStatement(DELETE))
         {
             statement.setInt(1, id);
-            return statement.execute();
+            statement.execute();
+            return true;
         }
         catch (SQLException e)
         {

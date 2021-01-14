@@ -21,9 +21,10 @@
  */
 package itopz.com;
 
-import itopz.com.gui.Gui;
-import itopz.com.vote.iTopZ;
 import com.l2jhellas.util.Util;
+import itopz.com.gui.Gui;
+import itopz.com.util.VDSThreadPool;
+import itopz.com.vote.VDSystem;
 
 /**
  * @Author Nightwolf
@@ -33,7 +34,7 @@ import com.l2jhellas.util.Util;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.0
+ * Script version: 1.1
  * Pack Support: L2JHellas 562 https://app.assembla.com/spaces/l2hellas/subversion/source
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -44,6 +45,10 @@ public class VDSystemManager
 	public VDSystemManager()
 	{
 		Util.printSection("VDS Manager");
+
+		// thread initiator
+		VDSThreadPool.init();
+
 		// load configurations
 		Configurations.load();
 
@@ -51,7 +56,7 @@ public class VDSystemManager
 		Gui.getInstance();
 
 		// load iTopz
-		iTopZ.getInstance();
+		VDSystem.getInstance();
 	}
 
 	public static VDSystemManager getInstance()
