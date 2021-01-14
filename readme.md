@@ -178,6 +178,32 @@
 
 **Chancelog**
 
+- Version 1.1
+  - Minimal Requirement on server resources and class consistency along projects.
+    - Addition of Thread class.
+    - Addition of Random class.
+    - Addition of Logs class.
+    - Addition of Url class.
+    - Addition of Rewards class.
+    - SQL independence on tables with vds_individual and vds_global tables automatic install by default
+  - Addition of topsites and their configs.
+    - Hopzone.
+    - L2Network.
+    - L2TopGameServer.
+    - L2TopServers.
+    - L2Votes.
+    - L2JBrasil.
+  - Gui
+    - Addition of Debug on/off button.
+    - Addition of Bug report button.
+    - Removed Debug mode.
+    - Rework on the class to update all topsite statistics.
+    - Rework on console size and re-arrange information and console.
+  - Fixed Bug that made global with individual rewards conflict.
+  - Improved custom JSon parser for wannabe-called APIs on a lot of topsites.
+  - Improved Debug with External IP Address.
+  - Improved code style on some cases like enchanted switch on mobius projects.
+
 - Version 1.0
   - Initial commit
   
