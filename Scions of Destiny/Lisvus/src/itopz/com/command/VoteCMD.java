@@ -75,7 +75,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	@Override
 	public boolean useVoicedCommand(String command, L2PcInstance player, String s1)
 	{
-		final String TOPSITE = command.substring(1).toUpperCase();
+		final String TOPSITE = command.replace(".", "").toUpperCase();
 
 		// check if allowed the individual command to run
 		if (TOPSITE.equals("ITOPZ") && !Configurations.ITOPZ_INDIVIDUAL_REWARD)
