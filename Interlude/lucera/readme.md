@@ -109,8 +109,15 @@ Implementation of vote global and individual system with itopz donate panel task
 
 - Version 1.1
   - Refactor on URL to prepare extend
-  - HWID Protection fallback to IP that fallback into player name in case of null
   - Added missing default values on config for console RGB colors
+  - Fixed output paths on project dir
+  - Updated dictionary and workspace project files
+  - HWID Protection fallback to IP that fallback into player name in case of null
+    - refactor ips to fingerprint
+    - removed ip check
+    - added objects null coalesce check on HWID, IP, player name on this order
+  - Game console string separator
+  - Updated script version
 
 - Version 1.0
   - Initial commit

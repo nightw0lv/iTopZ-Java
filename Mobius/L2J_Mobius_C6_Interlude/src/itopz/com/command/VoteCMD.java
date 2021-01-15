@@ -67,7 +67,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	// commands
 	public final static String[] COMMANDS =
 	{
-	"itopz", "hopzone", "l2jbrasil", "l2network", "l2topgameserver", "l2topservers", "l2votes"
+		"itopz", "hopzone", "l2jbrasil", "l2network", "l2topgameserver", "l2topservers", "l2votes"
 	};
 
 	@Override
@@ -119,11 +119,19 @@ public class VoteCMD implements IVoicedCommandHandler
 		}
 
 		// check if 12 hours has pass from last vote
-		long voteTimer = Utilities.selectIndividualVar(player, TOPSITE, "can_vote");
+		final long voteTimer = Utilities.selectIndividualVar(player, TOPSITE, "can_vote");
 		if (voteTimer > System.currentTimeMillis())
 		{
 			String dateFormatted = Utilities.formatMillisecond(voteTimer);
 			sendMsg(player, "You already voted on " + TOPSITE + " try again after " + dateFormatted + ".");
+			return true;
+		}
+
+		// restrict players from same IP to vote again
+		final boolean ipVoted = Utilities.selectIndividualIP(TOPSITE, "can_vote", Configurations.DEBUG ? Utilities.getMyIP() : player.getClient().getConnection().getInetAddress().getHostAddress());
+		if (ipVoted)
+		{
+			sendMsg(player, "Someone already voted on " + TOPSITE + " from your IP.");
 			return true;
 		}
 
@@ -163,7 +171,7 @@ public class VoteCMD implements IVoicedCommandHandler
 			sendMsg(player, "Successfully voted in " + TOPSITE + "!" + (Configurations.DEBUG ? "(DEBUG ON)" : ""));
 			reward(player, TOPSITE);
 			// set can vote: 12 hours (in ms).
-			Utilities.saveIndividualVar(player, TOPSITE, "can_vote", System.currentTimeMillis() + VOTE_REUSE.toMillis());
+			Utilities.saveIndividualVar(player, TOPSITE, "can_vote", System.currentTimeMillis() + VOTE_REUSE.toMillis(), _IPAddress);
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 		}
 	}

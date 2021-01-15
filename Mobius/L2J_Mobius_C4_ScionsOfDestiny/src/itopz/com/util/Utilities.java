@@ -76,6 +76,7 @@ public class Utilities
               "topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
               "var varchar(255) NOT NULL," +
               "value bigint(20) NOT NULL," +
+              "ip varchar(65) NOT NULL," +
               "PRIMARY KEY (char_id,topsite)" +
               ") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
     public static final String CREATE_GLOBAL_TABLE = "CREATE TABLE vds_global (" +
@@ -87,8 +88,9 @@ public class Utilities
     public static final String DELETE_DONATE_TABLE = "DROP TABLE IF EXISTS donate_holder;";
     private static final String DELETE_INDIVIDUAL_TABLE = "DROP TABLE IF EXISTS vds_individual;";
     private static final String DELETE_GLOBAL_TABLE = "DROP TABLE IF EXISTS vds_global;";
-    private static final String INDIVIDUAL_VAR_INSERT = "INSERT INTO vds_individual (char_id, topsite, var, value) VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE value=VALUES(value);";
-    private static final String INDIVIDUAL_VAR_SELECT = "SELECT char_id,topsite,var,value FROM vds_individual WHERE char_id=? AND topsite=? AND var=?";
+    private static final String INDIVIDUAL_INSERT = "INSERT INTO vds_individual (char_id, topsite, var, value, ip) VALUES (?,?,?,?,?) ON DUPLICATE KEY UPDATE value=VALUES(value);";
+    private static final String INDIVIDUAL_VAR_SELECT = "SELECT value FROM vds_individual WHERE char_id=? AND topsite=? AND var=?";
+    private static final String INDIVIDUAL_IP_SELECT = "SELECT char_id,topsite,var,value,ip FROM vds_individual WHERE topsite=? AND var=? AND ip=? AND value > (UNIX_TIMESTAMP() * 1000);";
     private static final String GLOBAL_VAR_SELECT = "SELECT value FROM vds_global WHERE topsite=? AND var=?";
     private static final String GLOBAL_VAR_REPLACE = "INSERT INTO vds_global (topsite,var,value) VALUES (?,?,?) ON DUPLICATE KEY UPDATE value=VALUES(value)";
 
@@ -165,15 +167,16 @@ public class Utilities
      * @param var string
      * @param value long
      */
-    public static void saveIndividualVar(final PlayerInstance player, final String topsite, final String var, final long value)
+    public static void saveIndividualVar(final PlayerInstance player, final String topsite, final String var, final long value, final String ip)
     {
         try (Connection con = DatabaseFactory.getConnection();
-             PreparedStatement statement = con.prepareStatement(INDIVIDUAL_VAR_INSERT))
+             PreparedStatement statement = con.prepareStatement(INDIVIDUAL_INSERT))
         {
             statement.setInt(1, player.getObjectId());
             statement.setString(2, topsite);
             statement.setString(3, var);
             statement.setString(4, String.valueOf(value));
+            statement.setString(5, ip);
             statement.execute();
         }
         catch (Exception e)
@@ -187,6 +190,45 @@ public class Utilities
                 createTable(CREATE_INDIVIDUAL_TABLE, "vds_individual");
             }
         }
+    }
+
+    /**
+     * select individual ip from database
+     *
+     * @param topsite string
+     * @param var string
+     * @return long
+     */
+    public static boolean selectIndividualIP(final String topsite, final String var, final String IP)
+    {
+        boolean found = false;
+        try (Connection con = ConnectionPool.getConnection();
+             PreparedStatement statement = con.prepareStatement(INDIVIDUAL_IP_SELECT))
+        {
+            statement.setString(1, topsite);
+            statement.setString(2, var);
+            statement.setString(3, IP);
+            statement.execute();
+            try (ResultSet rs = statement.executeQuery())
+            {
+                while (rs.next())
+                {
+                    found = true;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            final String error = e.getMessage();
+            Gui.getInstance().ConsoleWrite("could not select char var: " + error);
+
+            if ((error.contains("doesn't exist") && error.contains("vds_individual")) || error.contains("Unknown column 'ip'"))
+            {
+                deleteTable(DELETE_INDIVIDUAL_TABLE, "vds_individual");
+                createTable(CREATE_INDIVIDUAL_TABLE, "vds_individual");
+            }
+        }
+        return found;
     }
 
     /**
