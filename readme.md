@@ -74,6 +74,10 @@
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/blob/master/HighFive/FandC/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/FandC)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/HighFive/FandC/Patch.diff)
+    - [x] L2JSERVER
+      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/blob/master/HighFive/L2JServer/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/L2JServer)
+      - ~~Patch Download Patch~~
     - [x] MYTHRAS
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/Mythras/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mythras)

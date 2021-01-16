@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="HighFive_L2JServer">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/HighFive/L2JServer/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/HighFive/L2JServer/libs" recursive="false" />
+  </library>
+</component>

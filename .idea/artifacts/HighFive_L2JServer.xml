@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="HighFive_L2JServer">
+    <output-path>$PROJECT_DIR$/out/artifacts/HighFive_L2JServer</output-path>
+    <root id="archive" name="VDSystem.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/HighFive/L2JServer/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="L2JServer" />
+    </root>
+  </artifact>
+</component>
