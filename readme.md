@@ -6,19 +6,19 @@
 **VDSystem**
 - **Source requirements**
   - Intellij
-  - JDK 7, 8, JDK 11, JDK 14 installed
+  - JDK 7, JDK 8, JDK 11, JDK 14 installed
 - **Codes Installed**
    - [x] Auto Donation Reward
       - Free: Hosted [https://itopz.com](https://itopz.com/)
       - Paid: your host + install [https://shop.denart-designs.com](https://shop.denart-designs.com)
-   - [x] iTopZ Reward Global (Automatic)
-   - [x] iTopZ Reward Individual (Player command)
    - [x] Hopzone Reward Global (Automatic)
    - [x] Hopzone Reward Individual (Player command)
-   - [x] L2TopGameServer Reward Global (Automatic)
-   - [x] L2TopGameServer Reward Individual (Player command)
    - [x] L2Network Reward Global (Automatic)
    - [x] L2Network Reward Individual (Player command)
+   - [x] iTopZ Reward Global (Automatic)
+   - [x] iTopZ Reward Individual (Player command)
+   - [x] L2TopGameServer Reward Global (Automatic)
+   - [x] L2TopGameServer Reward Individual (Player command)
    - [x] L2TopServers Reward Global (Automatic)
    - [x] L2TopServers Reward Individual (Player command)
    - [x] L2JBrasil Reward Global (Automatic)
@@ -57,14 +57,10 @@
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/aCis/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/aCis)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Interlude/aCis/Patch.diff)
-    - [x] FROZEN 1118 JDK8
+    - [x] FROZEN 1118 JDK8 and 1132 JDK7
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/Frozen/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Frozen)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Interlude/Frozen/Patch.diff)
-    - [x] FROZEN 1132 JDK7
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/Frozen_JDK7/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/FrozenJDK7)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Interlude/FrozenJDK7/Patch.diff)
     - [x] HELLAS
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/Hellas/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Hellas)
