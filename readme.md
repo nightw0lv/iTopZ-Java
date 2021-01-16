@@ -6,7 +6,7 @@
 **VDSystem**
 - **Source requirements**
   - Intellij
-  - JDK 8, JDK 11, JDK 14 installed
+  - JDK 7, 8, JDK 11, JDK 14 installed
 - **Codes Installed**
    - [x] Auto Donation Reward
       - Free: Hosted [https://itopz.com](https://itopz.com/)
@@ -57,10 +57,14 @@
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/aCis/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/aCis)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Interlude/aCis/Patch.diff)
-    - [x] FROZEN
+    - [x] FROZEN 1118 JDK8
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/Frozen/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Frozen)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Interlude/Frozen/Patch.diff)
+    - [x] FROZEN 1132 JDK7
+      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/Frozen_JDK7/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/FrozenJDK7)
+      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Interlude/FrozenJDK7/Patch.diff)
     - [x] HELLAS
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/Hellas/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Hellas)

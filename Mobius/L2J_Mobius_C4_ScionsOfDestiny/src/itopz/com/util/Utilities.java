@@ -202,7 +202,7 @@ public class Utilities
     public static boolean selectIndividualIP(final String topsite, final String var, final String IP)
     {
         boolean found = false;
-        try (Connection con = ConnectionPool.getConnection();
+        try (Connection con = DatabaseFactory.getConnection();
              PreparedStatement statement = con.prepareStatement(INDIVIDUAL_IP_SELECT))
         {
             statement.setString(1, topsite);

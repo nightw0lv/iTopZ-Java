@@ -128,7 +128,7 @@ public class VoteCMD implements IVoicedCommandHandler
 		}
 
 		// restrict players from same IP to vote again
-		final boolean ipVoted = Utilities.selectIndividualIP(TOPSITE, "can_vote", Configurations.DEBUG ? Utilities.getMyIP() : player.getClient().getConnection().getInetAddress().getHostAddress());
+		final boolean ipVoted = Utilities.selectIndividualIP(TOPSITE, "can_vote", Configurations.DEBUG ? Utilities.getMyIP() : player.getIP());
 		if (ipVoted)
 		{
 			sendMsg(player, "Someone already voted on " + TOPSITE + " from your IP.");
