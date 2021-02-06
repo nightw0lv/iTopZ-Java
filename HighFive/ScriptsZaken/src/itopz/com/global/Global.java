@@ -46,7 +46,7 @@ import java.util.stream.Collectors;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: L2Scripts Classic: Saviors (Zaken) [26360]
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -306,7 +306,17 @@ public class Global
 		for (Player player : GameObjectsStorage.getPlayers().stream().filter(Objects::nonNull).collect(Collectors.toList()))
 		{
 			// set player signature key
-			final String key = Objects.requireNonNull(player.getIP(), player.getName());
+			String key = "";
+			try
+			{
+				key = Objects.requireNonNull(player.getIP(), player.getName());
+			}
+			catch(Exception e)
+			{
+				e.getMessage();
+				continue;
+			}
+
 			// if key exists ignore player
 			if (FINGERPRINT.contains(key))
 			{

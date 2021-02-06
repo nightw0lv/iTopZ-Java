@@ -47,7 +47,7 @@ import java.util.Optional;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Mobius 5.5 Etinas Fate
  *
  * Personal Donate Panels: https://www.denart-designs.com/

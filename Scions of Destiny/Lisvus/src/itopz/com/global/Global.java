@@ -45,7 +45,7 @@ import java.util.stream.Collectors;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Lisvus Scions of Destiny rev 728
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -331,7 +331,17 @@ public class Global
 		for (L2PcInstance player : L2World.getInstance().getAllPlayers().stream().filter(Objects::nonNull).collect(Collectors.toList()))
 		{
 			// set player signature key
-			final String key = Objects.requireNonNullElse(player.getClient().getConnection().getInetAddress().getHostAddress(), player.getName());
+			String key = "";
+			try
+			{
+				key = Objects.requireNonNullElse(player.getClient().getConnection().getInetAddress().getHostAddress(), player.getName());
+			}
+			catch(Exception e)
+			{
+				e.getMessage();
+				continue;
+			}
+
 			// if key exists ignore player
 			if (FINGERPRINT.contains(key))
 			{

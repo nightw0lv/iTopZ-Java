@@ -34,7 +34,7 @@ import net.sf.l2j.commons.lang.StringUtil;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: aCis 394
  *
  * Personal Donate Panels: https://www.denart-designs.com/

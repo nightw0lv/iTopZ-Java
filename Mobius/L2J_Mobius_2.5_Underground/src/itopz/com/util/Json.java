@@ -36,7 +36,7 @@ import java.util.Map;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Mobius 2.5 Underground
  *
  * Personal Donate Panels: https://www.denart-designs.com/

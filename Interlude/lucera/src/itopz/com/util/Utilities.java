@@ -52,7 +52,7 @@ import java.util.Locale;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Lucera
  *
  * Personal Donate Panels: https://www.denart-designs.com/

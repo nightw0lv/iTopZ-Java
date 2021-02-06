@@ -55,7 +55,7 @@ import java.util.Locale;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Mobius C4 Scions of Destiny
  *
  * Personal Donate Panels: https://www.denart-designs.com/

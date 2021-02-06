@@ -37,7 +37,7 @@ import net.sf.l2j.gameserver.handler.VoicedCommandHandler;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Lisvus Scions of Destiny rev 728
  *
  * Personal Donate Panels: https://www.denart-designs.com/

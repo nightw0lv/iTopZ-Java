@@ -37,7 +37,7 @@ import java.util.*;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Mobius 2.3 Seven Signs
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -54,6 +54,7 @@ public class Configurations
     public static boolean ITOPZ_DONATE_MANAGER;
 
     // set console variables
+    public static boolean ITOPZ_CONSOLE_ENABLE;
     public static String ITOPZ_CONSOLE_FONT;
     public static int ITOPZ_CONSOLE_SIZE;
     public static int ITOPZ_CONSOLE_COLOR_R;
@@ -155,6 +156,7 @@ public class Configurations
         DEBUG = Boolean.parseBoolean(ep.getProperty("VDS_DEBUG", "false"));
 
         // set console variables
+        ITOPZ_CONSOLE_ENABLE = Boolean.parseBoolean(ep.getProperty("ConsoleEnable", "true"));
         ITOPZ_CONSOLE_FONT = ep.getProperty("ConsoleFont", "Arial");
         ITOPZ_CONSOLE_SIZE = Integer.parseInt(ep.getProperty("ConsoleFontSize", "12"));
         ITOPZ_CONSOLE_COLOR_R = Integer.parseInt(ep.getProperty("ConsoleColorR", "204"));

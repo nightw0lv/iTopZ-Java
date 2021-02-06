@@ -36,7 +36,7 @@ import java.util.Map;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Frozen 1118 Last beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source/1118/branches/Beta
  *
  * Personal Donate Panels: https://www.denart-designs.com/

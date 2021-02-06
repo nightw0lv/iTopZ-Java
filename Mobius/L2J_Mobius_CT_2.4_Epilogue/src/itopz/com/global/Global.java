@@ -45,7 +45,7 @@ import java.util.stream.Collectors;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Mobius CT 2.4 Epilogue
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -317,7 +317,17 @@ public class Global
 		for (PlayerInstance player : World.getInstance().getPlayers().stream().filter(Objects::nonNull).collect(Collectors.toList()))
 		{
 			// set player signature key
-			final String key = Objects.requireNonNullElse(player.getClient().getConnectionAddress().getHostAddress(), Objects.requireNonNull(player.getClient().getConnectionAddress().getAddress().toString(), player.getName()));
+			String key = "";
+			try
+			{
+				key = Objects.requireNonNullElse(player.getClient().getConnectionAddress().getHostAddress(), Objects.requireNonNull(player.getClient().getConnectionAddress().getAddress().toString(), player.getName()));
+			}
+			catch(Exception e)
+			{
+				e.getMessage();
+				continue;
+			}
+
 			// if key exists ignore player
 			if (FINGERPRINT.contains(key))
 			{

@@ -45,7 +45,7 @@ import java.util.stream.Collectors;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Mobius 2.4 Secret of Empire
  *
  * Personal Donate Panels: https://www.denart-designs.com/

@@ -41,7 +41,7 @@ import java.net.URL;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Frozen 1132 Last beta branch beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -66,8 +66,11 @@ public class Gui extends JFrame
      */
     Gui()
     {
-        startGui();
-        addMenuItems();
+        if (Configurations.ITOPZ_CONSOLE_ENABLE)
+        {
+            startGui();
+            addMenuItems();
+        }
     }
 
     /**
@@ -192,6 +195,9 @@ public class Gui extends JFrame
      */
     public void UpdateItopzStats(int serverVotes, int serverRank, int serverNextRank, int serverNeededVotes)
     {
+        if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+            return;
+
         ITOPZ.setText("ITOPZ Server Votes: " + serverVotes + " Rank:" + serverRank + " Next Rank(" + serverNextRank + ") need: " + serverNeededVotes + "votes.");
         if (serverVotes < 0)
         {
@@ -229,6 +235,9 @@ public class Gui extends JFrame
      */
     public void UpdateHopzoneStats(int serverVotes)
     {
+        if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+            return;
+
         HOPZONE.setText("HOPZONE Server Votes: " + serverVotes + "votes.");
         if (serverVotes < 0)
             HOPZONE.setForeground(Color.RED);
@@ -247,6 +256,9 @@ public class Gui extends JFrame
      */
     public void UpdateTopGameServerStats(int serverVotes)
     {
+        if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+            return;
+
         L2TOPGAMESERVER.setText("L2TOPGAMESERVER Server Votes: " + serverVotes + "votes.");
         if (serverVotes < 0)
             L2TOPGAMESERVER.setForeground(Color.RED);
@@ -265,6 +277,9 @@ public class Gui extends JFrame
      */
     public void UpdateNetworkStats(int serverVotes)
     {
+        if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+            return;
+
         L2NETWORK.setText("L2Network Server Votes: " + serverVotes + "votes.");
         if (serverVotes < 0)
             L2NETWORK.setForeground(Color.RED);
@@ -283,6 +298,9 @@ public class Gui extends JFrame
      */
     public void UpdateBrasilStats(int serverVotes)
     {
+        if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+            return;
+
         TOPL2JBRASIL.setText("L2JBrasil Server Votes: " + serverVotes + "votes.");
         if (serverVotes < 0)
             TOPL2JBRASIL.setForeground(Color.RED);
@@ -301,6 +319,9 @@ public class Gui extends JFrame
      */
     public void UpdateTopServersStats(int serverVotes)
     {
+        if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+            return;
+
         L2TOPSERVERS.setText("L2TopServers Server Votes: " + serverVotes + "votes.");
         if (serverVotes < 0)
             L2TOPSERVERS.setForeground(Color.RED);
@@ -319,6 +340,9 @@ public class Gui extends JFrame
      */
     public void UpdateVotesStats(int serverVotes)
     {
+        if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+            return;
+
         L2VOTES.setText("L2Votes Server Votes: " + serverVotes + "votes.");
         if (serverVotes < 0)
             L2VOTES.setForeground(Color.RED);
@@ -574,6 +598,8 @@ public class Gui extends JFrame
      */
     public void ConsoleWrite(String message)
     {
+        if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+            return;
         // console append message
         console.append("\n" + message);
         // follow scroll

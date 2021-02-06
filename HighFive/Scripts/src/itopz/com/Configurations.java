@@ -39,8 +39,8 @@ import java.util.Map;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
- * Pack Support: aVa
+ * Script version: 1.2
+ * Pack Support: L2Scripts rev20720(2268)
  *
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
@@ -56,6 +56,7 @@ public class Configurations
     public static boolean ITOPZ_DONATE_MANAGER;
 
     // set console variables
+    public static boolean ITOPZ_CONSOLE_ENABLE;
     public static String ITOPZ_CONSOLE_FONT;
     public static int ITOPZ_CONSOLE_SIZE;
     public static int ITOPZ_CONSOLE_COLOR_R;
@@ -157,6 +158,7 @@ public class Configurations
         DEBUG = ep.getProperty("VDS_DEBUG", false);
 
         // set console variables
+        ITOPZ_CONSOLE_ENABLE = ep.getProperty("ConsoleEnable", true);
         ITOPZ_CONSOLE_FONT = ep.getProperty("ConsoleFont", "Arial");
         ITOPZ_CONSOLE_SIZE = ep.getProperty("ConsoleFontSize", 12);
         ITOPZ_CONSOLE_COLOR_R = ep.getProperty("ConsoleColorR", 204);

@@ -43,7 +43,7 @@ import java.util.Objects;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Frozen 1132 Last beta branch beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -355,7 +355,17 @@ public class Global
 			if (player == null)
 				continue;
 			// set player signature key
-			final String key = Objects.requireNonNull(player.getClient().getConnection().getInetAddress().getHostAddress(), player.getName());
+			String key = "";
+			try
+			{
+				key = Objects.requireNonNull(player.getClient().getConnection().getInetAddress().getHostAddress(), player.getName());
+			}
+			catch(Exception e)
+			{
+				e.getMessage();
+				continue;
+			}
+
 			// if key exists ignore player
 			if (FINGERPRINT.contains(key))
 			{

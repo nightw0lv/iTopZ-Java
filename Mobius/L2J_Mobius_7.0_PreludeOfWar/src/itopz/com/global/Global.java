@@ -25,16 +25,14 @@ import itopz.com.Configurations;
 import itopz.com.gui.Gui;
 import itopz.com.model.GlobalResponse;
 import itopz.com.util.*;
+import itopz.com.util.Random;
 import itopz.com.vote.VDSystem;
 import org.l2jmobius.gameserver.datatables.ItemTable;
 import org.l2jmobius.gameserver.model.World;
 import org.l2jmobius.gameserver.model.actor.instance.PlayerInstance;
 import org.l2jmobius.gameserver.model.items.Item;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -45,7 +43,7 @@ import java.util.stream.Collectors;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Mobius 7.0 Prelude Of War
  *
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -317,7 +315,17 @@ public class Global
 		for (PlayerInstance player : World.getInstance().getPlayers().stream().filter(Objects::nonNull).collect(Collectors.toList()))
 		{
 			// set player signature key
-			final String key = Objects.requireNonNullElse(player.getClient().getHardwareInfo().getMacAddress(), Objects.requireNonNull(player.getClient().getConnectionAddress().getAddress().toString(), player.getName()));
+			String key = "";
+			try
+			{
+				key = Objects.requireNonNullElse(player.getClient().getHardwareInfo().getMacAddress(), Objects.requireNonNull(player.getClient().getConnectionAddress().getAddress().toString(), player.getName()));
+			}
+			catch(Exception e)
+			{
+				e.getMessage();
+				continue;
+			}
+
 			// if key exists ignore player
 			if (FINGERPRINT.contains(key))
 			{
@@ -326,7 +334,7 @@ public class Global
 			// add the key on ignore list
 			FINGERPRINT.add(key);
 
-			for (final int itemId : Rewards.from(TOPSITE + "_GLOBAL_REWARDS").keys())
+			for (final int itemId : Rewards.from(TOPSITE + "_GLOBAL_REWARDS").keys().stream().filter(Objects::nonNull).collect(Collectors.toList()))
 			{
 				// check if the item id exists
 				final Item item = ItemTable.getInstance().getTemplate(itemId);

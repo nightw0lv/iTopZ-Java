@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: L2Scripts Classic: Saviors (Zaken) [26360]
  *
  * Personal Donate Panels: https://www.denart-designs.com/

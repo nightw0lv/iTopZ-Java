@@ -34,7 +34,7 @@ import l2f.gameserver.GameServer;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Mythras
  *
  * Personal Donate Panels: https://www.denart-designs.com/

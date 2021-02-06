@@ -32,7 +32,7 @@ import java.util.logging.Logger;
  *
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.2
  * Pack Support: Mobius 6.0 Fafurion
  *
  * Personal Donate Panels: https://www.denart-designs.com/
