@@ -1,0 +1,33 @@
+diff --git .classpath .classpath
+index 7d7b679..a2ada7d 100644
+--- .classpath
++++ .classpath
+@@ -32,5 +32,6 @@
+ 	<classpathentry exported="true" kind="lib" path="lib/trove-3.1a1.jar"/>
+ 	<classpathentry exported="true" kind="lib" path="lib/velocity-1.7.jar"/>
+ 	<classpathentry exported="true" kind="lib" path="lib/velocity-slf4j-1.7.jar"/>
++	<classpathentry kind="lib" path="lib/VDSystem.jar"/>
+ 	<classpathentry kind="output" path="bin"/>
+ </classpath>
+diff --git gameserver/src/main/java/l2r/gameserver/GameServer.java gameserver/src/main/java/l2r/gameserver/GameServer.java
+index 32c578f..a1371cf 100644
+--- gameserver/src/main/java/l2r/gameserver/GameServer.java
++++ gameserver/src/main/java/l2r/gameserver/GameServer.java
+@@ -13,6 +13,7 @@
+
+ import gnu.trove.set.TIntSet;
+ import gnu.trove.set.hash.TIntHashSet;
++import itopz.com.VDSystemManager;
+ import l2s.commons.lang.StatsUtils;
+ import l2s.commons.listener.Listener;
+ import l2s.commons.listener.ListenerList;
+@@ -301,6 +302,8 @@
+
+ 		TrainingCampManager.getInstance().init();
+
++		VDSystemManager.getInstance();
++
+         Shutdown.getInstance().schedule(Config.RESTART_AT_TIME, Shutdown.RESTART);
+
+ 		_log.info("GameServer Started");
+

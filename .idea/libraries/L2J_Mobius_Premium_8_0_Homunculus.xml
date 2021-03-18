@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_Premium_8.0_Homunculus">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Mobius_Premium/L2J_Mobius_8.0_Homunculus/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/Mobius_Premium/L2J_Mobius_8.0_Homunculus/libs" recursive="false" />
+  </library>
+</component>
