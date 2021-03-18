@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="L2J_Mobius_Premium_8.0_Homunculus">
+    <output-path>$PROJECT_DIR$/out/artifacts/L2J_Mobius_Premium_8_0_Homunculus</output-path>
+    <root id="archive" name="VDSystem.jar">
+      <element id="module-output" name="L2J_Mobius_Premium_8.0_Homunculus" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/Mobius_Premium/L2J_Mobius_8.0_Homunculus/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -320,11 +320,11 @@ public class Global
 			String key = "";
 			try
 			{
-				key = Objects.requireNonNullElse(player.getClient().getHardwareInfo().getMacAddress(), Objects.requireNonNull(player.getClient().getConnectionAddress().getAddress().toString(), player.getName()));
+				key = Objects.requireNonNull(player.getClient().getConnectionAddress().getHostAddress(), player.getName());
 			}
 			catch(Exception e)
 			{
-				e.getMessage();
+				Gui.getInstance().ConsoleWrite(e.getMessage());
 				continue;
 			}
 

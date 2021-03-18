@@ -41,3 +41,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /out/artifacts v1.1/
+/out/
