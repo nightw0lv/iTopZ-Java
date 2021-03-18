@@ -28,6 +28,7 @@ import org.l2jmobius.commons.database.DatabaseFactory;
 import org.l2jmobius.gameserver.datatables.ItemTable;
 import org.l2jmobius.gameserver.model.World;
 import org.l2jmobius.gameserver.model.actor.instance.PlayerInstance;
+import org.l2jmobius.gameserver.model.holders.ItemHolder;
 import org.l2jmobius.gameserver.model.items.Item;
 import org.l2jmobius.gameserver.network.serverpackets.ActionFailed;
 

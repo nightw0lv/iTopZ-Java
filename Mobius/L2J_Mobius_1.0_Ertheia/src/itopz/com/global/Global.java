@@ -317,17 +317,7 @@ public class Global
 		for (PlayerInstance player : World.getInstance().getPlayers().stream().filter(Objects::nonNull).collect(Collectors.toList()))
 		{
 			// set player signature key
-			String key = "";
-			try
-			{
-				key = Objects.requireNonNull(player.getClient().getConnectionAddress().getHostAddress(), player.getName());
-			}
-			catch(Exception e)
-			{
-				Gui.getInstance().ConsoleWrite(e.getMessage());
-				continue;
-			}
-
+			final String key = Objects.requireNonNullElse(player.getClient().getHardwareInfo().getMacAddress(), Objects.requireNonNull(player.getClient().getConnectionAddress().getAddress().toString(), player.getName()));
 			// if key exists ignore player
 			if (FINGERPRINT.contains(key))
 			{

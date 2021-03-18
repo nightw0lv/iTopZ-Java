@@ -318,11 +318,11 @@ public class Global
 			String key = "";
 			try
 			{
-				key = Objects.requireNonNull(player.getClient().getConnectionAddress().getHostAddress(), player.getName());
+				key = Objects.requireNonNullElse(player.getClient().getHardwareInfo().getMacAddress(), Objects.requireNonNull(player.getClient().getConnectionAddress().getAddress().toString(), player.getName()));
 			}
 			catch(Exception e)
 			{
-				Gui.getInstance().ConsoleWrite(e.getMessage());
+				e.getMessage();
 				continue;
 			}
 

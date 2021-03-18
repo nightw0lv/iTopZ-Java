@@ -6,7 +6,7 @@
 **VDSystem**
 - **Source requirements**
   - Intellij
-  - JDK 7, JDK 8, JDK 11, JDK 14, JDK 15 installed
+  - JDK 7, JDK 8, JDK 11, JDK 14 installed
 - **Codes Installed**
    - [x] Auto Donation Reward
       - Free: Hosted [https://itopz.com](https://itopz.com/)
@@ -175,16 +175,7 @@
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_Interlude/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_Interlude/Patch.diff)
-  - **Mobius Premium Projects**
-    - [x] L2J Mobius 8.0 Homunculus
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_8.0_Homunculus/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_8.0_Homunculus/Patch.diff)
-    - [ ] L2J Mobius C1 HarbingersOfWar
-      - ~~Info Download Source~~
-      - ~~Release Download Compiled Jar~~
-      - ~~Patch Download Patch~~
-    
+
 **Credits**
 - ```Special thanks to Rationale``` :cry:
 
