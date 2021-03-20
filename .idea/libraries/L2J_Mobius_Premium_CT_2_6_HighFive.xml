@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_Premium_CT_2.6_HighFive">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/MobiusPremium/L2J_Mobius_CT_2.6_HighFive/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/MobiusPremium/L2J_Mobius_CT_2.6_HighFive/libs" recursive="false" />
+  </library>
+</component>

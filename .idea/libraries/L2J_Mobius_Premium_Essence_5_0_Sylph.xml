@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_Premium_Essence_5.0_Sylph">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/MobiusPremium/L2J_Mobius_Essence_5.0_Sylph/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/MobiusPremium/L2J_Mobius_Essence_5.0_Sylph/libs" recursive="false" />
+  </library>
+</component>

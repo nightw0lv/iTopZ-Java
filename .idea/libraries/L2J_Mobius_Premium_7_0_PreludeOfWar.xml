@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_Premium_7.0_PreludeOfWar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/MobiusPremium/L2J_Mobius_7.0_PreludeOfWar/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/MobiusPremium/L2J_Mobius_7.0_PreludeOfWar/libs" recursive="false" />
+  </library>
+</component>

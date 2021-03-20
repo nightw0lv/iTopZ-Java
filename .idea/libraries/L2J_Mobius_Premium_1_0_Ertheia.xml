@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_Premium_1.0_Ertheia">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/MobiusPremium/L2J_Mobius_1.0_Ertheia/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/MobiusPremium/L2J_Mobius_1.0_Ertheia/libs" recursive="false" />
+  </library>
+</component>

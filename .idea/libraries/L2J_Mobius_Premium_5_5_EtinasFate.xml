@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_Premium_5.5_EtinasFate">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/MobiusPremium/L2J_Mobius_5.5_EtinasFate/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/MobiusPremium/L2J_Mobius_5.5_EtinasFate/libs" recursive="false" />
+  </library>
+</component>

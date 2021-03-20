@@ -1,0 +1,52 @@
+diff --git .classpath .classpath
+index d82587c..7512d43 100644
+--- .classpath
++++ .classpath
+@@ -1,15 +1,17 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<classpath>
+-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-14">
+-		<attributes>
+-			<attribute name="module" value="true"/>
+-		</attributes>
+-	</classpathentry>
+-	<classpathentry kind="lib" path="dist/libs/cron4j-2.2.5.jar" sourcepath="dist/libs/cron4j-2.2.5-sources.jar"/>
+-	<classpathentry kind="lib" path="dist/libs/exp4j-0.4.8.jar" sourcepath="dist/libs/exp4j-0.4.8-sources.jar"/>
+-	<classpathentry kind="lib" path="dist/libs/mariadb-java-client-2.6.1.jar" sourcepath="dist/libs/mariadb-java-client-2.6.1-sources.jar"/>
+-	<classpathentry kind="lib" path="dist/libs/netty-all-4.1.50.Final.jar" sourcepath="dist/libs/netty-all-4.1.50.Final-sources.jar"/>
+-	<classpathentry including="**/*.java" kind="src" path="dist/game/data/scripts"/>
+-	<classpathentry kind="src" path="java"/>
+-	<classpathentry kind="output" path="bin"/>
+-</classpath>
++<?xml version="1.0" encoding="UTF-8"?>
++<classpath>
++	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-14">
++		<attributes>
++			<attribute name="module" value="true"/>
++		</attributes>
++	</classpathentry>
++	<classpathentry kind="lib" path="dist/libs/cron4j-2.2.5.jar" sourcepath="dist/libs/cron4j-2.2.5-sources.jar"/>
++	<classpathentry kind="lib" path="dist/libs/exp4j-0.4.8.jar" sourcepath="dist/libs/exp4j-0.4.8-sources.jar"/>
++	<classpathentry kind="lib" path="dist/libs/mariadb-java-client-2.6.1.jar" sourcepath="dist/libs/mariadb-java-client-2.6.1-sources.jar"/>
++	<classpathentry kind="lib" path="dist/libs/netty-all-4.1.50.Final.jar" sourcepath="dist/libs/netty-all-4.1.50.Final-sources.jar"/>
++	<classpathentry kind="lib" path="dist/libs/VDSystem.jar"/>
++	<classpathentry including="**/*.java" kind="src" path="dist/game/data/scripts"/>
++	<classpathentry kind="src" path="java"/>
++	<classpathentry kind="lib" path="/L2J_Mobius_2.5_Underground/dist/libs/VDSystem.jar"/>
++	<classpathentry kind="output" path="bin"/>
++</classpath>
+
+diff --git java/org/l2jmobius/gameserver/GameServer.java java/org/l2jmobius/gameserver/GameServer.java
+index a153400..5259a1c 100644
+--- java/org/l2jmobius/gameserver/GameServer.java
++++ java/org/l2jmobius/gameserver/GameServer.java
+@@ -157,2 +157,4 @@
+
++import itopz.com.VDSystemManager;
++
+ public class GameServer
+@@ -415,2 +417,4 @@
+
++		VDSystemManager.getInstance();
++
+ 		Runtime.getRuntime().addShutdownHook(Shutdown.getInstance());

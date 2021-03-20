@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_Premium_9.0_ReturnOfTheQueenAnt">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/MobiusPremium/L2J_Mobius_9.0_ReturnOfTheQueenAnt/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/MobiusPremium/L2J_Mobius_9.0_ReturnOfTheQueenAnt/libs" recursive="false" />
+  </library>
+</component>

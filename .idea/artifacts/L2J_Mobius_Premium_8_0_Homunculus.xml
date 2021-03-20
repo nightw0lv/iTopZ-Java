@@ -4,7 +4,7 @@
     <root id="archive" name="VDSystem.jar">
       <element id="module-output" name="L2J_Mobius_Premium_8.0_Homunculus" />
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/Mobius_Premium/L2J_Mobius_8.0_Homunculus/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/MobiusPremium/L2J_Mobius_8.0_Homunculus/META-INF/MANIFEST.MF" />
       </element>
     </root>
   </artifact>
