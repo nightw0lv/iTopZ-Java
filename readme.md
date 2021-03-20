@@ -3,7 +3,7 @@
 **DenArt Designs _[Automatic Donation Panels](https://www.denart-designs.com/)_ are supported by this system**
 #
 
-###Win Gifts worth 500€ by donating even 1€ to help replace broken PC
+### Win Gifts worth 500€ by donating even 1€ to help replace broken PC
 * #### 1st Winner will get Website worth 350€
 * ##### 2nd Winner will get lifetime Donation Panel worth 60€
 * 3rd Winner will get Professional logo worth 100€
