@@ -28,12 +28,12 @@ import java.util.concurrent.ThreadLocalRandom;
  * iToPz Discord: https://discord.gg/KkPms6B5aE
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
- *
+ * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.2
  * Pack Support: Mobius 4.0 Grand Crusade
- *
+ * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */

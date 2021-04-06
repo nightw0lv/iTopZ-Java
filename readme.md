@@ -369,4 +369,5 @@ For anonymous donations
 ![https://prnt.sc/w6zzcs](images/10.png)
 ![https://prnt.sc/w6zzcs](images/11.png)
 
+Wanna help maintain and keep the project alive donate [here](https://paypal.me/top100) or
 <a href="https://www.buymeacoffee.com/night" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>

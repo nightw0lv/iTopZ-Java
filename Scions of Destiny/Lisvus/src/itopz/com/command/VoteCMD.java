@@ -41,12 +41,12 @@ import java.util.Optional;
  * iToPz Discord: https://discord.gg/KkPms6B5aE
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
- *
+ * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.2
  * Pack Support: Lisvus Scions of Destiny rev 728
- *
+ * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
@@ -66,7 +66,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	// commands
 	public final static String[] COMMANDS =
 	{
-		"itopz", "hopzone", "l2jbrasil", "l2network", "l2topgameserver", "l2topservers", "l2votes"
+	"itopz", "hopzone", "l2jbrasil", "l2network", "l2topgameserver", "l2topservers", "l2votes"
 	};
 
 	@Override
@@ -104,7 +104,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	/**
 	 * Validate user
 	 *
-	 * @param player object
+	 * @param player  object
 	 * @param TOPSITE string
 	 * @return boolean
 	 */
@@ -148,7 +148,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	/**
 	 * Execute individual response and reward player on success
 	 *
-	 * @param player object
+	 * @param player  object
 	 * @param TOPSITE string
 	 */
 	private void Execute(final L2PcInstance player, final String TOPSITE)
@@ -264,7 +264,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	 * Send message to player
 	 *
 	 * @param player object
-	 * @param s string
+	 * @param s      string
 	 */
 	private void sendMsg(final L2PcInstance player, final String s)
 	{

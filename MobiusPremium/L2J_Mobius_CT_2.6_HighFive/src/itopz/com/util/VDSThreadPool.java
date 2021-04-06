@@ -28,12 +28,12 @@ import java.util.concurrent.*;
  * iToPz Discord: https://discord.gg/KkPms6B5aE
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
- *
+ * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.2
  * Pack Support: Mobius Premium CT 2.6 High Five
- *
+ * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
@@ -51,31 +51,35 @@ public class VDSThreadPool
 		int poolCount = Runtime.getRuntime().availableProcessors();
 
 		_scheduledPools = new ScheduledThreadPoolExecutor[poolCount];
-		for (int i = 0; i < poolCount; i++)
-			_scheduledPools[i] = new ScheduledThreadPoolExecutor(4);
+		for (int i = 0;
+		     i < poolCount;
+		     i++)
+		{ _scheduledPools[i] = new ScheduledThreadPoolExecutor(4); }
 
 		// Feed instant pool.
 		poolCount = Runtime.getRuntime().availableProcessors();
 
 		_instantPools = new ThreadPoolExecutor[poolCount];
-		for (int i = 0; i < poolCount; i++)
-			_instantPools[i] = new ThreadPoolExecutor(2, 2, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(100000));
+		for (int i = 0;
+		     i < poolCount;
+		     i++)
+		{ _instantPools[i] = new ThreadPoolExecutor(2, 2, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(100000)); }
 
 		// Pre-start core threads.
 		for (ScheduledThreadPoolExecutor threadPool : _scheduledPools)
-			threadPool.prestartAllCoreThreads();
+		{ threadPool.prestartAllCoreThreads(); }
 
 		for (ThreadPoolExecutor threadPool : _instantPools)
-			threadPool.prestartAllCoreThreads();
+		{ threadPool.prestartAllCoreThreads(); }
 
 		// Launch purge task.
 		scheduleAtFixedRate(() ->
 		{
 			for (ScheduledThreadPoolExecutor threadPool : _scheduledPools)
-				threadPool.purge();
+			{ threadPool.purge(); }
 
 			for (ThreadPoolExecutor threadPool : _instantPools)
-				threadPool.purge();
+			{ threadPool.purge(); }
 		}, 600000, 600000);
 
 		_log.info("Initializing Threads.");
@@ -86,8 +90,7 @@ public class VDSThreadPool
 		try
 		{
 			return getPool(_scheduledPools).scheduleAtFixedRate(new TaskWrapper(r), validate(delay), validate(period), TimeUnit.MILLISECONDS);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			return null;
 		}
@@ -98,8 +101,7 @@ public class VDSThreadPool
 		try
 		{
 			return getPool(_scheduledPools).schedule(new TaskWrapper(r), validate(delay), TimeUnit.MILLISECONDS);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			return null;
 		}
@@ -130,8 +132,7 @@ public class VDSThreadPool
 			try
 			{
 				_runnable.run();
-			}
-			catch (RuntimeException e)
+			} catch (RuntimeException e)
 			{
 				_log.error("VDS: Exception on Thread.", e);
 			}

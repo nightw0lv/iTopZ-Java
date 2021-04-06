@@ -42,12 +42,12 @@ import java.util.stream.Collectors;
  * iToPz Discord: https://discord.gg/KkPms6B5aE
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
- *
+ * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.2
  * Pack Support: Mobius Premium 2.3 Seven Signs
- *
+ * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
@@ -146,38 +146,31 @@ public class Global
 		// write console info from response
 		switch (TOPSITE)
 		{
-			case "HOPZONE" ->
-			{
+			case "HOPZONE" -> {
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
 				Gui.getInstance().UpdateHopzoneStats(serverVotes);
 			}
-			case "ITOPZ" ->
-			{
+			case "ITOPZ" -> {
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes:" + serverVotes + " Rank:" + serverRank + " Next Rank(" + serverNextRank + ") need: " + serverNeededVotes + "votes.");
 				Gui.getInstance().UpdateItopzStats(serverVotes, serverRank, serverNextRank, serverNeededVotes);
 			}
-			case "L2JBRASIL" ->
-			{
+			case "L2JBRASIL" -> {
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
 				Gui.getInstance().UpdateBrasilStats(serverVotes);
 			}
-			case "L2NETWORK" ->
-			{
+			case "L2NETWORK" -> {
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
 				Gui.getInstance().UpdateNetworkStats(serverVotes);
 			}
-			case "L2TOPGAMESERVER" ->
-			{
+			case "L2TOPGAMESERVER" -> {
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
 				Gui.getInstance().UpdateTopGameServerStats(serverVotes);
 			}
-			case "L2TOPSERVERS" ->
-			{
+			case "L2TOPSERVERS" -> {
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
 				Gui.getInstance().UpdateTopServersStats(serverVotes);
 			}
-			case "L2VOTES" ->
-			{
+			case "L2VOTES" -> {
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
 				Gui.getInstance().UpdateVotesStats(serverVotes);
 			}
@@ -215,8 +208,7 @@ public class Global
 		// announce current votes
 		switch (TOPSITE)
 		{
-			case "HOPZONE" ->
-			{
+			case "HOPZONE" -> {
 				if (Configurations.HOPZONE_ANNOUNCE_STATISTICS)
 					Gui.getInstance().UpdateHopzoneStats(serverVotes);
 				// check for vote step reward
@@ -228,8 +220,7 @@ public class Global
 				// announce next reward
 				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.HOPZONE_VOTE_STEP) + " votes!");
 			}
-			case "ITOPZ" ->
-			{
+			case "ITOPZ" -> {
 				if (Configurations.ITOPZ_ANNOUNCE_STATISTICS)
 					Utilities.announce(TOPSITE, "Server Votes:" + serverVotes + " Rank:" + serverRank + " Next Rank(" + serverNextRank + ") need:" + serverNeededVotes + "votes");
 				// check for vote step reward
@@ -241,8 +232,7 @@ public class Global
 				// announce next reward
 				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.ITOPZ_VOTE_STEP) + " votes!");
 			}
-			case "L2JBRASIL" ->
-			{
+			case "L2JBRASIL" -> {
 				if (Configurations.L2JBRASIL_ANNOUNCE_STATISTICS)
 					Gui.getInstance().UpdateBrasilStats(serverVotes);
 				if (serverVotes >= storedVotes + Configurations.L2JBRASIL_VOTE_STEP)
@@ -253,8 +243,7 @@ public class Global
 				// announce next reward
 				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.L2JBRASIL_VOTE_STEP) + " votes!");
 			}
-			case "L2NETWORK" ->
-			{
+			case "L2NETWORK" -> {
 				if (Configurations.L2NETWORK_ANNOUNCE_STATISTICS)
 					Gui.getInstance().UpdateNetworkStats(serverVotes);
 				// check for vote step reward
@@ -266,8 +255,7 @@ public class Global
 				// announce next reward
 				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.L2NETWORK_VOTE_STEP) + " votes!");
 			}
-			case "L2TOPGAMESERVER" ->
-			{
+			case "L2TOPGAMESERVER" -> {
 				if (Configurations.L2TOPGAMESERVER_ANNOUNCE_STATISTICS)
 					Gui.getInstance().UpdateTopGameServerStats(serverVotes);
 				// check for vote step reward
@@ -279,8 +267,7 @@ public class Global
 				// announce next reward
 				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.L2TOPGAMESERVER_VOTE_STEP) + " votes!");
 			}
-			case "L2TOPSERVERS" ->
-			{
+			case "L2TOPSERVERS" -> {
 				if (Configurations.L2TOPSERVERS_ANNOUNCE_STATISTICS)
 					Gui.getInstance().UpdateTopServersStats(serverVotes);
 				// check for vote step reward
@@ -292,8 +279,7 @@ public class Global
 				// announce next reward
 				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.L2TOPSERVERS_VOTE_STEP) + " votes!");
 			}
-			case "L2VOTES" ->
-			{
+			case "L2VOTES" -> {
 				if (Configurations.L2VOTES_ANNOUNCE_STATISTICS)
 					Gui.getInstance().UpdateVotesStats(serverVotes);
 				// check for vote step reward
@@ -321,8 +307,7 @@ public class Global
 			try
 			{
 				key = Objects.requireNonNull(player.getClient().getConnectionAddress().getHostAddress(), player.getName());
-			}
-			catch(Exception e)
+			} catch (Exception e)
 			{
 				Gui.getInstance().ConsoleWrite(e.getMessage());
 				continue;
@@ -367,11 +352,11 @@ public class Global
 		FINGERPRINT.clear();
 
 		// announce the reward
-		Utilities.announce(TOPSITE,"Thanks for voting! Players rewarded!");
+		Utilities.announce(TOPSITE, "Thanks for voting! Players rewarded!");
 		// save votes
 		Utilities.saveGlobalVar(TOPSITE, "votes", serverVotes);
 		// write on console
-		Gui.getInstance().ConsoleWrite(TOPSITE +  ": Players rewarded!");
+		Gui.getInstance().ConsoleWrite(TOPSITE + ": Players rewarded!");
 	}
 
 	public static Global getInstance()

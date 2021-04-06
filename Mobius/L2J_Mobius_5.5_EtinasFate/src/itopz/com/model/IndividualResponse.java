@@ -32,12 +32,12 @@ import itopz.com.vote.VDSystem;
  * iToPz Discord: https://discord.gg/KkPms6B5aE
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
- *
+ * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.2
  * Pack Support: Mobius 5.5 Etinas Fate
- *
+ * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
@@ -54,7 +54,7 @@ public class IndividualResponse extends IResponse
 	/**
 	 * Constructor
 	 *
-	 * @param url string
+	 * @param url       string
 	 * @param IPAddress string
 	 */
 	public IndividualResponse(final String url, final String IPAddress)
@@ -67,7 +67,7 @@ public class IndividualResponse extends IResponse
 	 * on fetch data set local variables
 	 *
 	 * @param responseCode int
-	 * @param response Json object
+	 * @param response     Json object
 	 */
 	@Override
 	public void onFetch(final String TOPSITE, final int responseCode, final Json response)
@@ -96,7 +96,7 @@ public class IndividualResponse extends IResponse
 				break;
 			case "L2TOPGAMESERVER":
 				_voteTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "Europe/Berlin");
-				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() +"_server_time"), "Europe/Berlin");
+				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_server_time"), "Europe/Berlin");
 				break;
 			case "L2TOPSERVERS":
 				_voteTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "Europe/Athens");
@@ -188,7 +188,7 @@ public class IndividualResponse extends IResponse
 	/**
 	 * Return response
 	 *
-	 * @param url string
+	 * @param url       string
 	 * @param IPAddress string
 	 * @return IndividualResponse object
 	 */

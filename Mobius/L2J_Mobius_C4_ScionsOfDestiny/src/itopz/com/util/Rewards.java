@@ -33,58 +33,58 @@ import java.util.Set;
  * iToPz Discord: https://discord.gg/KkPms6B5aE
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
- *
+ * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.2
  * Pack Support: Mobius C4 Scions of Destiny
- *
+ * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
 public enum Rewards
 {
-    ITOPZ_INDIVIDUAL_REWARDS(Configurations.ITOPZ_INDIVIDUAL_REWARDS),
-    ITOPZ_GLOBAL_REWARDS(Configurations.ITOPZ_GLOBAL_REWARDS),
-    HOPZONE_INDIVIDUAL_REWARDS(Configurations.HOPZONE_INDIVIDUAL_REWARDS),
-    HOPZONE_GLOBAL_REWARDS(Configurations.HOPZONE_GLOBAL_REWARDS),
-    L2TOPGAMESERVER_INDIVIDUAL_REWARDS(Configurations.L2TOPGAMESERVER_INDIVIDUAL_REWARDS),
-    L2TOPGAMESERVER_GLOBAL_REWARDS(Configurations.L2TOPGAMESERVER_GLOBAL_REWARDS),
-    L2NETWORK_INDIVIDUAL_REWARDS(Configurations.L2NETWORK_INDIVIDUAL_REWARDS),
-    L2NETWORK_GLOBAL_REWARDS(Configurations.L2NETWORK_GLOBAL_REWARDS),
-    L2JBRASIL_INDIVIDUAL_REWARDS(Configurations.L2JBRASIL_INDIVIDUAL_REWARDS),
-    L2JBRASIL_GLOBAL_REWARDS(Configurations.L2JBRASIL_GLOBAL_REWARDS),
-    L2TOPSERVERS_INDIVIDUAL_REWARDS(Configurations.L2TOPSERVERS_INDIVIDUAL_REWARDS),
-    L2TOPSERVERS_GLOBAL_REWARDS(Configurations.L2TOPSERVERS_GLOBAL_REWARDS),
-    L2VOTES_INDIVIDUAL_REWARDS(Configurations.L2VOTES_INDIVIDUAL_REWARDS),
-    L2VOTES_GLOBAL_REWARDS(Configurations.L2VOTES_GLOBAL_REWARDS);
+	ITOPZ_INDIVIDUAL_REWARDS(Configurations.ITOPZ_INDIVIDUAL_REWARDS),
+	ITOPZ_GLOBAL_REWARDS(Configurations.ITOPZ_GLOBAL_REWARDS),
+	HOPZONE_INDIVIDUAL_REWARDS(Configurations.HOPZONE_INDIVIDUAL_REWARDS),
+	HOPZONE_GLOBAL_REWARDS(Configurations.HOPZONE_GLOBAL_REWARDS),
+	L2TOPGAMESERVER_INDIVIDUAL_REWARDS(Configurations.L2TOPGAMESERVER_INDIVIDUAL_REWARDS),
+	L2TOPGAMESERVER_GLOBAL_REWARDS(Configurations.L2TOPGAMESERVER_GLOBAL_REWARDS),
+	L2NETWORK_INDIVIDUAL_REWARDS(Configurations.L2NETWORK_INDIVIDUAL_REWARDS),
+	L2NETWORK_GLOBAL_REWARDS(Configurations.L2NETWORK_GLOBAL_REWARDS),
+	L2JBRASIL_INDIVIDUAL_REWARDS(Configurations.L2JBRASIL_INDIVIDUAL_REWARDS),
+	L2JBRASIL_GLOBAL_REWARDS(Configurations.L2JBRASIL_GLOBAL_REWARDS),
+	L2TOPSERVERS_INDIVIDUAL_REWARDS(Configurations.L2TOPSERVERS_INDIVIDUAL_REWARDS),
+	L2TOPSERVERS_GLOBAL_REWARDS(Configurations.L2TOPSERVERS_GLOBAL_REWARDS),
+	L2VOTES_INDIVIDUAL_REWARDS(Configurations.L2VOTES_INDIVIDUAL_REWARDS),
+	L2VOTES_GLOBAL_REWARDS(Configurations.L2VOTES_GLOBAL_REWARDS);
 
-    private final Map<Integer, List<Integer[]>> _list;
-    private static final Rewards[] _rewards = values();
+	private final Map<Integer, List<Integer[]>> _list;
+	private static final Rewards[] _rewards = values();
 
-    Rewards(final Map<Integer, List<Integer[]>> text)
-    {
-        _list = text;
-    }
+	Rewards(final Map<Integer, List<Integer[]>> text)
+	{
+		_list = text;
+	}
 
-    public Set<Integer> keys()
-    {
-        return _list.keySet();
-    }
+	public Set<Integer> keys()
+	{
+		return _list.keySet();
+	}
 
-    public Integer[] get(int id)
-    {
-        return _list.get(id).get(0);
-    }
+	public Integer[] get(int id)
+	{
+		return _list.get(id).get(0);
+	}
 
-    /**
-     * returns enum from string
-     *
-     * @param TOPSITE string
-     * @return Individual
-     */
-    public static Rewards from(String TOPSITE)
-    {
-        return Arrays.stream(_rewards).filter(s -> s.name().equalsIgnoreCase(TOPSITE)).findFirst().orElse(ITOPZ_INDIVIDUAL_REWARDS);
-    }
+	/**
+	 * returns enum from string
+	 *
+	 * @param TOPSITE string
+	 * @return Individual
+	 */
+	public static Rewards from(String TOPSITE)
+	{
+		return Arrays.stream(_rewards).filter(s -> s.name().equalsIgnoreCase(TOPSITE)).findFirst().orElse(ITOPZ_INDIVIDUAL_REWARDS);
+	}
 }

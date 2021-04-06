@@ -32,12 +32,12 @@ import org.slf4j.LoggerFactory;
  * iToPz Discord: https://discord.gg/KkPms6B5aE
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
- *
+ * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.2
  * Pack Support: L2Scripts Classic: Saviors (Zaken) [26360]
- *
+ * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
@@ -45,6 +45,7 @@ public class VDSystemManager
 {
 	// logger
 	private static final Logger _log = LoggerFactory.getLogger(VDSystemManager.class);
+
 	public VDSystemManager()
 	{
 		_log.info("VDS Manager");

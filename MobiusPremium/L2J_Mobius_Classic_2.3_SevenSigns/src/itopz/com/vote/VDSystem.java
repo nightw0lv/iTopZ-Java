@@ -34,64 +34,64 @@ import org.l2jmobius.gameserver.handler.VoicedCommandHandler;
  * iToPz Discord: https://discord.gg/KkPms6B5aE
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
- *
+ * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.2
  * Pack Support: Mobius Premium 2.3 Seven Signs
- *
+ * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
 public class VDSystem
 {
-    // logger
-    private static final Logs _log = new Logs(VDSystem.class.getSimpleName());
+	// logger
+	private static final Logs _log = new Logs(VDSystem.class.getSimpleName());
 
-    public enum VoteType
-    {
-        GLOBAL, INDIVIDUAL;
-    }
+	public enum VoteType
+	{
+		GLOBAL, INDIVIDUAL;
+	}
 
-    /**
-     * Constructor
-     */
-    public VDSystem()
-    {
-        onLoad();
-    }
+	/**
+	 * Constructor
+	 */
+	public VDSystem()
+	{
+		onLoad();
+	}
 
-    /**
-     * Vod function on load
-     */
-    public void onLoad()
-    {
-        // check if allowed the donation system to run
-        if (Configurations.ITOPZ_DONATE_MANAGER)
-        {
-            // start donation manager
-            VDSThreadPool.scheduleAtFixedRate(new DonateTaskManager(), 100, 5000);
+	/**
+	 * Vod function on load
+	 */
+	public void onLoad()
+	{
+		// check if allowed the donation system to run
+		if (Configurations.ITOPZ_DONATE_MANAGER)
+		{
+			// start donation manager
+			VDSThreadPool.scheduleAtFixedRate(new DonateTaskManager(), 100, 5000);
 
-            // initiate Donation reward
-            _log.info(DonateTaskManager.class.getSimpleName() + ": started.");
-        }
+			// initiate Donation reward
+			_log.info(DonateTaskManager.class.getSimpleName() + ": started.");
+		}
 
-        // register individual reward command
-        VoicedCommandHandler.getInstance().registerHandler(new VoteCMD());
+		// register individual reward command
+		VoicedCommandHandler.getInstance().registerHandler(new VoteCMD());
 
-        // load global system rewards
-        Global.getInstance();
+		// load global system rewards
+		Global.getInstance();
 
-        _log.info(VDSystem.class.getSimpleName() + ": System initialized.");
-    }
+		_log.info(VDSystem.class.getSimpleName() + ": System initialized.");
+	}
 
-    public static VDSystem getInstance()
-    {
-        return SingletonHolder._instance;
-    }
+	public static VDSystem getInstance()
+	{
+		return SingletonHolder._instance;
+	}
 
-    private static class SingletonHolder
-    {
-        protected static final VDSystem _instance = new VDSystem();
-    }
+	private static class SingletonHolder
+	{
+		protected static final VDSystem _instance = new VDSystem();
+	}
 }

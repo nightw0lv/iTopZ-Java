@@ -42,12 +42,12 @@ import java.util.stream.Collectors;
  * iToPz Discord: https://discord.gg/KkPms6B5aE
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
- *
+ * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.2
  * Pack Support: Frozen 1118 Last beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source/1118/branches/Beta
- *
+ * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
@@ -309,8 +309,7 @@ public class Global
 			try
 			{
 				key = Objects.requireNonNull(player.getClient().getConnection().getInetAddress().getHostAddress(), player.getName());
-			}
-			catch(Exception e)
+			} catch (Exception e)
 			{
 				e.getMessage();
 				continue;
@@ -355,11 +354,11 @@ public class Global
 		FINGERPRINT.clear();
 
 		// announce the reward
-		Utilities.announce(TOPSITE,"Thanks for voting! Players rewarded!");
+		Utilities.announce(TOPSITE, "Thanks for voting! Players rewarded!");
 		// save votes
 		Utilities.saveGlobalVar(TOPSITE, "votes", serverVotes);
 		// write on console
-		Gui.getInstance().ConsoleWrite(TOPSITE +  ": Players rewarded!");
+		Gui.getInstance().ConsoleWrite(TOPSITE + ": Players rewarded!");
 	}
 
 	public static Global getInstance()

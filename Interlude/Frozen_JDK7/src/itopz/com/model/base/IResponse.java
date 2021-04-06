@@ -40,12 +40,12 @@ import java.nio.charset.StandardCharsets;
  * iToPz Discord: https://discord.gg/KkPms6B5aE
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
- *
+ * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.2
  * Pack Support: Frozen 1132 Last beta branch beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source
- *
+ * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
@@ -117,26 +117,22 @@ public abstract class IResponse
 				onFetch(TOPSITE, responseCode, new Json(sb.toString(), TOPSITE, TYPE));
 			}
 			return this;
-		}
-		catch(final SocketTimeoutException sex)
+		} catch (final SocketTimeoutException sex)
 		{
 			_log.error("Socket:" + sex.getMessage());
 			if (Configurations.DEBUG)
 				_log.error("Socket:" + sex.getMessage(), sex);
-		}
-		catch (final FileNotFoundException fnfe)
+		} catch (final FileNotFoundException fnfe)
 		{
 			_log.error("Link '" + _url + "' not found:" + fnfe.getMessage());
 			if (Configurations.DEBUG)
 				_log.error("Socket:" + fnfe.getMessage(), fnfe);
-		}
-		catch(final Exception ex)
+		} catch (final Exception ex)
 		{
 			_log.error("Exception:" + ex.getMessage());
 			if (Configurations.DEBUG)
 				_log.error("Exception:" + ex.getMessage(), ex);
-		}
-		finally
+		} finally
 		{
 			// close connection
 			if (connection != null)

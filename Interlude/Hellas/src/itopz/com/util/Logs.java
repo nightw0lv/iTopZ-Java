@@ -29,12 +29,12 @@ import java.util.logging.Logger;
  * iToPz Discord: https://discord.gg/KkPms6B5aE
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
- *
+ * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.2
  * Pack Support: L2JHellas 562 https://app.assembla.com/spaces/l2hellas/subversion/source
- *
+ * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
@@ -60,6 +60,7 @@ public class Logs
 
 	/**
 	 * Logs a message with Level.INFO.
+	 *
 	 * @param message : The object to log.
 	 */
 	public void info(Object message)
@@ -69,6 +70,7 @@ public class Logs
 
 	/**
 	 * Logs a message with Level.WARNING.
+	 *
 	 * @param message : The object to log.
 	 */
 	public void warn(Object message)
@@ -78,6 +80,7 @@ public class Logs
 
 	/**
 	 * Logs a message with Level.SEVERE.
+	 *
 	 * @param message : The object to log.
 	 */
 	public void error(Object message)
@@ -87,7 +90,8 @@ public class Logs
 
 	/**
 	 * Logs a message with Level.SEVERE.
-	 * @param message : The object to log.
+	 *
+	 * @param message   : The object to log.
 	 * @param exception : Log the caught exception.
 	 */
 	public void error(Object message, Throwable exception)
