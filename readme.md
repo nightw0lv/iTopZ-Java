@@ -13,6 +13,8 @@ Participate by donating here: [Donate](https://www.paypal.com/pools/c/8xBWAskHA5
 For anonymous donations
 - Send an email with your donated value at info@denart-designs.com
 #
+<a href="https://www.revolvermaps.com/livestats/5ffw649icr5/"><img src="https://rf.revolvermaps.com/h/m/a/1/ff0000/256/10/5ffw649icr5.png" width="512" height="256" alt="Map" style="border:0;"></a>
+#
 **VDSystem**
 - **Source requirements**
   - Intellij
