@@ -115,17 +115,14 @@ public abstract class IResponse
 			return this;
 		} catch (final SocketTimeoutException sex)
 		{
-			_log.error("Socket:" + sex.getMessage());
 			if (Configurations.DEBUG)
 				_log.error("Socket:" + sex.getMessage(), sex);
 		} catch (final FileNotFoundException fnfe)
 		{
-			_log.error("Link '" + _url + "' not found:" + fnfe.getMessage());
 			if (Configurations.DEBUG)
-				_log.error("Socket:" + fnfe.getMessage(), fnfe);
+				_log.error("File:" + fnfe.getMessage(), fnfe);
 		} catch (final Exception ex)
 		{
-			_log.error("Exception:" + ex.getMessage());
 			if (Configurations.DEBUG)
 				_log.error("Exception:" + ex.getMessage(), ex);
 		} finally
