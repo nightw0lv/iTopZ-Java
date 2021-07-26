@@ -29,6 +29,7 @@ import itopz.com.vote.VDSystem;
 import l2.gameserver.data.xml.holder.ItemHolder;
 import l2.gameserver.handler.voicecommands.IVoicedCommandHandler;
 import l2.gameserver.model.Player;
+import l2.gameserver.model.instances.NpcInstance;
 import l2.gameserver.network.l2.s2c.ExShowScreenMessage;
 import l2.gameserver.scripts.Functions;
 import l2.gameserver.templates.item.ItemTemplate;
@@ -51,7 +52,7 @@ import java.util.Optional;
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
  */
-public class VoteCMD implements IVoicedCommandHandler
+public class VoteCMD extends Functions implements IVoicedCommandHandler
 {
 	// local response variables
 	private int _responseCode;
@@ -67,40 +68,86 @@ public class VoteCMD implements IVoicedCommandHandler
 	// commands
 	public final static String[] COMMANDS =
 	{
-	"itopz", "hopzone", "l2jbrasil", "l2network", "l2topgameserver", "l2topservers", "l2votes"
+	"vote","itopz", "hopzone", "l2jbrasil", "l2network", "l2topgameserver", "l2topservers", "l2votes"
 	};
 
 	@Override
 	public boolean useVoicedCommand(String command, Player player, String s1)
 	{
-		final String TOPSITE = command.replace(".", "").toUpperCase();
+		openWindow(player);
+		player.sendActionFailed();
+		return false;
+	}
+
+	public void check(String[] params)
+	{
+		String TOPSITE = String.valueOf(params[0]).toUpperCase();
+		Player player = this.getSelf();
 
 		// check if allowed the individual command to run
 		if (TOPSITE.equals("ITOPZ") && !Configurations.ITOPZ_INDIVIDUAL_REWARD)
-			return false;
+			return;
 		if (TOPSITE.equals("HOPZONE") && !Configurations.HOPZONE_INDIVIDUAL_REWARD)
-			return false;
+			return;
 		if (TOPSITE.equals("L2TOPGAMESERVER") && !Configurations.L2TOPGAMESERVER_INDIVIDUAL_REWARD)
-			return false;
+			return;
 		if (TOPSITE.equals("L2NETWORK") && !Configurations.L2NETWORK_INDIVIDUAL_REWARD)
-			return false;
+			return;
 		if (TOPSITE.equals("L2JBRASIL") && !Configurations.L2JBRASIL_INDIVIDUAL_REWARD)
-			return false;
+			return;
 		if (TOPSITE.equals("L2TOPSERVERS") && !Configurations.L2TOPSERVERS_INDIVIDUAL_REWARD)
-			return false;
+			return;
 		if (TOPSITE.equals("L2VOTES") && !Configurations.L2VOTES_INDIVIDUAL_REWARD)
-			return false;
+			return;
 
 		// check player eligibility
 		if (!playerChecksFail(player, TOPSITE))
 		{
 			VDSThreadPool.schedule(() -> Execute(player, TOPSITE), 100);
 		}
-
-		player.sendActionFailed();
-		return false;
+		openWindow(player);
 	}
 
+    /**
+     * Show Vote Window
+     * @param player object
+     */
+	private void openWindow(Player player)
+	{
+		StringBuilder html = new StringBuilder("<html>");
+		html.append("<head>");
+		html.append("<title>Vote for us!</title>");
+		html.append("</head>");
+		html.append("<body>");
+		html.append("<center>");
+		html.append("<br><font color=\"cc9900\"><img src=\"L2UI_CH3.herotower_deco\" width=256 height=32></font><br>");
+		html.append("<img src=\"L2UI.SquareWhite\" width=\"300\" height=\"1\">");
+		html.append("<table width=300 align=center>");
+		html.append("<tr><td align=center>Please select the topsite you voted</td></tr>");
+		if (Configurations.ITOPZ_INDIVIDUAL_REWARD)
+			html.append("<tr><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check itopz\">iToPz</a></td></tr>");
+		if (Configurations.HOPZONE_INDIVIDUAL_REWARD)
+			html.append("<tr><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check hopzone\">Hopzone</a></td></tr>");
+		if (Configurations.L2TOPGAMESERVER_INDIVIDUAL_REWARD)
+			html.append("<tr><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check l2topgameserver\">L2TopGameServer</a></td></tr>");
+		if (Configurations.L2NETWORK_INDIVIDUAL_REWARD)
+			html.append("<tr><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check l2network\">L2Network</a></td></tr>");
+		if (Configurations.L2JBRASIL_INDIVIDUAL_REWARD)
+			html.append("<tr><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check l2jbrasil\">L2JBrasil</a></td></tr>");
+		if (Configurations.L2TOPSERVERS_INDIVIDUAL_REWARD)
+			html.append("<tr><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check l2topservers\">L2TopServers</a></td></tr>");
+		if (Configurations.L2VOTES_INDIVIDUAL_REWARD)
+			html.append("<tr><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check l2votes\">L2Votes</a></td></tr>");
+		html.append("</table>");
+		html.append("<img src=\"L2UI.SquareWhite\" width=300 height=1>");
+		html.append("<img src=\"Sek.cbui371\" width=\"300\" height=\"1\">");
+		html.append("<font color=\"cc9900\"><img src=\"L2UI_CH3.herotower_deco\" width=256 height=32></font><br1>");
+		html.append("<img src=l2ui.bbs_lineage2 height=16 width=80>");
+		html.append("</center>");
+		html.append("</body>");
+		html.append("</html>");
+		Functions.show(html.toString(), player, (NpcInstance) null);
+	}
 
 	/**
 	 * Validate user
@@ -259,7 +306,6 @@ public class VoteCMD implements IVoicedCommandHandler
 				}
 			}
 		}
-
 	}
 
 	/**
