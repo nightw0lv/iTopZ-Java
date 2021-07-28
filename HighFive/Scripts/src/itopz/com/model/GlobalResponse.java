@@ -35,7 +35,7 @@ import itopz.com.vote.VDSystem;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: L2Scripts rev20720(2268)
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/

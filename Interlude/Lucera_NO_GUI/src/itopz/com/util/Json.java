@@ -314,7 +314,7 @@ public class Json
 	 */
 	public String getString(String key)
 	{
-		return data.containsKey(key) ? String.valueOf(data.getOrDefault(key, "-2")) : null;
+		return data.containsKey(key) ? String.valueOf(data.getOrDefault(key, "-2")) : "NONE";
 	}
 
 	/**

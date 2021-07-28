@@ -75,7 +75,7 @@ public class IndividualResponse extends IResponse
 		_hasVoted = response.getBoolean(TOPSITE.toLowerCase() + "_voted");
 		_voteTime = -1;
 		_serverTime = -1;
-		_voteError = null;
+		_voteError = "NONE";
 
 		switch (TOPSITE)
 		{

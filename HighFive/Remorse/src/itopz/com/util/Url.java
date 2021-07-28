@@ -33,7 +33,7 @@ import java.util.Arrays;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Remorse (l2-scripts) classic 196 pack
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/

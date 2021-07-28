@@ -47,7 +47,7 @@ import java.util.Locale;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Frozen 1132 Last beta branch beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/

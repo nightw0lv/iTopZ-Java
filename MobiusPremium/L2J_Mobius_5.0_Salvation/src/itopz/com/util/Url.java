@@ -33,7 +33,7 @@ import java.util.Arrays;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Mobius Premium 5.0 Salvation
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/

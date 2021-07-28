@@ -36,7 +36,7 @@ import java.util.Map;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Frozen 1132 Last beta branch beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -319,7 +319,7 @@ public class Json
 	 */
 	public String getString(String key)
 	{
-		return data.containsKey(key) ? String.valueOf(data.get(key)) : null;
+		return data.containsKey(key) ? String.valueOf(data.get(key)) : "NONE";
 	}
 
 	/**

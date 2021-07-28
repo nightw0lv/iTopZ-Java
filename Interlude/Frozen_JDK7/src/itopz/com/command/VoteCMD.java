@@ -27,11 +27,16 @@ import com.l2jfrozen.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jfrozen.gameserver.network.serverpackets.ActionFailed;
 import com.l2jfrozen.gameserver.network.serverpackets.ExShowScreenMessage;
 import com.l2jfrozen.gameserver.templates.L2Item;
+import com.l2jfrozen.gameserver.templates.StatsSet;
 import itopz.com.Configurations;
 import itopz.com.gui.Gui;
 import itopz.com.model.IndividualResponse;
 import itopz.com.util.*;
 import itopz.com.vote.VDSystem;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @Author Nightwolf
@@ -41,7 +46,7 @@ import itopz.com.vote.VDSystem;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Frozen 1132 Last beta branch beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -49,21 +54,20 @@ import itopz.com.vote.VDSystem;
  */
 public class VoteCMD implements IVoicedCommandHandler
 {
-	// local response variables
-	private int _responseCode;
-	private boolean _hasVoted;
-	private long _serverTime;
-	private long _voteTime;
-	private String _responseError;
+	// local variables
 	private String _IPAddress;
 
 	// 12 hour reuse
-	private final long VOTE_REUSE = 43200;
+	private final long VOTE_REUSE = 43200000;
+
+	// flood protector
+	private static final long FLOOD_REUSE = 20000;
+	private static final Map<Integer, AtomicLong> FLOOD_PROTECTOR = new ConcurrentHashMap<>();
 
 	// commands
 	public final static String[] COMMANDS =
 	{
-	"itopz", "hopzone", "l2jbrasil", "l2network", "l2topgameserver", "l2topservers", "l2votes"
+		"itopz", "hopzone", "l2jbrasil", "l2network", "l2topgameserver", "l2topservers", "l2votes"
 	};
 
 	@Override
@@ -87,6 +91,18 @@ public class VoteCMD implements IVoicedCommandHandler
 		if (TOPSITE.equals("L2VOTES") && !Configurations.L2VOTES_INDIVIDUAL_REWARD)
 			return false;
 
+		if (!FLOOD_PROTECTOR.containsKey(player.getObjectId()))
+		{
+			FLOOD_PROTECTOR.put(player.getObjectId(), new AtomicLong());
+		}
+		else if (FLOOD_PROTECTOR.get(player.getObjectId()).get() > System.currentTimeMillis())
+		{
+			sendMsg(player, "You cant use the command so fast.");
+			return false;
+		}
+
+		FLOOD_PROTECTOR.get(player.getObjectId()).set(System.currentTimeMillis() + FLOOD_REUSE);
+
 		// check player eligibility
 		if (!playerChecksFail(player, TOPSITE))
 		{
@@ -97,7 +113,7 @@ public class VoteCMD implements IVoicedCommandHandler
 				{
 					Execute(player, TOPSITE);
 				}
-			}, 100);
+			}, Random.get(1000, 10000));
 		}
 
 		player.sendPacket(new ActionFailed());
@@ -163,21 +179,22 @@ public class VoteCMD implements IVoicedCommandHandler
 		if (response != null)
 		{
 			// set variables
-			_responseCode = response.getResponseCode();
-			_hasVoted = response.hasVoted();
-			_voteTime = response.getVoteTime();
-			_serverTime = response.getServerTime();
-			_responseError = response.getError();
-		}
+			final StatsSet set = new StatsSet();
+			set.set("response_code", response.getResponseCode());
+			set.set("has_voted", response.hasVoted());
+			set.set("vote_time", response.getVoteTime());
+			set.set("server_time", response.getServerTime());
+			set.set("response_error", response.getError());
 
-		// player can get reward?
-		if (isEligible(player, TOPSITE))
-		{
-			sendMsg(player, "Successfully voted in " + TOPSITE + "!" + (Configurations.DEBUG ? "(DEBUG ON)" : ""));
-			reward(player, TOPSITE);
-			// set can vote: 12 hours (in ms).
-			Utilities.saveIndividualVar(player, TOPSITE, "can_vote", System.currentTimeMillis() + System.currentTimeMillis() + VOTE_REUSE, _IPAddress);
-			player.sendPacket(ActionFailed.STATIC_PACKET);
+			// player can get reward?
+			if (isEligible(player, TOPSITE, set))
+			{
+				sendMsg(player, "Successfully voted in " + TOPSITE + "!" + (Configurations.DEBUG ? "(DEBUG ON)" : ""));
+				reward(player, TOPSITE);
+				// set can vote: 12 hours (in ms).
+				Utilities.saveIndividualVar(player, TOPSITE, "can_vote", System.currentTimeMillis() + VOTE_REUSE, _IPAddress);
+				player.sendPacket(ActionFailed.STATIC_PACKET);
+			}
 		}
 	}
 
@@ -187,8 +204,14 @@ public class VoteCMD implements IVoicedCommandHandler
 	 * @param player object
 	 * @return boolean
 	 */
-	private boolean isEligible(final L2PcInstance player, final String TOPSITE)
+	private boolean isEligible(final L2PcInstance player, final String TOPSITE, final StatsSet set)
 	{
+		final int _responseCode = set.getInteger("response_code");
+		final boolean _hasVoted = set.getBool("has_voted");
+		final long _voteTime = set.getLong("vote_time");
+		final long _serverTime = set.getLong("server_time");
+		final String _responseError = set.getString("response_error");
+
 		// check if response was not ok
 		if (_responseCode != 200)
 		{
@@ -199,7 +222,7 @@ public class VoteCMD implements IVoicedCommandHandler
 		}
 
 		// server returned error
-		if (_responseError != null)
+		if (!_responseError.equals("NONE"))
 		{
 			if (Configurations.DEBUG)
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Response Error:" + _responseError);

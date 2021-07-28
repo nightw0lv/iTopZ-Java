@@ -11,7 +11,7 @@ Implementation of vote global and individual system with itopz donate panel task
 **Build**
 - JDK 1.8
 - File: ```VDSystem.ext.jar```
-- Version: 1.2
+- Version: 1.3
 
 **Global vote system**
 
@@ -80,6 +80,16 @@ Implementation of vote global and individual system with itopz donate panel task
 
 
 **Chancelog**
+
+- Version 1.3
+  - Rework on VoteCMD
+    - Fixed possible concurrent error on response thread (Ty Rationale)
+    - Using StatsSet to transfer data in method isEligible (Ty Rationale)
+    - Introducing a Flood Protector (Ty Rationale)
+    - Using "NONE" for default errors to avoid NPE
+    - Thread Execute will run on random between 1 and 10 seconds to avoid cheats
+    - Added Window pop up after using a command .topsite or .vote
+    - Added command .vote (old .topsite commands will still function)
 
 - Version 1.2
   - Minimal Requirement on server resources and class consistency along projects.

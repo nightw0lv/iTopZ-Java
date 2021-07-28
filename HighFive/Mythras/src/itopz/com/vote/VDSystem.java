@@ -38,7 +38,7 @@ import l2f.gameserver.handler.voicecommands.VoicedCommandHandler;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Mythras
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/

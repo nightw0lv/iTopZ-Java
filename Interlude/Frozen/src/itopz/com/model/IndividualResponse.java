@@ -35,7 +35,7 @@ import itopz.com.vote.VDSystem;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Frozen 1118 Last beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source/1118/branches/Beta
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -76,7 +76,7 @@ public class IndividualResponse extends IResponse
 		_hasVoted = response.getBoolean(TOPSITE.toLowerCase() + "_voted");
 		_voteTime = -1;
 		_serverTime = -1;
-		_voteError = null;
+		_voteError = "NONE";
 
 		switch (TOPSITE)
 		{

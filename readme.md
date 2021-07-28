@@ -2,6 +2,7 @@
 ## Vote System & Donate System for Java based Lineage2 Servers ***all in one***
 **DenArt Designs _[Automatic Donation Panels](https://www.denart-designs.com/)_ are supported by this system**
 #
+## VDSystem supports 7 Topsites on 57 Projects and 2 Donation Systems
 
 ### Win Gifts worth 500€ by donating even 1€ to help replace broken PC
 * #### 1st Winner will get Website worth 350€
@@ -294,6 +295,18 @@ For anonymous donations
 
 
 **Chancelog**
+
+- Version 1.3
+  - Rework on VoteCMD
+    - Fixed possible concurrent error on response thread (Ty Rationale)
+    - Using StatsSet to transfer data in method isEligible (Ty Rationale)
+    - Introducing a Flood Protector (Ty Rationale)
+    - Using "NONE" for default errors to avoid NPE
+    - Thread Execute will run on random between 1 and 10 seconds to avoid cheats
+    - (LUCERA only) added window pop up and command .vote
+
+- Version 1.2
+  - see lucera updates only.
 
 - Version 1.1
   - Minimal Requirement on server resources and class consistency along projects.

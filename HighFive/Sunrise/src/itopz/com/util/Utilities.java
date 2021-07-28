@@ -51,7 +51,7 @@ import java.util.Locale;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.1
+ * Script version: 1.3
  * Pack Support: Sunrise
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/

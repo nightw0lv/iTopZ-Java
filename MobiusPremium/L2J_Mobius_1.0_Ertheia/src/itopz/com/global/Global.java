@@ -26,7 +26,7 @@ import itopz.com.gui.Gui;
 import itopz.com.model.GlobalResponse;
 import itopz.com.util.*;
 import itopz.com.vote.VDSystem;
-import org.l2jmobius.gameserver.datatables.ItemTable;
+import org.l2jmobius.gameserver.data.ItemTable;
 import org.l2jmobius.gameserver.model.World;
 import org.l2jmobius.gameserver.model.actor.instance.PlayerInstance;
 import org.l2jmobius.gameserver.model.items.Item;
@@ -45,7 +45,7 @@ import java.util.stream.Collectors;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Mobius Premium 1.0 Ertheia
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/

@@ -46,7 +46,7 @@ import java.util.Optional;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Mobius Premium Dwelling of Spirits
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/

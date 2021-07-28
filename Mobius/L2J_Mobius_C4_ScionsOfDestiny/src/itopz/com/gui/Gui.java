@@ -39,7 +39,7 @@ import java.net.URL;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Mobius C4 Scions of Destiny
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/

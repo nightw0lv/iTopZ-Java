@@ -31,11 +31,15 @@ import l2.gameserver.model.Player;
 import l2.gameserver.model.instances.NpcInstance;
 import l2.gameserver.network.l2.s2c.ExShowScreenMessage;
 import l2.gameserver.scripts.Functions;
+import l2.gameserver.templates.StatsSet;
 import l2.gameserver.templates.item.ItemTemplate;
 
 import java.time.Duration;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @Author Nightwolf
@@ -53,21 +57,20 @@ import java.util.Optional;
  */
 public class VoteCMD extends Functions implements IVoicedCommandHandler
 {
-	// local response variables
-	private int _responseCode;
-	private boolean _hasVoted;
-	private long _serverTime;
-	private long _voteTime;
-	private String _responseError;
+	// local variables
 	private String _IPAddress;
 
 	// 12 hour reuse
 	private final Duration VOTE_REUSE = Duration.ofHours(12);
 
+	// flood protector
+	private static final Duration FLOOD_REUSE = Duration.ofSeconds(20);
+	private static final Map<Integer, AtomicLong> FLOOD_PROTECTOR = new ConcurrentHashMap<>();
+
 	// commands
 	public final static String[] COMMANDS =
 	{
-	"vote","itopz", "hopzone", "l2jbrasil", "l2network", "l2topgameserver", "l2topservers", "l2votes"
+		"vote","itopz", "hopzone", "l2jbrasil", "l2network", "l2topgameserver", "l2topservers", "l2votes"
 	};
 
 	@Override
@@ -99,10 +102,18 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 		if (TOPSITE.equals("L2VOTES") && !Configurations.L2VOTES_INDIVIDUAL_REWARD)
 			return;
 
+		if (FLOOD_PROTECTOR.computeIfAbsent(player.getObjectId(), k -> new AtomicLong()).get() > System.currentTimeMillis())
+		{
+			sendMsg(player, "You cant use the command so fast.");
+			return;
+		}
+
+		FLOOD_PROTECTOR.get(player.getObjectId()).set(System.currentTimeMillis() + FLOOD_REUSE.toMillis());
+
 		// check player eligibility
 		if (!playerChecksFail(player, TOPSITE))
 		{
-			VDSThreadPool.schedule(() -> Execute(player, TOPSITE), 100);
+			VDSThreadPool.schedule(() -> Execute(player, TOPSITE), Random.get(1000, 10000));
 		}
 		openWindow(player);
 	}
@@ -204,22 +215,23 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 		Optional.ofNullable(IndividualResponse.OPEN(Url.from(TOPSITE + "_INDIVIDUAL_URL").toString(), _IPAddress).connect(TOPSITE, VDSystem.VoteType.INDIVIDUAL)).ifPresent(response ->
 		{
 			// set variables
-			_responseCode = response.getResponseCode();
-			_hasVoted = response.hasVoted();
-			_voteTime = response.getVoteTime();
-			_serverTime = response.getServerTime();
-			_responseError = response.getError();
-		});
+			final StatsSet set = new StatsSet();
+			set.set("response_code", response.getResponseCode());
+			set.set("has_voted", response.hasVoted());
+			set.set("vote_time", response.getVoteTime());
+			set.set("server_time", response.getServerTime());
+			set.set("response_error", response.getError());
 
-		// player can get reward?
-		if (isEligible(player, TOPSITE))
-		{
-			sendMsg(player, "Successfully voted in " + TOPSITE + "!" + (Configurations.DEBUG ? "(DEBUG ON)" : ""));
-			reward(player, TOPSITE);
-			// set can vote: 12 hours (in ms).
-			Utilities.saveIndividualVar(player, TOPSITE, "can_vote", System.currentTimeMillis() + VOTE_REUSE.toMillis(), _IPAddress);
-			player.sendActionFailed();
-		}
+			// player can get reward?
+			if (isEligible(player, TOPSITE, set))
+			{
+				sendMsg(player, "Successfully voted in " + TOPSITE + "!" + (Configurations.DEBUG ? "(DEBUG ON)" : ""));
+				reward(player, TOPSITE);
+				// set can vote: 12 hours (in ms).
+				Utilities.saveIndividualVar(player, TOPSITE, "can_vote", System.currentTimeMillis() + VOTE_REUSE.toMillis(), _IPAddress);
+				player.sendActionFailed();
+			}
+		});
 	}
 
 	/**
@@ -228,8 +240,14 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 	 * @param player object
 	 * @return boolean
 	 */
-	private boolean isEligible(final Player player, final String TOPSITE)
+	private boolean isEligible(final Player player, final String TOPSITE, final StatsSet set)
 	{
+		final int _responseCode = set.getInteger("response_code");
+		final boolean _hasVoted = set.getBool("has_voted");
+		final long _voteTime = set.getLong("vote_time");
+		final long _serverTime = set.getLong("server_time");
+		final String _responseError = set.getString("response_error");
+
 		// check if response was not ok
 		if (_responseCode != 200)
 		{

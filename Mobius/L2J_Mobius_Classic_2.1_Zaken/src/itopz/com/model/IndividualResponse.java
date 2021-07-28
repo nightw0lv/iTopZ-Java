@@ -35,7 +35,7 @@ import itopz.com.vote.VDSystem;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Mobius 2.1 Zaken
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -76,7 +76,7 @@ public class IndividualResponse extends IResponse
 		_hasVoted = response.getBoolean(TOPSITE.toLowerCase() + "_voted");
 		_voteTime = -1;
 		_serverTime = -1;
-		_voteError = null;
+		_voteError = "NONE";
 
 		switch (TOPSITE)
 		{

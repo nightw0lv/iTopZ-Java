@@ -37,7 +37,7 @@ import org.l2jmobius.gameserver.handler.VoicedCommandHandler;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Mobius 5.5 Etinas Fate
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/

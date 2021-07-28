@@ -35,7 +35,7 @@ import itopz.com.vote.VDSystem;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.2
+ * Script version: 1.3
  * Pack Support: Mobius Premium CT 2.4 Epilogue
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
