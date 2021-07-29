@@ -63,6 +63,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	// flood protector
 	private static final long FLOOD_REUSE = 20000;
 	private static final Map<Integer, AtomicLong> FLOOD_PROTECTOR = new ConcurrentHashMap<>();
+	private static final Map<String, AtomicLong> FLOOD_PROTECTOR_IP = new ConcurrentHashMap<>();
 
 	// commands
 	public final static String[] COMMANDS =
@@ -97,11 +98,23 @@ public class VoteCMD implements IVoicedCommandHandler
 		}
 		else if (FLOOD_PROTECTOR.get(player.getObjectId()).get() > System.currentTimeMillis())
 		{
-			sendMsg(player, "You cant use the command so fast.");
+			sendMsg(player, "You can't use the command so fast.");
 			return false;
 		}
 
 		FLOOD_PROTECTOR.get(player.getObjectId()).set(System.currentTimeMillis() + FLOOD_REUSE);
+
+		if (!FLOOD_PROTECTOR_IP.containsKey(player.getClient().getConnection().getInetAddress().getHostAddress()))
+		{
+			FLOOD_PROTECTOR_IP.put(player.getClient().getConnection().getInetAddress().getHostAddress(), new AtomicLong());
+		}
+		else if (FLOOD_PROTECTOR_IP.get(player.getClient().getConnection().getInetAddress().getHostAddress()).get() > System.currentTimeMillis())
+		{
+			sendMsg(player, "You can't vote fast from same IP Address.");
+			return false;
+		}
+
+		FLOOD_PROTECTOR_IP.get(player.getClient().getConnection().getInetAddress().getHostAddress()).set(System.currentTimeMillis() + FLOOD_REUSE);
 
 		// check player eligibility
 		if (!playerChecksFail(player, TOPSITE))
