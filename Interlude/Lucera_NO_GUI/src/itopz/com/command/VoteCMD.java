@@ -265,7 +265,7 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 		}
 
 		// server returned error
-		if (_responseError != null)
+		if (!_responseError.equals("NONE"))
 		{
 			sendMsg(player, "Response error:" + _responseError + ".");
 			return false;
