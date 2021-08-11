@@ -47,7 +47,7 @@ public enum Url
 	ITOPZ_URL("https://itopz.com/"),
 	HOPZONE_INDIVIDUAL_URL("https://api.hopzone.net/lineage2/vote?token=" + Configurations.HOPZONE_SERVER_API_KEY + "&ip_address=%IP%"),
 	HOPZONE_GLOBAL_URL("https://api.hopzone.net/lineage2/votes?token=" + Configurations.HOPZONE_SERVER_API_KEY),
-	HOPZONE_URL("https://itopz.com/"),
+	HOPZONE_URL("https://hopzone.net/"),
 	L2TOPGAMESERVER_INDIVIDUAL_URL("http://l2.topgameserver.net/lineage/VoteApi/API_KEY=" + Configurations.L2TOPGAMESERVER_API_KEY + "/getData/%IP%"),
 	L2TOPGAMESERVER_GLOBAL_URL("http://l2.topgameserver.net/lineage/VoteApi/API_KEY=" + Configurations.L2TOPGAMESERVER_API_KEY + "/getData"),
 	L2TOPGAMESERVER_URL("https://l2.topgameserver.net/"),
