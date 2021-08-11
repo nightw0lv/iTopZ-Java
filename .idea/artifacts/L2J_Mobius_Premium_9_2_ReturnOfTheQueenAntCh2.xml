@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="L2J_Mobius_Premium_9.2_ReturnOfTheQueenAntCh2">
+    <output-path>$PROJECT_DIR$/out/artifacts/L2J_Mobius_Premium_9_2_ReturnOfTheQueenAntCh2</output-path>
+    <root id="archive" name="VDSystem.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/MobiusPremium/L2J_Mobius_9.2_ReturnOfTheQueenAnt_Ch2/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="L2J_Mobius_Premium_9.2_ReturnOfTheQueenAnt_Ch2" />
+    </root>
+  </artifact>
+</component>
