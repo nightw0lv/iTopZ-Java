@@ -233,6 +233,10 @@ For anonymous donations
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_9.0_ReturnOfTheQueenAnt/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_9.0_ReturnOfTheQueenAnt/Patch.diff)
+	- [x] L2J Mobius 9.2 Return of the Queen Ant Ch 2
+      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_9.2_ReturnOfTheQueenAntCh2/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
+      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_9.2_ReturnOfTheQueenAntCh2/Patch.diff)
     - [ ] L2J Mobius C1 HarbingersOfWar
       - ~~Info Download Source~~
       - ~~Release Download Compiled Jar~~
@@ -289,6 +293,10 @@ For anonymous donations
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_5.0_Sylph)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_5.0_Sylph/Patch.diff)
+    - [x] L2J Mobius Essence 5.2 FrostLord
+      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_5.0_FrostLord)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
+      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_5.0_FrostLord/Patch.diff)
   
 **Credits**
 - ```Special thanks to Rationale``` :cry:
