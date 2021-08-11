@@ -69,12 +69,10 @@ public class Utilities
 	"  PRIMARY KEY (no)" +
 	") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;";
 	public static final String CREATE_INDIVIDUAL_TABLE = "CREATE TABLE vds_individual (" +
-	"char_id int(11) NOT NULL," +
 	"topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
 	"var varchar(255) NOT NULL," +
 	"value bigint(20) NOT NULL," +
 	"ip varchar(65) NOT NULL," +
-	"PRIMARY KEY (char_id,topsite)" +
 	") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 	public static final String CREATE_GLOBAL_TABLE = "CREATE TABLE vds_global (" +
 	"topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
@@ -85,9 +83,9 @@ public class Utilities
 	public static final String DELETE_DONATE_TABLE = "DROP TABLE IF EXISTS donate_holder;";
 	private static final String DELETE_INDIVIDUAL_TABLE = "DROP TABLE IF EXISTS vds_individual;";
 	private static final String DELETE_GLOBAL_TABLE = "DROP TABLE IF EXISTS vds_global;";
-	private static final String INDIVIDUAL_INSERT = "INSERT INTO vds_individual (char_id, topsite, var, value, ip) VALUES (?,?,?,?,?) ON DUPLICATE KEY UPDATE value=VALUES(value);";
+	private static final String INDIVIDUAL_INSERT = "INSERT INTO vds_individual (topsite, var, value, ip) VALUES (?,?,?,?);";
 	private static final String INDIVIDUAL_VAR_SELECT = "SELECT value FROM vds_individual WHERE char_id=? AND topsite=? AND var=?";
-	private static final String INDIVIDUAL_IP_SELECT = "SELECT char_id,topsite,var,value,ip FROM vds_individual WHERE topsite=? AND var=? AND ip=? AND value > (UNIX_TIMESTAMP() * 1000);";
+	private static final String INDIVIDUAL_IP_SELECT = "SELECT topsite,var,value,ip FROM vds_individual WHERE topsite=? AND var=? AND ip=? AND value > (UNIX_TIMESTAMP() * 1000);";
 	private static final String GLOBAL_VAR_SELECT = "SELECT value FROM vds_global WHERE topsite=? AND var=?";
 	private static final String GLOBAL_VAR_REPLACE = "INSERT INTO vds_global (topsite,var,value) VALUES (?,?,?) ON DUPLICATE KEY UPDATE value=VALUES(value)";
 
@@ -161,16 +159,15 @@ public class Utilities
 	 * @param var     string
 	 * @param value   long
 	 */
-	public static void saveIndividualVar(final Player player, final String topsite, final String var, final long value, final String ip)
+	public static void saveIndividualVar(final String topsite, final String var, final long value, final String ip)
 	{
 		try (Connection con = DatabaseFactory.getInstance().getConnection();
 		     PreparedStatement statement = con.prepareStatement(INDIVIDUAL_INSERT))
 		{
-			statement.setInt(1, player.getObjectId());
-			statement.setString(2, topsite);
-			statement.setString(3, var);
-			statement.setString(4, String.valueOf(value));
-			statement.setString(5, ip);
+			statement.setString(1, topsite);
+			statement.setString(2, var);
+			statement.setString(3, String.valueOf(value));
+			statement.setString(4, ip);
 			statement.execute();
 		} catch (Exception e)
 		{

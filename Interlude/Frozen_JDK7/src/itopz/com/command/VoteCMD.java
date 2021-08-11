@@ -34,9 +34,8 @@ import itopz.com.model.IndividualResponse;
 import itopz.com.util.*;
 import itopz.com.vote.VDSystem;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * @Author Nightwolf
@@ -60,10 +59,75 @@ public class VoteCMD implements IVoicedCommandHandler
 	// 12 hour reuse
 	private final long VOTE_REUSE = 43200000;
 
-	// flood protector
-	private static final long FLOOD_REUSE = 20000;
-	private static final Map<Integer, AtomicLong> FLOOD_PROTECTOR = new ConcurrentHashMap<>();
-	private static final Map<String, AtomicLong> FLOOD_PROTECTOR_IP = new ConcurrentHashMap<>();
+	// vote site list
+	public static enum VoteSite
+	{
+		ITOPZ,
+		HOPZONE,
+		L2TOPGAMESERVER,
+		L2NETWORK,
+		L2JBRASIL,
+		L2TOPSERVERS,
+		L2VOTES,
+	}
+
+	// flood protector list
+	private static final List<FloodProtectorHolder> FLOOD_PROTECTOR = new CopyOnWriteArrayList<>();
+
+	// returns protector holder
+	public FloodProtectorHolder getFloodProtector(final L2PcInstance player, final VoteSite site)
+	{
+		for (final FloodProtectorHolder holder : FLOOD_PROTECTOR)
+		{
+			if (holder.getSite() == site && (holder.getIP().equalsIgnoreCase(player.getClient().getConnection().getInetAddress().getHostAddress())))
+			{
+				return holder;
+			}
+		}
+
+		final FloodProtectorHolder holder = new FloodProtectorHolder(player, site);
+		FLOOD_PROTECTOR.add(holder);
+		return holder;
+	}
+
+	/**
+	 * Protector holder class
+	 * Java 7 <3
+	 */
+	private static class FloodProtectorHolder
+	{
+		private final VoteSite _site;
+
+		private final String _IP;
+
+		private long _lastAction;
+
+		public FloodProtectorHolder(final L2PcInstance player, final VoteSite site)
+		{
+			_site = site;
+			_IP = player.getClient().getConnection().getInetAddress().getHostAddress();
+		}
+
+		public VoteSite getSite()
+		{
+			return _site;
+		}
+
+		public String getIP()
+		{
+			return _IP;
+		}
+
+		public long getLastAction()
+		{
+			return _lastAction;
+		}
+
+		public void updateLastAction()
+		{
+			_lastAction += System.currentTimeMillis() + 10000;
+		}
+	}
 
 	// commands
 	public final static String[] COMMANDS =
@@ -92,29 +156,14 @@ public class VoteCMD implements IVoicedCommandHandler
 		if (TOPSITE.equals("L2VOTES") && !Configurations.L2VOTES_INDIVIDUAL_REWARD)
 			return false;
 
-		if (!FLOOD_PROTECTOR.containsKey(player.getObjectId()))
-		{
-			FLOOD_PROTECTOR.put(player.getObjectId(), new AtomicLong());
-		}
-		else if (FLOOD_PROTECTOR.get(player.getObjectId()).get() > System.currentTimeMillis())
+		// check topsite for flood actions
+		final FloodProtectorHolder holder = getFloodProtector(player, VoteSite.valueOf(TOPSITE.toUpperCase()));
+		if (holder.getLastAction() > System.currentTimeMillis())
 		{
 			sendMsg(player, "You can't use the command so fast.");
 			return false;
 		}
-
-		FLOOD_PROTECTOR.get(player.getObjectId()).set(System.currentTimeMillis() + FLOOD_REUSE);
-
-		if (!FLOOD_PROTECTOR_IP.containsKey(player.getClient().getConnection().getInetAddress().getHostAddress()))
-		{
-			FLOOD_PROTECTOR_IP.put(player.getClient().getConnection().getInetAddress().getHostAddress(), new AtomicLong());
-		}
-		else if (FLOOD_PROTECTOR_IP.get(player.getClient().getConnection().getInetAddress().getHostAddress()).get() > System.currentTimeMillis())
-		{
-			sendMsg(player, "You can't vote fast from same IP Address.");
-			return false;
-		}
-
-		FLOOD_PROTECTOR_IP.get(player.getClient().getConnection().getInetAddress().getHostAddress()).set(System.currentTimeMillis() + FLOOD_REUSE);
+		holder.updateLastAction();
 
 		// check player eligibility
 		if (!playerChecksFail(player, TOPSITE))
@@ -205,7 +254,7 @@ public class VoteCMD implements IVoicedCommandHandler
 				sendMsg(player, "Successfully voted in " + TOPSITE + "!" + (Configurations.DEBUG ? "(DEBUG ON)" : ""));
 				reward(player, TOPSITE);
 				// set can vote: 12 hours (in ms).
-				Utilities.saveIndividualVar(player, TOPSITE, "can_vote", System.currentTimeMillis() + VOTE_REUSE, _IPAddress);
+				Utilities.saveIndividualVar(TOPSITE, "can_vote", System.currentTimeMillis() + VOTE_REUSE, _IPAddress);
 				player.sendPacket(ActionFailed.STATIC_PACKET);
 			}
 		}

@@ -35,11 +35,11 @@ import org.l2jmobius.gameserver.network.serverpackets.ActionFailed;
 import org.l2jmobius.gameserver.network.serverpackets.ExShowScreenMessage;
 
 import java.time.Duration;
-import java.util.Map;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.Objects;
 
 /**
  * @Author Nightwolf
@@ -63,10 +63,78 @@ public class VoteCMD implements IVoicedCommandHandler
 	// 12 hour reuse
 	private final Duration VOTE_REUSE = Duration.ofHours(12);
 
-	// flood protector
-	private static final Duration FLOOD_REUSE = Duration.ofSeconds(20);
-	private static final Map<Integer, AtomicLong> FLOOD_PROTECTOR = new ConcurrentHashMap<>();
-	private static final Map<String, AtomicLong> FLOOD_PROTECTOR_IP = new ConcurrentHashMap<>();
+	// vote site list
+	public static enum VoteSite
+	{
+		ITOPZ,
+		HOPZONE,
+		L2TOPGAMESERVER,
+		L2NETWORK,
+		L2JBRASIL,
+		L2TOPSERVERS,
+		L2VOTES,
+	}
+
+	// flood protector list
+	private static final List<FloodProtectorHolder> FLOOD_PROTECTOR = Collections.synchronizedList(new ArrayList<>());
+
+	// returns protector holder
+	public FloodProtectorHolder getFloodProtector(final PlayerInstance player, final VoteSite site)
+	{
+		return FLOOD_PROTECTOR.stream().filter(s -> s.getSite() == site && (s.getIP().equalsIgnoreCase(player.getClient().getConnectionAddress().getHostAddress()) /*|| s.getHWID().equalsIgnoreCase(player.getClient().getHardwareInfo().getMacAddress())*/)).findFirst().orElseGet(() ->
+		{
+			final FloodProtectorHolder holder = new FloodProtectorHolder(site, player);
+			FLOOD_PROTECTOR.add(holder);
+			return holder;
+		});
+	}
+
+	/**
+	 * Protector holder class
+	 */
+	private static class FloodProtectorHolder
+	{
+		public static final Duration EXTENSION = Duration.ofSeconds(10);
+
+		private final VoteSite _site;
+
+		private final String _IP;
+		//private final String _HWID;
+
+		private long _lastAction;
+
+		public FloodProtectorHolder(final VoteSite site, final PlayerInstance player)
+		{
+			_site = site;
+			_IP = player.getClient().getConnectionAddress().getHostAddress();
+			//_HWID = player.getClient().getHardwareInfo().getMacAddress();
+		}
+
+		public VoteSite getSite()
+		{
+			return _site;
+		}
+
+		public String getIP()
+		{
+			return _IP;
+		}
+
+		//public String getHWID()
+		//{
+		//	return _HWID;
+		//}
+
+		public long getLastAction()
+		{
+			return _lastAction;
+		}
+
+		public void updateLastAction()
+		{
+			_lastAction = System.currentTimeMillis() + EXTENSION.toMillis();
+		}
+	}
 
 	// commands
 	public final static String[] COMMANDS =
@@ -95,21 +163,14 @@ public class VoteCMD implements IVoicedCommandHandler
 		if (TOPSITE.equals("L2VOTES") && !Configurations.L2VOTES_INDIVIDUAL_REWARD)
 			return false;
 
-		if (FLOOD_PROTECTOR.computeIfAbsent(player.getObjectId(), k -> new AtomicLong()).get() > System.currentTimeMillis())
+		// check topsite for flood actions
+		final FloodProtectorHolder holder = getFloodProtector(player, VoteSite.valueOf(TOPSITE));
+		if (holder.getLastAction() > System.currentTimeMillis())
 		{
-			sendMsg(player, "You can't use the command so fast.");
+			sendMsg(player, "You can't use this command so fast!");
 			return false;
 		}
-
-		FLOOD_PROTECTOR.get(player.getObjectId()).set(System.currentTimeMillis() + FLOOD_REUSE.toMillis());
-
-		if (FLOOD_PROTECTOR_IP.computeIfAbsent(player.getClient().getConnectionAddress().getHostAddress(), k -> new AtomicLong()).get() > System.currentTimeMillis())
-		{
-			sendMsg(player, "You can't vote fast from same IP Address.");
-			return false;
-		}
-
-		FLOOD_PROTECTOR_IP.get(player.getClient().getConnectionAddress().getHostAddress()).set(System.currentTimeMillis() + FLOOD_REUSE.toMillis());
+		holder.updateLastAction();
 
 		// check player eligibility
 		if (!playerChecksFail(player, TOPSITE))
@@ -191,7 +252,7 @@ public class VoteCMD implements IVoicedCommandHandler
 				sendMsg(player, "Successfully voted in " + TOPSITE + "!" + (Configurations.DEBUG ? "(DEBUG ON)" : ""));
 				reward(player, TOPSITE);
 				// set can vote: 12 hours (in ms).
-				Utilities.saveIndividualVar(player, TOPSITE, "can_vote", System.currentTimeMillis() + VOTE_REUSE.toMillis(), _IPAddress);
+				Utilities.saveIndividualVar(TOPSITE, "can_vote", System.currentTimeMillis() + VOTE_REUSE.toMillis(), _IPAddress);
 				player.sendPacket(ActionFailed.STATIC_PACKET);
 			}
 		});
