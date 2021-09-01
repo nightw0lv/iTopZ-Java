@@ -79,7 +79,7 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 	// returns protector holder
 	public FloodProtectorHolder getFloodProtector(final Player player, final VoteSite site)
 	{
-		return FLOOD_PROTECTOR.stream().filter(s -> s.getSite() == site && ((s.getIP().equalsIgnoreCase(player.getIP()) || s.getHWID().equalsIgnoreCase(player.getNetConnection().getHwid())))).findFirst().orElseGet(() ->
+		return FLOOD_PROTECTOR.stream().filter(s -> s.getSite() == site && (s.getIP().equalsIgnoreCase(player.getIP()) || s.getHWID().equalsIgnoreCase(player.getNetConnection().getHwid()))).findFirst().orElseGet(() ->
 		{
 			final FloodProtectorHolder holder = new FloodProtectorHolder(site, player);
 			FLOOD_PROTECTOR.add(holder);
@@ -184,7 +184,6 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 		{
 			VDSThreadPool.schedule(() -> Execute(player, TOPSITE), Random.get(1000, 10000));
 		}
-
 		openWindow(player);
 	}
 
