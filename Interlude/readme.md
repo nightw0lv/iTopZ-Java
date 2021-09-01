@@ -2,6 +2,8 @@ You are here: Interlude
 
 [Home](https://github.com/nightw0lv/iTopZ-Java)
 
+[Freya](https://github.com/nightw0lv/iTopZ-Java/tree/master/Freya)
+
 [High Five](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive)
 
 [Interlude](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude)

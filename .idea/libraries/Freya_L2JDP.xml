@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Freya_L2JDP">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Freya/L2JDP/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/Freya/L2JDP/libs" recursive="false" />
+  </library>
+</component>

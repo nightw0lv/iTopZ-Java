@@ -2,7 +2,7 @@
 ## Vote System & Donate System for Java based Lineage2 Servers ***all in one***
 **DenArt Designs _[Automatic Donation Panels](https://www.denart-designs.com/)_ are supported by this system**
 #
-## VDSystem supports 7 Topsites on 59 Projects and 2 Donation Systems
+## VDSystem supports 7 Topsites on 60 Projects and 2 Donation Systems
 
 ### Win Gifts worth 500€ by donating even 1€ to help replace broken PC
 * #### 1st Winner will get Website worth 350€
@@ -78,6 +78,11 @@ For anonymous donations
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/Hellas/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Hellas)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Interlude/Hellas/Patch.diff)
+  - **Freya**
+    - [x] L2JDP
+      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Freya/L2JDP/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/L2JDP)
+      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Freya/L2JDP/Patch.diff)
   - **High Five**
     - [x] AVA
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/aVa/)

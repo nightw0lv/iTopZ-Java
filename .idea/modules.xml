@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HighFive/FandC/FandC.iml" filepath="$PROJECT_DIR$/HighFive/FandC/FandC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Freya/L2JDP/Freya_L2JDP.iml" filepath="$PROJECT_DIR$/Freya/L2JDP/Freya_L2JDP.iml" />
       <module fileurl="file://$PROJECT_DIR$/Interlude/Frozen/Frozen.iml" filepath="$PROJECT_DIR$/Interlude/Frozen/Frozen.iml" />
       <module fileurl="file://$PROJECT_DIR$/Interlude/Frozen_JDK7/Frozen_JDK7.iml" filepath="$PROJECT_DIR$/Interlude/Frozen_JDK7/Frozen_JDK7.iml" />
       <module fileurl="file://$PROJECT_DIR$/Interlude/Hellas/Hellas.iml" filepath="$PROJECT_DIR$/Interlude/Hellas/Hellas.iml" />

@@ -1,0 +1,33 @@
+diff --git .classpath .classpath
+index 3a484e9..d87344d 100644
+--- .classpath
++++ .classpath
+@@ -14,5 +14,6 @@
+ 	<classpathentry kind="lib" path="lib/jna.jar"/>
+ 	<classpathentry kind="lib" path="lib/gson-2.8.5.jar"/>
+ 	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
++	<classpathentry kind="lib" path="lib/VDSystem.jar"/>
+ 	<classpathentry kind="output" path="bin"/>
+ </classpath>
+diff --git java/com/l2jserver/gameserver/GameServer.java java/com/l2jserver/gameserver/GameServer.java
+index 6cf1792..463a7eb 100644
+--- java/com/l2jserver/gameserver/GameServer.java
++++ java/com/l2jserver/gameserver/GameServer.java
+@@ -145,6 +145,8 @@
+ import org.mmocore.network.SelectorConfig;
+ import org.mmocore.network.SelectorThread;
+ 
++import itopz.com.VDSystemManager;
++
+ public class GameServer
+ {
+ 	private static final Logger _log = Logger.getLogger(GameServer.class.getName());
+@@ -490,6 +492,8 @@
+ 		printSection("Achievements Manager Loaded - by L2jPDT");
+ 		AchievementsManager.getInstance();
+ 		
++		VDSystemManager.getInstance();
++		
+ 		KnownListUpdateTaskManager.getInstance();
+ 		
+ 		BuffShopManager.getInstance().restoreOfflineTraders();
