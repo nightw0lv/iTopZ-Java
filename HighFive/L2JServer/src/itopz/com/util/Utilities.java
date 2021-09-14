@@ -71,7 +71,7 @@ public class Utilities
 	"topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
 	"var varchar(255) NOT NULL," +
 	"value bigint(20) NOT NULL," +
-	"ip varchar(65) NOT NULL," +
+	"ip varchar(65) NOT NULL" +
 	") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 	public static final String CREATE_GLOBAL_TABLE = "CREATE TABLE vds_global (" +
 	"topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
