@@ -83,7 +83,7 @@ public class Utilities
 	private static final String DELETE_INDIVIDUAL_TABLE = "DROP TABLE IF EXISTS vds_individual;";
 	private static final String DELETE_GLOBAL_TABLE = "DROP TABLE IF EXISTS vds_global;";
 	private static final String INDIVIDUAL_INSERT = "INSERT INTO vds_individual (topsite, var, value, ip) VALUES (?,?,?,?);";
-	private static final String INDIVIDUAL_VAR_SELECT = "SELECT value FROM vds_individual WHERE char_id=? AND topsite=? AND var=?";
+	private static final String INDIVIDUAL_VAR_SELECT = "SELECT value FROM vds_individual WHERE topsite=? AND var=?";
 	private static final String INDIVIDUAL_IP_SELECT = "SELECT topsite,var,value,ip FROM vds_individual WHERE topsite=? AND var=? AND ip=? AND value > (UNIX_TIMESTAMP() * 1000);";
 	private static final String GLOBAL_VAR_SELECT = "SELECT value FROM vds_global WHERE topsite=? AND var=?";
 	private static final String GLOBAL_VAR_REPLACE = "INSERT INTO vds_global (topsite,var,value) VALUES (?,?,?) ON DUPLICATE KEY UPDATE value=VALUES(value)";
@@ -153,7 +153,6 @@ public class Utilities
 	/**
 	 * create individual variable in database
 	 *
-	 * @param player  object
 	 * @param topsite string
 	 * @param var     string
 	 * @param value   long
@@ -228,20 +227,18 @@ public class Utilities
 	/**
 	 * select individual variable from database
 	 *
-	 * @param player  object
 	 * @param topsite string
 	 * @param var     string
 	 * @return long
 	 */
-	public static long selectIndividualVar(final L2PcInstance player, final String topsite, final String var)
+	public static long selectIndividualVar(final String topsite, final String var)
 	{
 		long value = -1;
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
 		     PreparedStatement statement = con.prepareStatement(INDIVIDUAL_VAR_SELECT))
 		{
-			statement.setInt(1, player.getObjectId());
-			statement.setString(2, topsite);
-			statement.setString(3, var);
+			statement.setString(1, topsite);
+			statement.setString(2, var);
 			statement.execute();
 			try (ResultSet rs = statement.executeQuery())
 			{
