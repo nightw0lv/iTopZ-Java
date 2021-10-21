@@ -4,12 +4,7 @@
 #
 ## VDSystem supports 7 Topsites on 60 Projects and 2 Donation Systems
 
-### Win Gifts worth 500€ by donating even 1€ to help replace broken PC
-* #### 1st Winner will get Website worth 350€
-* ##### 2nd Winner will get lifetime Donation Panel worth 60€
-* 3rd Winner will get Professional logo worth 100€
-
-Participate by donating here: [Donate](https://www.paypal.com/pools/c/8xBWAskHA5)
+### Keep project alive by Donating here: [Donate](https://www.paypal.com/paypalme/itopz)
 
 For anonymous donations
 - Send an email with your donated value at info@denart-designs.com
