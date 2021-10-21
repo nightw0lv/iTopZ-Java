@@ -72,10 +72,12 @@ public class Utilities
 	"  PRIMARY KEY (no)" +
 	") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;";
 	public static final String CREATE_INDIVIDUAL_TABLE = "CREATE TABLE vds_individual (" +
+	"id int(11) NOT NULL AUTO_INCREMENT," +
 	"topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
 	"var varchar(255) NOT NULL," +
 	"value bigint(20) NOT NULL," +
 	"ip varchar(65) NOT NULL" +
+	"PRIMARY KEY (id)" +
 	") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 	public static final String CREATE_GLOBAL_TABLE = "CREATE TABLE vds_global (" +
 	"topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
