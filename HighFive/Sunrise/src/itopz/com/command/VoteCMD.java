@@ -199,7 +199,7 @@ public class VoteCMD implements IVoicedCommandHandler
 		}
 
 		// check if 12 hours has pass from last vote
-		final long voteTimer = Utilities.selectIndividualVar(TOPSITE, "can_vote");
+		final long voteTimer = Utilities.selectIndividualVar(TOPSITE, "can_vote", Configurations.DEBUG ? Utilities.getMyIP() : player.getIPAddress());
 		if (voteTimer > System.currentTimeMillis())
 		{
 			String dateFormatted = Utilities.formatMillisecond(voteTimer);

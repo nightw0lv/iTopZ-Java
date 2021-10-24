@@ -88,7 +88,7 @@ public class Utilities
 	private static final String DELETE_INDIVIDUAL_TABLE = "DROP TABLE IF EXISTS vds_individual;";
 	private static final String DELETE_GLOBAL_TABLE = "DROP TABLE IF EXISTS vds_global;";
 	private static final String INDIVIDUAL_INSERT = "INSERT INTO vds_individual (topsite, var, value, ip) VALUES (?,?,?,?);";
-	private static final String INDIVIDUAL_VAR_SELECT = "SELECT value FROM vds_individual WHERE topsite=? AND var=?";
+	private static final String INDIVIDUAL_VAR_SELECT = "SELECT value FROM vds_individual WHERE topsite=? AND var=? AND ip=?;";
 	private static final String INDIVIDUAL_IP_SELECT = "SELECT topsite,var,value,ip FROM vds_individual WHERE topsite=? AND var=? AND ip=? AND value > (UNIX_TIMESTAMP() * 1000);";
 	private static final String GLOBAL_VAR_SELECT = "SELECT value FROM vds_global WHERE topsite=? AND var=?";
 	private static final String GLOBAL_VAR_REPLACE = "INSERT INTO vds_global (topsite,var,value) VALUES (?,?,?) ON DUPLICATE KEY UPDATE value=VALUES(value)";
@@ -161,9 +161,9 @@ public class Utilities
 	 * @param topsite string
 	 * @param var     string
 	 * @param value   long
-	 * @param ip	  string
+	 * @param IP      string
 	 */
-	public static void saveIndividualVar(final String topsite, final String var, final long value, final String ip)
+	public static void saveIndividualVar(final String topsite, final String var, final long value, final String IP)
 	{
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
 		     PreparedStatement statement = con.prepareStatement(INDIVIDUAL_INSERT))
@@ -171,7 +171,7 @@ public class Utilities
 			statement.setString(1, topsite);
 			statement.setString(2, var);
 			statement.setString(3, String.valueOf(value));
-			statement.setString(4, ip);
+			statement.setString(4, IP);
 			statement.execute();
 		} catch (Exception e)
 		{
@@ -194,9 +194,10 @@ public class Utilities
 	 *
 	 * @param topsite string
 	 * @param var     string
+     * @param IP      string
 	 * @return long
 	 */
-	public static long selectIndividualVar(final String topsite, final String var)
+	public static long selectIndividualVar(final String topsite, final String var, final String IP)
 	{
 		long value = -1;
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
@@ -204,6 +205,7 @@ public class Utilities
 		{
 			statement.setString(1, topsite);
 			statement.setString(2, var);
+			statement.setString(3, IP);
 			statement.execute();
 			try (ResultSet rs = statement.executeQuery())
 			{
@@ -234,6 +236,7 @@ public class Utilities
 	 *
 	 * @param topsite string
 	 * @param var     string
+	 * @param IP      string
 	 * @return long
 	 */
 	public static boolean selectIndividualIP(final String topsite, final String var, final String IP)
