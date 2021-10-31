@@ -31,7 +31,7 @@ import java.util.concurrent.*;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: Mobius Premium 2.4 Secret of Empire
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
