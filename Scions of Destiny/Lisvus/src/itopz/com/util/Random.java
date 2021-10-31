@@ -31,7 +31,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: Lisvus Scions of Destiny rev 728
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
