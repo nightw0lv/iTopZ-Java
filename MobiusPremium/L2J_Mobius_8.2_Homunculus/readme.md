@@ -8,7 +8,7 @@ Implementation of vote global and individual system with itopz donate panel task
 **Requirement**
 - Mobius Premium 8.2 Homunculus
 - Patch installation (provided)
-- JDK 15
+- JDK 17
 
 **Build**
 - File ```VDSystem.jar```
@@ -65,7 +65,7 @@ Implementation of vote global and individual system with itopz donate panel task
 - Fully configured
 
 **Installation**
-![https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_8.0_Homunculus/Patch.diff](Patch.diff)
+![https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_8.2_Homunculus/Patch.diff](Patch.diff)
 
 ```Special thanks to Rationale``` :cry:
 

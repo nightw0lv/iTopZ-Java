@@ -46,7 +46,7 @@ import java.util.stream.Collectors;
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.4
- * Pack Support: Mobius Premium 8.0 Homunculus
+ * Pack Support: Mobius Premium 8.2 Homunculus
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/

@@ -46,7 +46,7 @@ import java.util.stream.Collectors;
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.4
- * Pack Support: Mobius Premium 8.0 Homunculus
+ * Pack Support: Mobius Premium 8.2 Homunculus
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
@@ -71,49 +71,49 @@ public class Global
 		// check if allowed the ITOPZ reward to start
 		if (Configurations.ITOPZ_GLOBAL_REWARD)
 		{
-			VDSThreadPool.scheduleAtFixedRate(() -> execute("ITOPZ"), 100, Configurations.ITOPZ_VOTE_CHECK_DELAY * 1000L);
+			VDSThreadPool.scheduleAtFixedRate(() -> execute("ITOPZ"), 100, Configurations.ITOPZ_VOTE_CHECK_DELAY * 1000);
 			_log.info(Global.class.getSimpleName() + ": ITOPZ reward started.");
 		}
 
 		// check if allowed the HOPZONE reward to start
 		if (Configurations.HOPZONE_GLOBAL_REWARD)
 		{
-			VDSThreadPool.scheduleAtFixedRate(() -> execute("HOPZONE"), 100, Configurations.HOPZONE_VOTE_CHECK_DELAY * 1000L);
+			VDSThreadPool.scheduleAtFixedRate(() -> execute("HOPZONE"), 100, Configurations.HOPZONE_VOTE_CHECK_DELAY * 1000);
 			_log.info(Global.class.getSimpleName() + ": HOPZONE reward started.");
 		}
 
 		// check if allowed the L2TOPGAMESERVER reward to start
 		if (Configurations.L2TOPGAMESERVER_GLOBAL_REWARD)
 		{
-			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2TOPGAMESERVER"), 100, Configurations.L2TOPGAMESERVER_VOTE_CHECK_DELAY * 1000L);
+			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2TOPGAMESERVER"), 100, Configurations.L2TOPGAMESERVER_VOTE_CHECK_DELAY * 1000);
 			_log.info(Global.class.getSimpleName() + ": L2TOPGAMESERVER reward started.");
 		}
 
 		// check if allowed the L2JBRASIL reward to start
 		if (Configurations.L2JBRASIL_GLOBAL_REWARD)
 		{
-			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2JBRASIL"), 100, Configurations.L2JBRASIL_VOTE_CHECK_DELAY * 1000L);
+			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2JBRASIL"), 100, Configurations.L2JBRASIL_VOTE_CHECK_DELAY * 1000);
 			_log.info(Global.class.getSimpleName() + ": L2JBRASIL reward started.");
 		}
 
 		// check if allowed the L2NETWORK reward to start
 		if (Configurations.L2NETWORK_GLOBAL_REWARD)
 		{
-			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2NETWORK"), 100, Configurations.L2NETWORK_VOTE_CHECK_DELAY * 1000L);
+			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2NETWORK"), 100, Configurations.L2NETWORK_VOTE_CHECK_DELAY * 1000);
 			_log.info(Global.class.getSimpleName() + ": L2NETWORK reward started.");
 		}
 
 		// check if allowed the L2TOPSERVERS reward to start
 		if (Configurations.L2TOPSERVERS_GLOBAL_REWARD)
 		{
-			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2TOPSERVERS"), 100, Configurations.L2TOPSERVERS_VOTE_CHECK_DELAY * 1000L);
+			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2TOPSERVERS"), 100, Configurations.L2TOPSERVERS_VOTE_CHECK_DELAY * 1000);
 			_log.info(Global.class.getSimpleName() + ": L2TOPSERVERS reward started.");
 		}
 
 		// check if allowed the L2VOTES reward to start
 		if (Configurations.L2VOTES_GLOBAL_REWARD)
 		{
-			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2VOTES"), 100, Configurations.L2VOTES_VOTE_CHECK_DELAY * 1000L);
+			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2VOTES"), 100, Configurations.L2VOTES_VOTE_CHECK_DELAY * 1000);
 			_log.info(Global.class.getSimpleName() + ": L2VOTES reward started.");
 		}
 	}
