@@ -2,7 +2,7 @@
 ## Vote System & Donate System for Java based Lineage2 Servers ***all in one***
 **DenArt Designs _[Automatic Donation Panels](https://www.denart-designs.com/)_ are supported by this system**
 #
-## VDSystem supports 7 Topsites on 60 Projects and 2 Donation Systems
+## VDSystem supports 7 Topsites on 58 Projects and 2 Donation Systems
 
 ### Keep project alive by Donating here: [Donate](https://www.paypal.com/paypalme/itopz)
 
@@ -14,7 +14,7 @@ For anonymous donations
 **VDSystem**
 - **Source requirements**
   - Intellij
-  - JDK 7, JDK 8, JDK 11, JDK 14, JDK 15 installed
+  - JDK 7, JDK 8, JDK 11, JDK 14, JDK 15, JDK 17 installed
 - **Codes Installed**
    - [x] Auto Donation Reward
       - Free: Hosted [https://itopz.com](https://itopz.com/)
@@ -225,14 +225,10 @@ For anonymous donations
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_7.0_PreludeOfWar/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_7.0_PreludeOfWar/Patch.diff)
-    - [x] L2J Mobius 8.0 Homunculus
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_8.0_Homunculus/)
+    - [x] L2J Mobius 8.2 Homunculus
+      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_8.2_Homunculus/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_8.0_Homunculus/Patch.diff)
-    - [x] L2J Mobius 9.0 Return of the Queen Ant
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_9.0_ReturnOfTheQueenAnt/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_9.0_ReturnOfTheQueenAnt/Patch.diff)
+      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_8.2_Homunculus/Patch.diff)
     - [x] L2J Mobius 9.2 Return of the Queen Ant Ch 2
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_9.2_ReturnOfTheQueenAntCh2/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
@@ -285,18 +281,10 @@ For anonymous donations
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_Interlude/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_Interlude/Patch.diff)
-    - [x] L2J Mobius Essence 4.0 Dwelling of Spirits
+    - [x] L2J Mobius Essence 4.2 Dwelling of Spirits
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_4.0_DwellingOfSpirits/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
       - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_4.0_DwellingOfSpirits/Patch.diff)
-    - [x] L2J Mobius Essence 5.0 Sylph
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_5.0_Sylph)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_5.0_Sylph/Patch.diff)
-    - [x] L2J Mobius Essence 5.0 Sylph
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_5.0_Sylph)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_5.0_Sylph/Patch.diff)
     - [x] L2J Mobius Essence 5.2 FrostLord
       - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_5.2_FrostLord)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
@@ -308,6 +296,18 @@ For anonymous donations
 
 **Chancelog**
 
+- Version 1.4
+  - Update Premium Mobius Projects
+    - Update JDK 17
+	- Update libraries
+	- Removal of 8.0 Homunculus
+	- Removal of 9.0 Return of the Queen Ant
+	- Removal of 5.0 Sylph
+	- Addition of 8.2 Homunculus
+	- Addition of 9.2 Return of the Queen Ant
+	- Addition of 5.2 Frost Lord
+	- Updated Patch diffs
+
 - Version 1.3
   - Rework on VoteCMD
     - Fixed possible concurrent error on response thread (Ty Rationale)
@@ -316,6 +316,43 @@ For anonymous donations
     - Using "NONE" for default errors to avoid NPE
     - Thread Execute will run on random between 1 and 10 seconds to avoid cheats
     - (LUCERA only) added window pop up and command .vote
+  - IP Flood Protection
+  - Typo in Url
+  - Rework Flood Protector & Individual var save method
+    - Flood Protector (thanks Rationale)
+      - Added FloodProtectorHolder Private class
+      - Added Logic VoteSite enum
+      - Added FLOOD_PROTECTOR array list
+      - NOTE: HWID is not available for all packs since mostly depend on client protection, is up to server admin to add it.
+    - saveIndividualVar method
+      - Drops player object
+      - Recount on statement vars
+  - INDIVIDUAL INSERT, SELECT queries drop char_id
+  - Create individual table drops char_id and primary keys
+  - for existing users must drop the table (it will be automatically created again)
+  - Fixing path typo in readme files
+  - Update main readme with new projects
+  - Add L2JDP by Elesis (Request by CrazyRXD)
+  - Lucera remove redudant parenthesis
+  - Mobius Premium Sylph Extra wrong library import
+  - Fixing 2 errors on out of box settings
+    - Default configuration
+      - ArrayIndexOutOfBoundsException caused by ; in the end of reward strings
+    - Database tables
+      - Global table creation fixed caused by an extra , (coma)
+    - Thanks LLiuKe for the heads up (y)
+  - Fixing IOOBE error 
+    - IOOBE error fix (thank you Huesitos)
+    - Removing totally the player variable from Utilities#selectIndividualVar() method
+    - missed on 133a00f
+  - SQL Fix
+    - Fixing individual Duplicate entry error (Thanks Francisco)
+  - Fixing IP restriction after 1 player votes
+    - Individual SQL select depends on ip now
+    - Adding commend parameters that were missing
+    - Capitalize ip to IP parameters
+    - Utilities#selectIndividualVar
+      - Adding IP string
 
 - Version 1.2
   - see lucera updates only.
@@ -389,7 +426,7 @@ For anonymous donations
 ![https://prnt.sc/w6zxyo](images/6.png)
 ![https://prnt.sc/w6zzcs](images/7.png)
 
-- Version 1.2
+- Version 1.2, 1.3, 1.4
 
 ![https://prnt.sc/w6zzcs](images/8.png)
 ![https://prnt.sc/w6zzcs](images/9.png)
