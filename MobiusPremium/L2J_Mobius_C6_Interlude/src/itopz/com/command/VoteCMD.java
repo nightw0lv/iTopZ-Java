@@ -49,7 +49,7 @@ import java.util.Objects;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: Mobius Premium C6 Interlude
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -200,7 +200,7 @@ public class VoteCMD implements IVoicedCommandHandler
 		}
 
 		// check if 12 hours has pass from last vote
-		final long voteTimer = Utilities.selectIndividualVar(TOPSITE, "can_vote", Configurations.DEBUG ? Utilities.getMyIP() : player.getClient().getConnection().getInetAddress().getHostAddress());
+		final long voteTimer = Utilities.selectIndividualVar(TOPSITE, "can_vote", Configurations.DEBUG ? Utilities.getMyIP() : player.getClient().getIpAddress());
 		if (voteTimer > System.currentTimeMillis())
 		{
 			String dateFormatted = Utilities.formatMillisecond(voteTimer);
@@ -209,7 +209,7 @@ public class VoteCMD implements IVoicedCommandHandler
 		}
 
 		// restrict players from same IP to vote again
-		final boolean ipVoted = Utilities.selectIndividualIP(TOPSITE, "can_vote", Configurations.DEBUG ? Utilities.getMyIP() : player.getClient().getConnection().getInetAddress().getHostAddress());
+		final boolean ipVoted = Utilities.selectIndividualIP(TOPSITE, "can_vote", Configurations.DEBUG ? Utilities.getMyIP() : player.getClient().getIpAddress());
 		if (ipVoted)
 		{
 			sendMsg(player, "Someone already voted on " + TOPSITE + " from your IP.");
