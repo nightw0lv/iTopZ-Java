@@ -47,7 +47,7 @@ import java.util.Optional;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: Mobius 3.0 The Kamael
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
