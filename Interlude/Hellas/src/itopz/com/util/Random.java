@@ -31,7 +31,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: L2JHellas 562 https://app.assembla.com/spaces/l2hellas/subversion/source
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
