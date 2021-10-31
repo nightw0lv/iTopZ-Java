@@ -11,7 +11,7 @@ Implementation of vote global and individual system with itopz donate panel task
 **Build**
 - JDK 1.8
 - File: ```VDSystem.ext.jar```
-- Version: 1.3
+- Version: 1.4
 
 **Global vote system**
 
@@ -81,6 +81,18 @@ Implementation of vote global and individual system with itopz donate panel task
 
 **Chancelog**
 
+- Version 1.4
+  - Update Premium Mobius Projects
+    - Update JDK 17
+	- Update libraries
+	- Removal of 8.0 Homunculus
+	- Removal of 9.0 Return of the Queen Ant
+	- Removal of 5.0 Sylph
+	- Addition of 8.2 Homunculus
+	- Addition of 9.2 Return of the Queen Ant
+	- Addition of 5.2 Frost Lord
+	- Updated Patch diffs
+
 - Version 1.3
   - Rework on VoteCMD
     - Fixed possible concurrent error on response thread (Ty Rationale)
@@ -90,6 +102,43 @@ Implementation of vote global and individual system with itopz donate panel task
     - Thread Execute will run on random between 1 and 10 seconds to avoid cheats
     - Added Window pop up after using a command .topsite or .vote
     - Added command .vote (old .topsite commands will still function)
+  - IP Flood Protection
+  - Typo in Url
+  - Rework Flood Protector & Individual var save method
+    - Flood Protector (thanks Rationale)
+      - Added FloodProtectorHolder Private class
+      - Added Logic VoteSite enum
+      - Added FLOOD_PROTECTOR array list
+      - NOTE: HWID is not available for all packs since mostly depend on client protection, is up to server admin to add it.
+    - saveIndividualVar method
+      - Drops player object
+      - Recount on statement vars
+  - INDIVIDUAL INSERT, SELECT queries drop char_id
+  - Create individual table drops char_id and primary keys
+  - for existing users must drop the table (it will be automatically created again)
+  - Fixing path typo in readme files
+  - Update main readme with new projects
+  - Add L2JDP by Elesis (Request by CrazyRXD)
+  - Lucera remove redudant parenthesis
+  - Mobius Premium Sylph Extra wrong library import
+  - Fixing 2 errors on out of box settings
+    - Default configuration
+      - ArrayIndexOutOfBoundsException caused by ; in the end of reward strings
+    - Database tables
+      - Global table creation fixed caused by an extra , (coma)
+    - Thanks LLiuKe for the heads up (y)
+  - Fixing IOOBE error 
+    - IOOBE error fix (thank you Huesitos)
+    - Removing totally the player variable from Utilities#selectIndividualVar() method
+    - missed on 133a00f
+  - SQL Fix
+    - Fixing individual Duplicate entry error (Thanks Francisco)
+  - Fixing IP restriction after 1 player votes
+    - Individual SQL select depends on ip now
+    - Adding commend parameters that were missing
+    - Capitalize ip to IP parameters
+    - Utilities#selectIndividualVar
+      - Adding IP string
 
 - Version 1.2
   - Minimal Requirement on server resources and class consistency along projects.
