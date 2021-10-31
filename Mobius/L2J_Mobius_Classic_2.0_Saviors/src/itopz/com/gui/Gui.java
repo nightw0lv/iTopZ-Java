@@ -39,7 +39,7 @@ import java.net.URL;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: Mobius 2.0 Saviors
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
