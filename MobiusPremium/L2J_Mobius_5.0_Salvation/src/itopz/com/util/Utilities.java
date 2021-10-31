@@ -54,7 +54,7 @@ import java.util.Locale;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: Mobius Premium 5.0 Salvation
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
