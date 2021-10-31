@@ -45,7 +45,7 @@ import java.util.stream.Collectors;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: Mobius Premium CT 2.6 High Five
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
