@@ -1,51 +1,33 @@
 diff --git .classpath .classpath
-index d82587c..b697e07 100644
+index 3bcc2de..b42b317 100644
 --- .classpath
 +++ .classpath
-@@ -1,15 +1,16 @@
--<?xml version="1.0" encoding="UTF-8"?>
--<classpath>
--	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-14">
--		<attributes>
--			<attribute name="module" value="true"/>
--		</attributes>
--	</classpathentry>
--	<classpathentry kind="lib" path="dist/libs/cron4j-2.2.5.jar" sourcepath="dist/libs/cron4j-2.2.5-sources.jar"/>
--	<classpathentry kind="lib" path="dist/libs/exp4j-0.4.8.jar" sourcepath="dist/libs/exp4j-0.4.8-sources.jar"/>
--	<classpathentry kind="lib" path="dist/libs/mariadb-java-client-2.6.1.jar" sourcepath="dist/libs/mariadb-java-client-2.6.1-sources.jar"/>
--	<classpathentry kind="lib" path="dist/libs/netty-all-4.1.50.Final.jar" sourcepath="dist/libs/netty-all-4.1.50.Final-sources.jar"/>
--	<classpathentry including="**/*.java" kind="src" path="dist/game/data/scripts"/>
--	<classpathentry kind="src" path="java"/>
--	<classpathentry kind="output" path="bin"/>
--</classpath>
-+<?xml version="1.0" encoding="UTF-8"?>
-+<classpath>
-+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-14">
-+		<attributes>
-+			<attribute name="module" value="true"/>
-+		</attributes>
-+	</classpathentry>
-+	<classpathentry kind="lib" path="dist/libs/cron4j-2.2.5.jar" sourcepath="dist/libs/cron4j-2.2.5-sources.jar"/>
-+	<classpathentry kind="lib" path="dist/libs/exp4j-0.4.8.jar" sourcepath="dist/libs/exp4j-0.4.8-sources.jar"/>
-+	<classpathentry kind="lib" path="dist/libs/mariadb-java-client-2.6.1.jar" sourcepath="dist/libs/mariadb-java-client-2.6.1-sources.jar"/>
-+	<classpathentry kind="lib" path="dist/libs/netty-all-4.1.50.Final.jar" sourcepath="dist/libs/netty-all-4.1.50.Final-sources.jar"/>
+@@ -14,5 +14,6 @@
+ 	<classpathentry kind="lib" path="dist/libs/netty-common-4.1.69.Final.jar" sourcepath="dist/libs/netty-common-4.1.69.Final-sources.jar"/>
+ 	<classpathentry kind="lib" path="dist/libs/netty-handler-4.1.69.Final.jar" sourcepath="dist/libs/netty-handler-4.1.69.Final-sources.jar"/>
+ 	<classpathentry kind="lib" path="dist/libs/netty-transport-4.1.69.Final.jar" sourcepath="dist/libs/netty-transport-4.1.69.Final-sources.jar"/>
 +	<classpathentry kind="lib" path="dist/libs/VDSystem.jar"/>
-+	<classpathentry including="**/*.java" kind="src" path="dist/game/data/scripts"/>
-+	<classpathentry kind="src" path="java"/>
-+	<classpathentry kind="output" path="bin"/>
-+</classpath>
-
+ 	<classpathentry kind="output" path="bin"/>
+ </classpath>
 diff --git java/org/l2jmobius/gameserver/GameServer.java java/org/l2jmobius/gameserver/GameServer.java
-index f12a864..86239a6 100644
+index 2ac2515..92d5b06 100644
 --- java/org/l2jmobius/gameserver/GameServer.java
 +++ java/org/l2jmobius/gameserver/GameServer.java
-@@ -162,2 +162,4 @@
+@@ -167,6 +167,8 @@
+ import org.l2jmobius.gameserver.ui.Gui;
+ import org.l2jmobius.gameserver.util.Broadcast;
 
 +import itopz.com.VDSystemManager;
 +
  public class GameServer
-@@ -425,2 +427,4 @@
+ {
+ 	private static final Logger LOGGER = Logger.getLogger(GameServer.class.getName());
+@@ -433,6 +435,8 @@
+
+ 		PunishmentManager.getInstance();
 
 +		VDSystemManager.getInstance();
 +
  		Runtime.getRuntime().addShutdownHook(Shutdown.getInstance());
+
+ 		LOGGER.info("IdManager: Free ObjectID's remaining: " + IdManager.size());
