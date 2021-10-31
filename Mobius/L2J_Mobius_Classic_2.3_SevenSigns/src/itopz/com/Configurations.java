@@ -37,7 +37,7 @@ import java.util.*;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: Mobius 2.3 Seven Signs
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
