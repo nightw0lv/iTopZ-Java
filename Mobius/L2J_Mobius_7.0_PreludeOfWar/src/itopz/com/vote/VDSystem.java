@@ -37,7 +37,7 @@ import org.l2jmobius.gameserver.handler.VoicedCommandHandler;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: Mobius 7.0 Prelude Of War
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
