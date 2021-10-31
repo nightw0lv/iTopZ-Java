@@ -1,23 +1,34 @@
 diff --git .classpath .classpath
-index 9e8e15d..e5e9e0f 100644
+index 909d279..944b9b2 100644
 --- .classpath
 +++ .classpath
-@@ -11,2 +11,3 @@
- 	<classpathentry kind="lib" path="dist/libs/netty-all-4.1.50.Final.jar" sourcepath="dist/libs/netty-all-4.1.50.Final-sources.jar"/>
+@@ -13,6 +13,7 @@
+ 	<classpathentry kind="lib" path="dist/libs/netty-common-4.1.69.Final.jar" sourcepath="dist/libs/netty-common-4.1.69.Final-sources.jar"/>
+ 	<classpathentry kind="lib" path="dist/libs/netty-handler-4.1.69.Final.jar" sourcepath="dist/libs/netty-handler-4.1.69.Final-sources.jar"/>
+ 	<classpathentry kind="lib" path="dist/libs/netty-transport-4.1.69.Final.jar" sourcepath="dist/libs/netty-transport-4.1.69.Final-sources.jar"/>
 +	<classpathentry kind="lib" path="dist/libs/VDSystem.jar"/>
  	<classpathentry including="**/*.java" kind="src" path="dist/game/data/scripts"/>
-
+ 	<classpathentry kind="src" path="java"/>
+ 	<classpathentry kind="output" path="bin"/>
 diff --git java/org/l2jmobius/gameserver/GameServer.java java/org/l2jmobius/gameserver/GameServer.java
-index 5aa9f0c..e38d202 100644
+index 6111fc9..ce25ec9 100644
 --- java/org/l2jmobius/gameserver/GameServer.java
 +++ java/org/l2jmobius/gameserver/GameServer.java
-@@ -163,2 +163,4 @@
+@@ -169,6 +169,8 @@
+ import org.l2jmobius.gameserver.ui.Gui;
+ import org.l2jmobius.gameserver.util.Broadcast;
 
 +import itopz.com.VDSystemManager;
 +
  public class GameServer
-@@ -427,2 +429,4 @@
+ {
+ 	private static final Logger LOGGER = Logger.getLogger(GameServer.class.getName());
+@@ -438,6 +440,8 @@
+
+ 		PunishmentManager.getInstance();
 
 +		VDSystemManager.getInstance();
 +
  		Runtime.getRuntime().addShutdownHook(Shutdown.getInstance());
+
+ 		LOGGER.info("IdManager: Free ObjectID's remaining: " + IdManager.size());
