@@ -23,9 +23,7 @@ package itopz.com.util;
 
 import itopz.com.gui.Gui;
 import org.l2jmobius.commons.database.DatabaseFactory;
-import org.l2jmobius.gameserver.data.Announcements;
-import org.l2jmobius.gameserver.model.actor.instance.PlayerInstance;
-import org.l2jmobius.gameserver.util.Broadcast;
+import org.l2jmobius.gameserver.data.sql.AnnouncementsTable;
 
 import java.awt.*;
 import java.io.BufferedReader;
@@ -55,7 +53,7 @@ import java.util.Locale;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: Mobius Premium C4 Scions of Destiny
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
@@ -101,7 +99,7 @@ public class Utilities
 	 */
 	public static void announce(String topsite, String message)
 	{
-		Announcements.getInstance().announceToAll("[" + topsite + "]" + message);
+		AnnouncementsTable.getInstance().announceToAll("[" + topsite + "]" + message);
 	}
 
 	/**
