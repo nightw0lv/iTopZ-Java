@@ -49,7 +49,7 @@ import java.util.Objects;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: L2Scripts Classic: Saviors (Zaken) [26360]
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
