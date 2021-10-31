@@ -38,7 +38,7 @@ import l2r.gameserver.handler.VoicedCommandHandler;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: Sunrise
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
