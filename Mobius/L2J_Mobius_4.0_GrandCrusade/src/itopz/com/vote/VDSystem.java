@@ -37,7 +37,7 @@ import org.l2jmobius.gameserver.handler.VoicedCommandHandler;
  * <p>
  * Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.3
+ * Script version: 1.4
  * Pack Support: Mobius 4.0 Grand Crusade
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
