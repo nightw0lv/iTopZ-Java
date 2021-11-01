@@ -23,7 +23,6 @@ package itopz.com.util;
 
 import com.l2jserver.L2DatabaseFactory;
 import com.l2jserver.gameserver.Announcements;
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import itopz.com.gui.Gui;
 
 import java.awt.*;

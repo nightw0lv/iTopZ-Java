@@ -126,7 +126,7 @@ Implementation of vote global and individual system with itopz donate panel task
     - Database tables
       - Global table creation fixed caused by an extra , (coma)
     - Thanks LLiuKe for the heads up (y)
-  - Fixing IOOBE error 
+  - Fixing IOOBE error
     - IOOBE error fix (thank you Huesitos)
     - Removing totally the player variable from Utilities#selectIndividualVar() method
     - missed on 133a00f
