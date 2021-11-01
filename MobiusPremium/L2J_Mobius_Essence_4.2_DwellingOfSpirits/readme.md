@@ -6,7 +6,7 @@ Implementation of vote global and individual system with itopz donate panel task
 - Individual vote reward is when a single player (individual) vote for the server on one or more topsites and for each vote as a "thank you" he will receive configured item/items reward.
 
 **Requirement**
-- Mobius Premium 4.2 Dwelling of Spirits
+- Mobius Premium Essence 4.2 Dwelling of Spirits
 - Patch installation (provided)
 - JDK 17
 
@@ -65,7 +65,7 @@ Implementation of vote global and individual system with itopz donate panel task
 - Fully configured
 
 **Installation**
-![https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_6.0_Fafurion/Patch.diff](Patch.diff)
+![https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_4.2_DwellingOfSpirits/Patch.diff](Patch.diff)
 
 ```Special thanks to Rationale``` :cry:
 
@@ -136,14 +136,6 @@ Implementation of vote global and individual system with itopz donate panel task
     - Capitalize ip to IP parameters
     - Utilities#selectIndividualVar
       - Adding IP string
-
-- Version 1.3
-  - Rework on VoteCMD
-    - Fixed possible concurrent error on response thread (Ty Rationale)
-    - Using StatsSet to transfer data in method isEligible (Ty Rationale)
-    - Introducing a Flood Protector (Ty Rationale)
-    - Using "NONE" for default errors to avoid NPE
-    - Thread Execute will run on random between 1 and 10 seconds to avoid cheats
 
 - Version 1.1
   - Minimal Requirement on server resources and class consistency along projects.

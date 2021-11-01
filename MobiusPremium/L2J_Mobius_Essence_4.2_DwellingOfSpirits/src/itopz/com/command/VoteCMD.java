@@ -50,7 +50,7 @@ import java.util.Objects;
  * Vote Donation System
  * Script website: https://itopz.com/
  * Script version: 1.4
- * Pack Support: Mobius Premium Dwelling of Spirits
+ * Pack Support: Mobius Premium 4.2 Dwelling of Spirits
  * <p>
  * Personal Donate Panels: https://www.denart-designs.com/
  * Free Donate panel: https://itopz.com/
@@ -81,7 +81,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	// returns protector holder
 	public FloodProtectorHolder getFloodProtector(final PlayerInstance player, final VoteSite site)
 	{
-		return FLOOD_PROTECTOR.stream().filter(s -> s.getSite() == site && (s.getIP().equalsIgnoreCase(player.getClient().getConnectionAddress().getHostAddress()) || s.getHWID().equalsIgnoreCase(player.getClient().getHardwareInfo().getMacAddress()))).findFirst().orElseGet(() ->
+		return FLOOD_PROTECTOR.stream().filter(s -> s.getSite() == site && (s.getIP().equalsIgnoreCase(player.getClient().getConnectionAddress().getHostAddress())/* || s.getHWID().equalsIgnoreCase(player.getClient().getHardwareInfo().getMacAddress())*/)).findFirst().orElseGet(() ->
 		{
 			final FloodProtectorHolder holder = new FloodProtectorHolder(site, player);
 			FLOOD_PROTECTOR.add(holder);
@@ -99,7 +99,7 @@ public class VoteCMD implements IVoicedCommandHandler
 		private final VoteSite _site;
 
 		private final String _IP;
-		private final String _HWID;
+		//private final String _HWID;
 
 		private long _lastAction;
 
@@ -107,7 +107,7 @@ public class VoteCMD implements IVoicedCommandHandler
 		{
 			_site = site;
 			_IP = player.getClient().getConnectionAddress().getHostAddress();
-			_HWID = player.getClient().getHardwareInfo().getMacAddress();
+			//_HWID = player.getClient().getHardwareInfo().getMacAddress();
 		}
 
 		public VoteSite getSite()
@@ -120,10 +120,10 @@ public class VoteCMD implements IVoicedCommandHandler
 			return _IP;
 		}
 
-		public String getHWID()
-		{
-			return _HWID;
-		}
+		//public String getHWID()
+		//{
+		//	return _HWID;
+		//}
 
 		public long getLastAction()
 		{
