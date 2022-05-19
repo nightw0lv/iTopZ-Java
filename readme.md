@@ -411,10 +411,6 @@ For anonymous donations
 >
 >A: I will need the server.jar from your project to release a source for this (nothing private)
 
->Q: What topsites are supported?
->
->A: Only [iTopZ](https://itopz.com/) at the moment but more are planned.
-
 **Images**
 - Version 1.1
 
