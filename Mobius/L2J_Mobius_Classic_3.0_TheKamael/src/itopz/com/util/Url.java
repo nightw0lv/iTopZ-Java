@@ -62,7 +62,7 @@ public enum Url
 	L2TOPSERVERS_URL("https://l2topservers.com/"),
 	L2VOTES_INDIVIDUAL_URL("https://l2votes.com/api.php?apiKey=" + Configurations.L2VOTES_API_KEY + "&ip=%IP%"),
 	L2VOTES_GLOBAL_URL("https://l2votes.com/api.php?apiKey=" + Configurations.L2VOTES_API_KEY),
-	L2VOTES_URL("https://l2votes.com.com/"),
+	L2VOTES_URL("https://l2votes.com/"),
 	DISCORD("https://discord.gg/KkPms6B5aE"),
 	DENART_DESIGNS("https://www.denart-designs.com"),
 	GITHUB_URL("https://github.com/nightw0lv/iTopZ-Java");
