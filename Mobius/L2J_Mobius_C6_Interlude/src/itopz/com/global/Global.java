@@ -302,6 +302,18 @@ public class Global
 		// iterate through all players
 		for (PlayerInstance player : World.getInstance().getAllPlayers().stream().filter(Objects::nonNull).collect(Collectors.toList()))
 		{
+			// ignore offline stores
+			if (player.isInOfflineMode())
+			{
+				// (spam console) message of ignored offline stores
+				Gui.getInstance().ConsoleWrite("Ignoring " + player.getName() + " from rewards");
+				continue;
+			}
+			// null addresses are not allowed
+			if (player.getClient().getIpAddress() == null)
+			{
+				continue;
+			}
 			// set player signature key
 			String key = "";
 			try
