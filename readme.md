@@ -1,3 +1,11 @@
+# Project new version 1.5+ is continued here: [VDSystem](https://github.com/nightw0lv/VDSystem)
+
+# !THIS IS THE OLD VERSION!
+# !THIS IS THE OLD VERSION!
+# !THIS IS THE OLD VERSION!
+# !THIS IS THE OLD VERSION!
+# !THIS IS THE OLD VERSION!
+
 # VDSystem 
 ## Vote System & Donate System for Java based Lineage2 Servers ***all in one***
 **DenArt Designs _[Automatic Donation Panels](https://www.denart-designs.com/)_ are supported by this system**
